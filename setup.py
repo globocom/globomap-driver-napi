@@ -2,7 +2,7 @@ from setuptools import setup
 
 
 setup(
-    name='globomap-driver-napi',
+    name='globomap-loader-napi',
     version='0.1',
     description='Python library for globomap-driver to get data from '
                 'GloboNetworkAPI',
@@ -13,5 +13,5 @@ setup(
         'pika==0.10.0',
     ],
     url='https://github.com/globocom/globomap-loader-napi',
-    packages=['globomap_driver_napi'],
+    packages=['globomap_loader_napi'],
 )
