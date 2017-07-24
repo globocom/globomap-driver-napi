@@ -3,13 +3,13 @@ import json
 import logging
 
 import pika
-from networkapi import NetworkAPI
 
-from settings import NETWORKAPI_RMQ_HOST
-from settings import NETWORKAPI_RMQ_PASSWORD
-from settings import NETWORKAPI_RMQ_PORT
-from settings import NETWORKAPI_RMQ_USER
-from settings import NETWORKAPI_RMQ_VIRTUAL_HOST
+from .networkapi import NetworkAPI
+from .settings import NETWORKAPI_RMQ_HOST
+from .settings import NETWORKAPI_RMQ_PASSWORD
+from .settings import NETWORKAPI_RMQ_PORT
+from .settings import NETWORKAPI_RMQ_USER
+from .settings import NETWORKAPI_RMQ_VIRTUAL_HOST
 
 
 class Napi(object):

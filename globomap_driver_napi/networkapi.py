@@ -1,8 +1,8 @@
 from networkapiclient.ClientFactory import ClientFactory
 
-from settings import NETWORKAPI_ENDPOINT
-from settings import NETWORKAPI_PASSWORD
-from settings import NETWORKAPI_USER
+from.settings import NETWORKAPI_ENDPOINT
+from.settings import NETWORKAPI_PASSWORD
+from.settings import NETWORKAPI_USER
 
 
 class NetworkAPI(object):

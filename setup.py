@@ -1,17 +1,18 @@
 from setuptools import setup
 
+VERSION = __import__('globomap_driver_napi').VERSION
 
 setup(
-    name='globomap-loader-napi',
-    version='0.1',
+    name='globomap-driver-napi',
+    version=VERSION,
     description='Python library for globomap-driver to get data from '
                 'GloboNetworkAPI',
     author='Ederson Brilhante',
     author_email='ederson.brilhante@corp.globo.com',
     install_requires=[
-        'GloboNetworkAPI==0.7.2',
         'pika==0.10.0',
+        'GloboNetworkAPI==0.7.2',
     ],
-    url='https://github.com/globocom/globomap-loader-napi',
-    packages=['globomap_loader_napi'],
+    url='https://github.com/globocom/globomap-driver-napi',
+    packages=['globomap_driver_napi'],
 )
