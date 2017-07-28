@@ -15,7 +15,8 @@ class NetworkAPI(object):
     def get_pool(self, pool_id):
         """Return Pool"""
 
-        response = self.client.create_api_pool().get(ids=[pool_id])
+        response = self.client.create_api_pool().get(
+            ids=[pool_id], kind='details')
         pools = response.get('server_pools')
         if pools:
             return pools[0]
@@ -26,7 +27,7 @@ class NetworkAPI(object):
         response = self.client.create_api_vip_request().search(search={
             'extends_search': [{
                 'serverpoolmember': member_id
-            }]})
+            }]}, kind='details')
 
         pools = response.get('server_pools')
         if pools:
@@ -35,19 +36,8 @@ class NetworkAPI(object):
     def get_vip(self, vip_id):
         """Return VIP"""
 
-        response = self.client.create_api_vip_request().get(ids=[vip_id])
-        vips = response.get('vips')
-        if vips:
-            return vips[0]
-
-    def get_vip_by_port_id(self, port_id):
-        """Return VIP"""
-
-        response = self.client.create_api_vip_request().search(search={
-            'extends_search': [{
-                'viprequestport': port_id
-            }]})
-
+        response = self.client.create_api_vip_request().get(
+            ids=[vip_id], kind='details')
         vips = response.get('vips')
         if vips:
             return vips[0]
@@ -58,19 +48,7 @@ class NetworkAPI(object):
         response = self.client.create_api_vip_request().search(search={
             'extends_search': [{
                 'viprequestport__viprequestportpool': portpool_id
-            }]})
-
-        vips = response.get('vips')
-        if vips:
-            return vips[0]
-
-    def get_vip_by_portoption_id(self, portoption_id):
-        """Return VIP"""
-
-        response = self.client.create_api_vip_request().search(search={
-            'extends_search': [{
-                'viprequestport__viprequestportoptionvip': portoption_id
-            }]})
+            }]}, kind='details')
 
         vips = response.get('vips')
         if vips:
