@@ -1,0 +1,19 @@
+{
+  "id": 1,
+  "identifier": "10.0.0.2",
+  "ip": {
+    "id": 18,
+    "ip_formated": "10.0.0.2"
+  },
+  "ipv6": null,
+  "priority": 0,
+  "weight": 1,
+  "limit": 1000,
+  "port_real": 8080,
+  "member_status": 7,
+  "last_status_update_formated": null,
+  "equipment": {
+    "id": 20,
+    "name": "SERVERSPACE1"
+  }
+}
