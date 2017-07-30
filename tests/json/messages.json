@@ -33,9 +33,119 @@
     }
   },
   {
+    "action": "Remover",
+    "timestamp": 1501264297,
+    "kind": "VipRequestPortPool",
+    "data": {
+      "new_value": "whatever",
+      "old_value": "whatever",
+      "user": 1,
+      "id_object": 1
+    }
+  },
+  {
+    "action": "Cadastrar",
+    "timestamp": 1501264297,
+    "kind": "VipRequestPortPool",
+    "data": {
+      "new_value": "whatever",
+      "old_value": "whatever",
+      "user": 1,
+      "id_object": 1
+    }
+  },
+  {
+    "action": "Alterar",
+    "timestamp": 1501264297,
+    "kind": "VipRequestPortPool",
+    "data": {
+      "new_value": "whatever",
+      "old_value": "whatever",
+      "user": 1,
+      "id_object": 1
+    }
+  },
+  {
+    "action": "Remover",
+    "timestamp": 1501264297,
+    "kind": "ServerPool",
+    "data": {
+      "new_value": "whatever",
+      "old_value": "whatever",
+      "user": 1,
+      "id_object": 1
+    }
+  },
+  {
+    "action": "Cadastrar",
+    "timestamp": 1501264297,
+    "kind": "ServerPool",
+    "data": {
+      "new_value": "whatever",
+      "old_value": "whatever",
+      "user": 1,
+      "id_object": 1
+    }
+  },
+  {
+    "action": "Alterar",
+    "timestamp": 1501264297,
+    "kind": "ServerPool",
+    "data": {
+      "new_value": "whatever",
+      "old_value": "whatever",
+      "user": 1,
+      "id_object": 1
+    }
+  },
+  {
+    "action": "Remover",
+    "timestamp": 1501264297,
+    "kind": "ServerPoolMember",
+    "data": {
+      "new_value": "whatever",
+      "old_value": "whatever",
+      "user": 1,
+      "id_object": 1
+    }
+  },
+  {
+    "action": "Cadastrar",
+    "timestamp": 1501264297,
+    "kind": "ServerPoolMember",
+    "data": {
+      "new_value": "whatever",
+      "old_value": "whatever",
+      "user": 1,
+      "id_object": 1
+    }
+  },
+  {
     "action": "Alterar",
     "timestamp": 1501264297,
     "kind": "ServerPoolMember",
+    "data": {
+      "new_value": "whatever",
+      "old_value": "whatever",
+      "user": 1,
+      "id_object": 1
+    }
+  },
+  {
+    "action": "Remover",
+    "timestamp": 1501264297,
+    "kind": "MustIgnore",
+    "data": {
+      "new_value": "whatever",
+      "old_value": "whatever",
+      "user": 1,
+      "id_object": 1
+    }
+  },
+  {
+    "action": "Cadastrar",
+    "timestamp": 1501264297,
+    "kind": "MustIgnore",
     "data": {
       "new_value": "whatever",
       "old_value": "whatever",
