@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import importlib
 import json
 import logging
 
@@ -6,9 +7,12 @@ import pika
 
 from .data_spec import DataSpec
 from .networkapi import NetworkAPI
+from .rabbitmq import RabbitMQClient
+from .settings import MAP_FUNC
 from .settings import NETWORKAPI_RMQ_HOST
 from .settings import NETWORKAPI_RMQ_PASSWORD
 from .settings import NETWORKAPI_RMQ_PORT
+from .settings import NETWORKAPI_RMQ_QUEUE
 from .settings import NETWORKAPI_RMQ_USER
 from .settings import NETWORKAPI_RMQ_VIRTUAL_HOST
 
@@ -25,81 +29,57 @@ class Napi(object):
 
     def __init__(self):
 
-        credentials = pika.PlainCredentials(
-            NETWORKAPI_RMQ_USER, NETWORKAPI_RMQ_PASSWORD)
-        parameters = pika.ConnectionParameters(
-            host=NETWORKAPI_RMQ_HOST, port=NETWORKAPI_RMQ_PORT,
-            virtual_host=NETWORKAPI_RMQ_VIRTUAL_HOST, credentials=credentials)
-
-        self.connection = pika.BlockingConnection(parameters)
-        self.channel = self.connection.channel()
-
+        self._connection()
         self.msg_rest = []
 
-    def _map(self):
-        map_func = {
-            'VipRequest': [
-                {
-                    'name': 'vip',
-                    'func': self.vip,
-                    'data_spec': DataSpec.vip,
-                    'provider': 'napi'
-                }
-            ],
-            'VipRequestPortPool': [
-                {
-                    'name': 'port',
-                    'func': self.port,
-                    'data_spec': DataSpec.port,
-                    'provider': 'napi'
-                }
-            ],
-            'ServerPool': [
-                {
-                    'name': 'pool',
-                    'func': self.pool,
-                    'data_spec': DataSpec.pool,
-                    'provider': 'napi'
-                }
-            ],
-            'ServerPoolMember': [
-                {
-                    'name': 'pool_comp_unit',
-                    'func': self.pool_comp_unit,
-                    'data_spec': DataSpec.pool_comp_unit,
-                    'provider': 'napi'
-                },
-                {
-                    'name': 'comp_unit',
-                    'func': self.comp_unit,
-                    'data_spec': DataSpec.comp_unit,
-                    'provider': 'globomap'
-                }
-            ]
-        }
-        return map_func
+    def _connection(self):
+        self.rabbitmq = RabbitMQClient(
+            host=NETWORKAPI_RMQ_HOST,
+            port=NETWORKAPI_RMQ_PORT,
+            user=NETWORKAPI_RMQ_USER,
+            password=NETWORKAPI_RMQ_PASSWORD,
+            vhost=NETWORKAPI_RMQ_VIRTUAL_HOST,
+            queue_name=NETWORKAPI_RMQ_QUEUE
+        )
 
-    def _get_messages(self):
-        message = self._consumer().next()
-
+    def next_message(self):
+        message = self.rabbitmq.get_message()
         if isinstance(message, dict):
-
-            funcs = self._map().get(message.get('kind'))
+            funcs = MAP_FUNC.get(message.get('kind'))
             if funcs:
                 self.log.debug('Treating message %s', message)
                 msgs = []
                 for func in funcs:
-                    msgs.append(self._get_msg(func, message))
+                    msgs.append(self._treat_message(func, message))
                 return msgs
             else:
                 self.log.debug('Discarding message %s', message)
-                return self._get_messages()
+                return self.next_message()
 
-    def _get_msg(self, kind, message):
+    def _treat_message(self, kind, message):
 
-        func = kind.get('func')
+        package = kind.get('package')
+        kind_class = kind.get('class')
+        method = kind.get('method')
         name = kind.get('name')
         provider = kind.get('provider')
+
+        try:
+            class_type = getattr(importlib.import_module(package), kind_class)
+            if not hasattr(class_type, method) and \
+                    not callable(getattr(class_type, method)):
+                raise AttributeError(
+                    'Kind {} does not implement the method {}'.format(
+                        kind_class, method
+                    )
+                )
+            self.log.debug("Kind '%s' loaded" % class_type)
+        except AttributeError:
+            self.log.error('Cannot load kind %s attribute not found'
+                           % kind_class)
+        except ImportError:
+            self.log.error('Cannot load kind %s. Module not found %s'
+                           % (kind_class, package))
 
         action = ACTIONS.get(message.get('action'))
         id_object = message.get('data').get('id_object')
@@ -112,7 +92,7 @@ class Napi(object):
         }
 
         if action != 'DELETE':
-            data = func(id_object)
+            data = getattr(class_type(), method)(id_object)
             if data is not None:
                 data['content']['timestamp'] = message.get('timestamp')
                 data['content']['provider'] = provider
@@ -124,30 +104,16 @@ class Napi(object):
             }
         return update
 
-    def _consumer(self):
-
-        while True:
-            method_frame, _, body = self.channel.basic_get('eventlog')
-            if method_frame:
-                self.channel.basic_ack(method_frame.delivery_tag)
-                body = json.loads(body)
-                yield body
-            else:
-                self.channel.close()
-                self.connection.close()
-                break
-
-    def updates(self):
+    def updates(self, number_messages=1):
         """Return list of updates"""
-        return self._updates().next()
+        return self._get_update(number_messages).next()
 
-    def _updates(self, number_messages=1):
+    def _get_update(self, number_messages=1):
         messages = []
         while True:
             try:
                 if not self.msg_rest:
-                    msgs = self._get_messages()
-                    self.msg_rest = msgs
+                    self.msg_rest = self.next_message()
             except StopIteration:
                 if messages:
                     yield messages
@@ -159,63 +125,3 @@ class Napi(object):
                     if len(messages) == number_messages:
                         yield messages
                         messages = []
-
-    def vip(self, id_object):
-        napi = NetworkAPI()
-        vip = napi.get_vip(id_object)
-        data = DataSpec().vip(vip)
-
-        return data
-
-    def pool(self, id_object):
-
-        napi = NetworkAPI()
-        pool = napi.get_pool(id_object)
-        data = DataSpec().pool(pool)
-
-        return data
-
-    def port(self, id_object):
-
-        napi = NetworkAPI()
-        vip = napi.get_vip_by_portpool_id(id_object)
-        data = None
-        for port in vip['ports']:
-            for pool in port['pools']:
-                if pool['id'] == id_object:
-                    pool['port'] = port['port']
-                    data = DataSpec().port(pool, port['id'])
-        if data is None:
-            return False
-
-        return data
-
-    def comp_unit(self, id_object):
-
-        napi = NetworkAPI()
-        pool = napi.get_pool_by_member_id(id_object)
-
-        data = DataSpec().pool(pool)
-        if data is None:
-            return False
-
-        for member in pool['server_pool_members']:
-            if member['id'] == id_object:
-                eqpt = member['equipment']
-                data = DataSpec().comp_unit(eqpt)
-
-        return data
-
-    def pool_comp_unit(self, id_object):
-        napi = NetworkAPI()
-        pool = napi.get_pool_by_member_id(id_object)
-
-        data = DataSpec().pool(pool)
-        if data is None:
-            return False
-
-        for member in pool['server_pool_members']:
-            if member['id'] == id_object:
-                data = DataSpec().pool_comp_unit(member, pool['id'])
-
-        return data

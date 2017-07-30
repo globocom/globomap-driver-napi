@@ -24,7 +24,7 @@ class NetworkAPI(object):
     def get_pool_by_member_id(self, member_id):
         """Return Pool"""
 
-        response = self.client.create_api_vip_request().search(search={
+        response = self.client.create_api_pool().search(search={
             'extends_search': [{
                 'serverpoolmember': member_id
             }]}, kind='details')
