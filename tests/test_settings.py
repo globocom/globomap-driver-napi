@@ -9,10 +9,12 @@ class TestSettings(unittest2.TestCase):
 
         keys = MAP_FUNC.keys()
         expected = [
+            'NetworkIPv6',
+            'NetworkIPv4',
             'ServerPool',
             'ServerPoolMember',
             'VipRequest',
-            'VipRequestPortPool'
+            'VipRequestPortPool',
         ]
 
         self.assertListEqual(sorted(keys), sorted(expected))

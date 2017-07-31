@@ -53,5 +53,23 @@ MAP_FUNC = {
             'method': 'comp_unit',
             'provider': 'globomap'
         }
-    ]
+    ],
+    'NetworkIPv4': [
+        {
+            'name': 'network',
+            'package': 'globomap_driver_napi.kind',
+            'class': 'Kind',
+            'method': 'network',
+            'provider': 'napi'
+        }
+    ],
+    'NetworkIPv6': [
+        {
+            'name': 'network',
+            'package': 'globomap_driver_napi.kind',
+            'class': 'Kind',
+            'method': 'network',
+            'provider': 'napi'
+        }
+    ],
 }
