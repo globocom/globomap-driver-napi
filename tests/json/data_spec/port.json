@@ -1,0 +1,80 @@
+{
+  "id": 1,
+  "l7_rule": 23,
+  "l7_value": null,
+  "order": null,
+  "port": 8080,
+  "server_pool": {
+    "id": 1,
+    "options": {
+      "l4_protocol": {
+        "id": 20,
+        "nome_opcao_txt": "TCP",
+        "tipo_opcao": "l4_protocol"
+      },
+      "l7_protocol": {
+        "id": 17,
+        "nome_opcao_txt": "HTTP",
+        "tipo_opcao": "l7_protocol"
+      }
+    },
+    "pools": [
+      {
+        "id": 1,
+        "l7_rule": {
+          "id": 23,
+          "nome_opcao_txt": "default_vip",
+          "tipo_opcao": "l7_rule"
+        },
+        "l7_value": null,
+        "order": null,
+        "server_pool": {
+          "default_limit": 100,
+          "default_port": 8080,
+          "environment": {
+            "id": 11,
+            "name": "DIVISAO_DC_POOL - AMBIENTE_LOGICO_POOL - GRUPO_L3_POOL"
+          },
+          "healthcheck": {
+            "destination": "*:*",
+            "healthcheck_expect": "",
+            "healthcheck_request": "",
+            "healthcheck_type": "TCP",
+            "identifier": ""
+          },
+          "id": 1,
+          "identifier": "Pool_1",
+          "lb_method": "least-conn",
+          "pool_created": true,
+          "server_pool_members": [
+            {
+              "equipment": {
+                "id": 20,
+                "name": "SERVERSPACE1"
+              },
+              "id": 1,
+              "identifier": "10.0.0.2",
+              "ip": {
+                "id": 18,
+                "ip_formated": "10.0.0.2"
+              },
+              "ipv6": null,
+              "last_status_update_formated": null,
+              "limit": 1000,
+              "member_status": 7,
+              "port_real": 8080,
+              "priority": 0,
+              "weight": 1
+            }
+          ],
+          "servicedownaction": {
+            "id": 5,
+            "name": "none",
+            "type": "ServiceDownAction"
+          }
+        }
+      }
+    ],
+    "port": 8080
+  }
+}

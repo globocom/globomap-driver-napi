@@ -1,0 +1,41 @@
+[
+  {
+    "action": "CREATE",
+    "element": {
+      "collection": "vip",
+      "content": {
+        "id": 1,
+        "name": "vip_teste",
+        "properties": {
+          "created": false,
+          "environmentvip": "FIN_VIP-ClientTxt-VIP-EnvP44Txt-VIP",
+          "ip": "10.16.0.2"
+        },
+        "provider": "napi",
+        "timestamp": 1501448160
+      }
+    }
+  },
+  {
+    "action": "CREATE",
+    "element": {
+      "collection": "port",
+      "content": {
+        "id": 1,
+        "name": "8080",
+        "provider": "napi",
+        "timestamp": 1501448160
+      },
+      "from": {
+        "collection": "vip",
+        "id": 1,
+        "provider": "napi"
+      },
+      "to": {
+        "collection": "pool",
+        "id": 1,
+        "provider": "napi"
+      }
+    }
+  }
+]

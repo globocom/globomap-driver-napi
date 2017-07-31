@@ -1,0 +1,150 @@
+{
+  "business": "vip_teste",
+  "created": false,
+  "default_names": [
+    null
+  ],
+  "dscp": 3,
+  "environmentvip": {
+    "ambiente_p44_txt": "EnvP44Txt-VIP",
+    "cliente_txt": "ClientTxt-VIP",
+    "description": "Description-VIP",
+    "finalidade_txt": "FIN_VIP",
+    "id": 14
+  },
+  "equipments": [
+    {
+      "equipment_type": {
+        "equipment_type": "Balanceador",
+        "id": 5
+      },
+      "id": 19,
+      "maintenance": false,
+      "model": {
+        "id": 1,
+        "name": "MODELO"
+      },
+      "name": "Load-Balancer"
+    }
+  ],
+  "groups_permissions": [
+    {
+      "change_config": true,
+      "delete": true,
+      "object_type": 2,
+      "object_value": 1,
+      "read": true,
+      "user_group": {
+        "id": 1,
+        "name": "Admin"
+      },
+      "write": true
+    }
+  ],
+  "id": 1,
+  "ipv4": {
+    "description": "IP of VIP 1",
+    "id": 20,
+    "ip_formated": "10.10.0.2"
+  },
+  "ipv6": null,
+  "name": "vip_teste",
+  "options": {
+    "cache_group": {
+      "id": 13,
+      "nome_opcao_txt": "(nenhum)",
+      "tipo_opcao": "cache"
+    },
+    "persistence": {
+      "id": 7,
+      "nome_opcao_txt": "source-ip com persist. entre portas",
+      "tipo_opcao": "Persistencia"
+    },
+    "timeout": {
+      "id": 11,
+      "nome_opcao_txt": "5",
+      "tipo_opcao": "timeout"
+    },
+    "traffic_return": {
+      "id": 10,
+      "nome_opcao_txt": "DSRL3",
+      "tipo_opcao": "Retorno de trafego"
+    }
+  },
+  "ports": [
+    {
+      "id": 1,
+      "options": {
+        "l4_protocol": {
+          "id": 20,
+          "nome_opcao_txt": "TCP",
+          "tipo_opcao": "l4_protocol"
+        },
+        "l7_protocol": {
+          "id": 17,
+          "nome_opcao_txt": "HTTP",
+          "tipo_opcao": "l7_protocol"
+        }
+      },
+      "pools": [
+        {
+          "id": 1,
+          "l7_rule": {
+            "id": 23,
+            "nome_opcao_txt": "default_vip",
+            "tipo_opcao": "l7_rule"
+          },
+          "l7_value": null,
+          "order": null,
+          "server_pool": {
+            "default_limit": 100,
+            "default_port": 8080,
+            "environment": {
+              "id": 11,
+              "name": "DIVISAO_DC_POOL - AMBIENTE_LOGICO_POOL - GRUPO_L3_POOL"
+            },
+            "healthcheck": {
+              "destination": "*:*",
+              "healthcheck_expect": "",
+              "healthcheck_request": "",
+              "healthcheck_type": "TCP",
+              "identifier": ""
+            },
+            "id": 1,
+            "identifier": "Pool_1",
+            "lb_method": "least-conn",
+            "pool_created": true,
+            "server_pool_members": [
+              {
+                "equipment": {
+                  "id": 20,
+                  "name": "SERVERSPACE1"
+                },
+                "id": 1,
+                "identifier": "10.0.0.2",
+                "ip": {
+                  "id": 18,
+                  "ip_formated": "10.0.0.2"
+                },
+                "ipv6": null,
+                "last_status_update_formated": null,
+                "limit": 1000,
+                "member_status": 7,
+                "port_real": 8080,
+                "priority": 0,
+                "weight": 1
+              }
+            ],
+            "servicedownaction": {
+              "id": 5,
+              "name": "none",
+              "type": "ServiceDownAction"
+            }
+          }
+        }
+      ],
+      "port": 8080
+    }
+  ],
+  "service": "vip_teste"
+}
