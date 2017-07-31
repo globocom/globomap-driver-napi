@@ -10,12 +10,14 @@ class Loader(object):
         self.search = {'asorting_cols': ['-id']}
         self.client = NetworkAPI().client
 
-    def _construct(self, provider, content):
+    def _construct(self, provider, collection, type_coll, content):
         new_time = int(time())
         content['content']['timestamp'] = new_time
         content['content']['provider'] = provider
         data = {
             'action': 'CREATE',
+            'collection': collection,
+            'type': type_coll,
             'element': content
         }
         return data
@@ -31,7 +33,7 @@ class Loader(object):
             for vip in vips:
 
                 content = DataSpec().vip(vip)
-                data = self._construct('napi', content)
+                data = self._construct('napi', 'vip', 'document', content)
                 data_list.append(data)
 
                 for port in vip['ports']:
@@ -39,7 +41,7 @@ class Loader(object):
 
                         pool['port'] = port['port']
                         content = DataSpec().port(pool, port['id'])
-                        data = self._construct('napi', content)
+                        data = self._construct('napi', 'port', 'edge', content)
                         data_list.append(data)
 
             res = data_list
@@ -57,18 +59,20 @@ class Loader(object):
             for pool in pools:
 
                 content = DataSpec().pool(pool)
-                data = self._construct('napi', content)
+                data = self._construct('napi', 'pool', 'document', content)
                 data_list.append(data)
 
                 for member in pool['server_pool_members']:
 
                     content = DataSpec().pool_comp_unit(member, pool['id'])
-                    data = self._construct('napi', content)
+                    data = self._construct(
+                        'napi', 'pool_comp_unit', 'edge', content)
                     data_list.append(data)
 
                     eqpt = member['equipment']
                     content = DataSpec().comp_unit(eqpt)
-                    data = self._construct('globomap', content)
+                    data = self._construct(
+                        'globomap', 'comp_unit', 'document', content)
                     data_list.append(data)
 
             res = data_list

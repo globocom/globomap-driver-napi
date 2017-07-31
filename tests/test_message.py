@@ -47,7 +47,7 @@ class TestDriver(unittest2.TestCase):
         message = self._make_message('Remover', 'VipRequest')
         data = napi._treat_message(kind, message)
 
-        self._asset_msg_delete('napi', 'vip', data)
+        self._asset_msg_delete('napi', 'vip', 'document', data)
 
     def test_port_treat_message_create(self):
         self._mock_pika()
@@ -79,7 +79,7 @@ class TestDriver(unittest2.TestCase):
         message = self._make_message('Remover', 'VipRequestPortPool')
         data = napi._treat_message(kind, message)
 
-        self._asset_msg_delete('napi', 'port', data)
+        self._asset_msg_delete('napi', 'port', 'edge', data)
 
     def test_pool_treat_message_create(self):
         self._mock_pika()
@@ -111,7 +111,7 @@ class TestDriver(unittest2.TestCase):
         message = self._make_message('Remover', 'ServerPool')
         data = napi._treat_message(kind, message)
 
-        self._asset_msg_delete('napi', 'pool', data)
+        self._asset_msg_delete('napi', 'pool', 'document', data)
 
     def test_pool_comp_unit_treat_message_create(self):
         self._mock_pika()
@@ -143,7 +143,7 @@ class TestDriver(unittest2.TestCase):
         message = self._make_message('Remover', 'ServerPoolMember')
         data = napi._treat_message(kind, message)
 
-        self._asset_msg_delete('napi', 'pool_comp_unit', data)
+        self._asset_msg_delete('napi', 'pool_comp_unit', 'edge', data)
 
     def test_comp_unit_treat_message_create(self):
         self._mock_pika()
@@ -175,7 +175,7 @@ class TestDriver(unittest2.TestCase):
         message = self._make_message('Remover', 'ServerPoolMember')
         data = napi._treat_message(kind, message)
 
-        self._asset_msg_delete('globomap', 'comp_unit', data)
+        self._asset_msg_delete('globomap', 'comp_unit', 'document', data)
 
     #########
     # MOCKS #
@@ -210,6 +210,8 @@ class TestDriver(unittest2.TestCase):
     def _assert_vip(self, action, data):
         expected = {
             'action': action,
+            'collection': 'vip',
+            'type': 'document',
             'element': {
                 'content': {
                     'properties': {
@@ -222,7 +224,6 @@ class TestDriver(unittest2.TestCase):
                     'provider': 'napi',
                     'timestamp': 1501264297
                 },
-                'collection': 'vip'
             }
         }
         self.assertDictEqual(data, expected)
@@ -230,6 +231,8 @@ class TestDriver(unittest2.TestCase):
     def _assert_port(self, action, data):
         expected = {
             'action': action,
+            'collection': 'port',
+            'type': 'edge',
             'element': {
                 'content': {
                     'id': 1,
@@ -246,8 +249,7 @@ class TestDriver(unittest2.TestCase):
                     'id': 1,
                     'collection': 'vip',
                     'provider': 'napi'
-                },
-                'collection': 'port'
+                }
             }
         }
 
@@ -256,6 +258,8 @@ class TestDriver(unittest2.TestCase):
     def _assert_pool(self, action, data):
         expected = {
             'action': action,
+            'collection': 'pool',
+            'type': 'document',
             'element': {
                 'content': {
                     'properties': {
@@ -272,8 +276,7 @@ class TestDriver(unittest2.TestCase):
                     'name': u'Pool_1',
                     'timestamp': 1501264297,
                     'provider': 'napi'
-                },
-                'collection': 'pool'
+                }
             }
         }
 
@@ -282,6 +285,8 @@ class TestDriver(unittest2.TestCase):
     def _assert_pool_comp_unit(self, action, data):
         expected = {
             'action': action,
+            'collection': 'pool_comp_unit',
+            'type': 'edge',
             'element': {
                 'content': {
                     'properties': {
@@ -306,8 +311,7 @@ class TestDriver(unittest2.TestCase):
                     'collection':
                     'pool',
                     'provider': 'napi'
-                },
-                'collection': 'pool_comp_unit'
+                }
             }
         }
 
@@ -316,28 +320,30 @@ class TestDriver(unittest2.TestCase):
     def _assert_comp_unit(self, action, data):
         expected = {
             'action': action,
+            'collection': 'comp_unit',
+            'type': 'document',
             'element': {
                 'content': {
                     'id': u'SERVERSPACE1',
                     'name': u'SERVERSPACE1',
                     'timestamp': 1501264297,
                     'provider': 'globomap'
-                },
-                'collection': 'comp_unit'
+                }
             }
         }
 
         self.assertDictEqual(data, expected)
 
-    def _asset_msg_delete(self, provider, collection, data):
+    def _asset_msg_delete(self, provider, collection, type_coll, data):
         expected = {
             'action': 'DELETE',
+            'collection': collection,
+            'type': type_coll,
             'element': {
                 'content': {
                     'id': 1,
                     'provider': provider
-                },
-                'collection': collection
+                }
             }
         }
         self.assertDictEqual(data, expected)

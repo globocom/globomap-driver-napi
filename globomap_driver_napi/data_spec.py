@@ -16,7 +16,6 @@ class DataSpec(object):
         envvip = '{}-{}-{}'.format(envvip['finalidade_txt'],
                                    envvip['cliente_txt'], envvip['ambiente_p44_txt'])
         data = {
-            'collection': 'vip',
             'content': {
                 'id': vip['id'],
                 'name': vip['name'],
@@ -38,7 +37,6 @@ class DataSpec(object):
         name = '{}:{}'.format(port['port'], l7_value) \
             if l7_value else port['port']
         data = {
-            'collection': 'port',
             'from': {
                 'collection': 'vip',
                 'provider': 'napi',
@@ -62,7 +60,6 @@ class DataSpec(object):
 
         self._validate(pool)
         data = {
-            'collection': 'pool',
             'content': {
                 'id': pool['id'],
                 'name': pool['identifier'],
@@ -86,7 +83,6 @@ class DataSpec(object):
         ip_formated = member['ip']['ip_formated'] \
             if member['ip'] else member['ipv6']['ip_formated']
         data = {
-            'collection': 'pool_comp_unit',
             'from': {
                 'collection': 'pool',
                 'provider': 'napi',
@@ -117,7 +113,6 @@ class DataSpec(object):
 
         self._validate(compunit)
         data = {
-            'collection': 'comp_unit',
             'content': {
                 'id': compunit['name'],
                 'name': compunit['name']

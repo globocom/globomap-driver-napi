@@ -33,7 +33,6 @@ class TestDataSpec(unittest2.TestCase):
         vip = open_json('tests/json/data_spec/vip.json')
         data = DataSpec().vip(vip)
         expected = {
-            'collection': 'vip',
             'content': {
                 'id': 1,
                 'name': 'vip_teste',
@@ -50,7 +49,6 @@ class TestDataSpec(unittest2.TestCase):
         vip = open_json('tests/json/data_spec/port.json')
         data = DataSpec().port(vip, 1)
         expected = {
-            'collection': 'port',
             'from': {
                 'collection': 'vip',
                 'provider': 'napi',
@@ -72,7 +70,6 @@ class TestDataSpec(unittest2.TestCase):
         pool = open_json('tests/json/data_spec/pool.json')
         data = DataSpec().pool(pool)
         expected = {
-            'collection': 'pool',
             'content': {
                 'id': 1,
                 'name': 'Pool_1',
@@ -94,7 +91,6 @@ class TestDataSpec(unittest2.TestCase):
         vip = open_json('tests/json/data_spec/pool_comp_unit.json')
         data = DataSpec().pool_comp_unit(vip, 1)
         expected = {
-            'collection': 'pool_comp_unit',
             'from': {
                 'collection': 'pool',
                 'provider': 'napi',
@@ -123,7 +119,6 @@ class TestDataSpec(unittest2.TestCase):
         pool = open_json('tests/json/data_spec/comp_unit.json')
         data = DataSpec().comp_unit(pool)
         expected = {
-            'collection': 'comp_unit',
             'content': {
                 'id': 'SERVERSPACE1',
                 'name': 'SERVERSPACE1'

@@ -17,7 +17,8 @@ MAP_FUNC = {
             'package': 'globomap_driver_napi.kind',
             'class': 'Kind',
             'method': 'vip',
-            'provider': 'napi'
+            'provider': 'napi',
+            'type': 'document'
         }
     ],
     'VipRequestPortPool': [
@@ -26,7 +27,8 @@ MAP_FUNC = {
             'package': 'globomap_driver_napi.kind',
             'class': 'Kind',
             'method': 'port',
-            'provider': 'napi'
+            'provider': 'napi',
+            'type': 'edge'
         }
     ],
     'ServerPool': [
@@ -35,7 +37,8 @@ MAP_FUNC = {
             'package': 'globomap_driver_napi.kind',
             'class': 'Kind',
             'method': 'pool',
-            'provider': 'napi'
+            'provider': 'napi',
+            'type': 'document'
         }
     ],
     'ServerPoolMember': [
@@ -44,14 +47,16 @@ MAP_FUNC = {
             'package': 'globomap_driver_napi.kind',
             'class': 'Kind',
             'method': 'pool_comp_unit',
-            'provider': 'napi'
+            'provider': 'napi',
+            'type': 'edge'
         },
         {
             'name': 'comp_unit',
             'package': 'globomap_driver_napi.kind',
             'class': 'Kind',
             'method': 'comp_unit',
-            'provider': 'globomap'
+            'provider': 'globomap',
+            'type': 'document'
         }
     ],
     'NetworkIPv4': [
@@ -60,7 +65,8 @@ MAP_FUNC = {
             'package': 'globomap_driver_napi.kind',
             'class': 'Kind',
             'method': 'network',
-            'provider': 'napi'
+            'provider': 'napi',
+            'type': 'document'
         }
     ],
     'NetworkIPv6': [
@@ -69,7 +75,8 @@ MAP_FUNC = {
             'package': 'globomap_driver_napi.kind',
             'class': 'Kind',
             'method': 'network',
-            'provider': 'napi'
+            'provider': 'napi',
+            'type': 'document'
         }
     ],
 }

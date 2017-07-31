@@ -1,18 +1,19 @@
 [
   {
     "action": "DELETE",
+    "collection": "vip",
     "element": {
-      "collection": "vip",
       "content": {
         "id": 1,
         "provider": "napi"
       }
-    }
+    },
+    "type": "document"
   },
   {
     "action": "CREATE",
+    "collection": "vip",
     "element": {
-      "collection": "vip",
       "content": {
         "id": 1,
         "name": "vip_teste",
@@ -24,12 +25,13 @@
         "provider": "napi",
         "timestamp": 1501264297
       }
-    }
+    },
+    "type": "document"
   },
   {
     "action": "UPDATE",
+    "collection": "vip",
     "element": {
-      "collection": "vip",
       "content": {
         "id": 1,
         "name": "vip_teste",
@@ -41,22 +43,24 @@
         "provider": "napi",
         "timestamp": 1501264297
       }
-    }
+    },
+    "type": "document"
   },
   {
     "action": "DELETE",
+    "collection": "port",
     "element": {
-      "collection": "port",
       "content": {
         "id": 1,
         "provider": "napi"
       }
-    }
+    },
+    "type": "edge"
   },
   {
     "action": "CREATE",
+    "collection": "port",
     "element": {
-      "collection": "port",
       "content": {
         "id": 1,
         "name": "8080",
@@ -73,12 +77,13 @@
         "id": 1,
         "provider": "napi"
       }
-    }
+    },
+    "type": "edge"
   },
   {
     "action": "UPDATE",
+    "collection": "port",
     "element": {
-      "collection": "port",
       "content": {
         "id": 1,
         "name": "8080",
@@ -95,22 +100,24 @@
         "id": 1,
         "provider": "napi"
       }
-    }
+    },
+    "type": "edge"
   },
   {
     "action": "DELETE",
+    "collection": "pool",
     "element": {
-      "collection": "pool",
       "content": {
         "id": 1,
         "provider": "napi"
       }
-    }
+    },
+    "type": "document"
   },
   {
     "action": "CREATE",
+    "collection": "pool",
     "element": {
-      "collection": "pool",
       "content": {
         "id": 1,
         "name": "Pool_1",
@@ -126,12 +133,13 @@
         "provider": "napi",
         "timestamp": 1501264297
       }
-    }
+    },
+    "type": "document"
   },
   {
     "action": "UPDATE",
+    "collection": "pool",
     "element": {
-      "collection": "pool",
       "content": {
         "id": 1,
         "name": "Pool_1",
@@ -147,22 +155,24 @@
         "provider": "napi",
         "timestamp": 1501264297
       }
-    }
+    },
+    "type": "document"
   },
   {
     "action": "DELETE",
+    "collection": "pool_comp_unit",
     "element": {
-      "collection": "pool_comp_unit",
       "content": {
         "id": 1,
         "provider": "napi"
       }
-    }
+    },
+    "type": "edge"
   },
   {
     "action": "CREATE",
+    "collection": "pool_comp_unit",
     "element": {
-      "collection": "pool_comp_unit",
       "content": {
         "id": 1,
         "name": "10.0.0.2",
@@ -186,12 +196,13 @@
         "id": "SERVERSPACE1",
         "provider": "globomap"
       }
-    }
+    },
+    "type": "edge"
   },
   {
     "action": "UPDATE",
+    "collection": "pool_comp_unit",
     "element": {
-      "collection": "pool_comp_unit",
       "content": {
         "id": 1,
         "name": "10.0.0.2",
@@ -215,22 +226,24 @@
         "id": "SERVERSPACE1",
         "provider": "globomap"
       }
-    }
+    },
+    "type": "edge"
   },
   {
     "action": "DELETE",
+    "collection": "pool_comp_unit",
     "element": {
-      "collection": "pool_comp_unit",
       "content": {
         "id": 1,
         "provider": "napi"
       }
-    }
+    },
+    "type": "edge"
   },
   {
     "action": "CREATE",
+    "collection": "pool_comp_unit",
     "element": {
-      "collection": "pool_comp_unit",
       "content": {
         "id": 1,
         "name": "10.0.0.2",
@@ -254,12 +267,13 @@
         "id": "SERVERSPACE1",
         "provider": "globomap"
       }
-    }
+    },
+    "type": "edge"
   },
   {
     "action": "UPDATE",
+    "collection": "pool_comp_unit",
     "element": {
-      "collection": "pool_comp_unit",
       "content": {
         "id": 1,
         "name": "10.0.0.2",
@@ -283,6 +297,7 @@
         "id": "SERVERSPACE1",
         "provider": "globomap"
       }
-    }
+    },
+    "type": "edge"
   }
 ]

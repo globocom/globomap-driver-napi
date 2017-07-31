@@ -28,8 +28,7 @@ class TestKind(unittest2.TestCase):
                 },
                 'id': 1,
                 'name': u'vip_teste'
-            },
-            'collection': 'vip'
+            }
         }
         self.assertDictEqual(data, expected)
 
@@ -53,8 +52,7 @@ class TestKind(unittest2.TestCase):
                 'id': 1,
                 'collection': 'vip',
                 'provider': 'napi'
-            },
-            'collection': 'port'
+            }
         }
         self.assertDictEqual(data, expected)
 
@@ -78,8 +76,7 @@ class TestKind(unittest2.TestCase):
                 },
                 'id': 1,
                 'name': u'Pool_1'
-            },
-            'collection': 'pool'
+            }
         }
         self.assertDictEqual(data, expected)
 
@@ -111,8 +108,7 @@ class TestKind(unittest2.TestCase):
                 'collection':
                 'pool',
                 'provider': 'napi'
-            },
-            'collection': 'pool_comp_unit'
+            }
         }
         self.assertDictEqual(data, expected)
 
@@ -126,8 +122,7 @@ class TestKind(unittest2.TestCase):
             'content': {
                 'id': u'SERVERSPACE1',
                 'name': u'SERVERSPACE1'
-            },
-            'collection': 'comp_unit'
+            }
         }
 
         self.assertDictEqual(data, expected)
