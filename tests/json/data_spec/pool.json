@@ -1,0 +1,45 @@
+{
+  "default_limit": 100,
+  "default_port": 8080,
+  "environment": {
+    "id": 11,
+    "name": "DIVISAO_DC_POOL - AMBIENTE_LOGICO_POOL - GRUPO_L3_POOL"
+  },
+  "healthcheck": {
+    "destination": "*:*",
+    "healthcheck_expect": "",
+    "healthcheck_request": "",
+    "healthcheck_type": "TCP",
+    "identifier": ""
+  },
+  "id": 1,
+  "identifier": "Pool_1",
+  "lb_method": "least-conn",
+  "pool_created": true,
+  "server_pool_members": [
+    {
+      "equipment": {
+        "id": 20,
+        "name": "SERVERSPACE1"
+      },
+      "id": 1,
+      "identifier": "10.0.0.2",
+      "ip": {
+        "id": 18,
+        "ip_formated": "10.0.0.2"
+      },
+      "ipv6": null,
+      "last_status_update_formated": null,
+      "limit": 1000,
+      "member_status": 7,
+      "port_real": 8080,
+      "priority": 0,
+      "weight": 1
+    }
+  ],
+  "servicedownaction": {
+    "id": 5,
+    "name": "none",
+    "type": "ServiceDownAction"
+  }
+}

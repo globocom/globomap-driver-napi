@@ -1,0 +1,105 @@
+[
+  {
+    "action": "CREATE",
+    "element": {
+      "collection": "pool",
+      "content": {
+        "id": 1,
+        "name": "Pool_1",
+        "properties": {
+          "default_limit": 100,
+          "default_port": 8080,
+          "environment": "DIVISAO_DC_POOL - AMBIENTE_LOGICO_POOL - GRUPO_L3_POOL",
+          "healthcheck": "TCP",
+          "lb_method": "least-conn",
+          "pool_created": true,
+          "servicedownaction": "none"
+        },
+        "provider": "napi",
+        "timestamp": 1501448160
+      }
+    }
+  },
+  {
+    "action": "CREATE",
+    "element": {
+      "collection": "pool_comp_unit",
+      "content": {
+        "id": 1,
+        "name": "10.0.0.2",
+        "properties": {
+          "ip": "10.0.0.2",
+          "limit": 1000,
+          "port_real": 8080,
+          "priority": 0,
+          "weight": 1
+        },
+        "provider": "napi",
+        "timestamp": 1501448160
+      },
+      "from": {
+        "collection": "pool",
+        "id": 1,
+        "provider": "napi"
+      },
+      "to": {
+        "collection": "comp_unit",
+        "id": "SERVERSPACE1",
+        "provider": "globomap"
+      }
+    }
+  },
+  {
+    "action": "CREATE",
+    "element": {
+      "collection": "comp_unit",
+      "content": {
+        "id": "SERVERSPACE1",
+        "name": "SERVERSPACE1",
+        "provider": "globomap",
+        "timestamp": 1501448160
+      }
+    }
+  },
+  {
+    "action": "CREATE",
+    "element": {
+      "collection": "pool_comp_unit",
+      "content": {
+        "id": 2,
+        "name": "10.1.0.2",
+        "properties": {
+          "ip": "10.1.0.2",
+          "limit": 1000,
+          "port_real": 8080,
+          "priority": 0,
+          "weight": 1
+        },
+        "provider": "napi",
+        "timestamp": 1501448160
+      },
+      "from": {
+        "collection": "pool",
+        "id": 1,
+        "provider": "napi"
+      },
+      "to": {
+        "collection": "comp_unit",
+        "id": "SERVERSPACE2",
+        "provider": "globomap"
+      }
+    }
+  },
+  {
+    "action": "CREATE",
+    "element": {
+      "collection": "comp_unit",
+      "content": {
+        "id": "SERVERSPACE2",
+        "name": "SERVERSPACE2",
+        "provider": "globomap",
+        "timestamp": 1501448160
+      }
+    }
+  }
+]

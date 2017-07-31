@@ -10,52 +10,70 @@ class Loader(object):
         self.search = {'asorting_cols': ['-id']}
         self.client = NetworkAPI().client
 
-    def _construct(self, collection, provider, content):
+    def _construct(self, provider, content):
         new_time = int(time())
+        content['content']['timestamp'] = new_time
+        content['content']['provider'] = provider
         data = {
             'action': 'CREATE',
-            'element': {
-                'collection': collection,
-                'content': {
-                    'timestamp': new_time,
-                    'provider': provider
-                }
-            }
+            'element': content
         }
-        data['element']['content'].update(content)
+        return data
 
     def vips(self):
         """Load vips"""
+        data_list = []
 
         obj = self.client.create_api_vip_request()
-        for vips in self._paging(obj, 'vips', self.search):
+        pages = self._paging(obj, 'vips', self.search)
+        while True:
+            vips = pages.next()
             for vip in vips:
+
                 content = DataSpec().vip(vip)
-                self._construct('vip', 'napi', content)
+                data = self._construct('napi', content)
+                data_list.append(data)
 
                 for port in vip['ports']:
                     for pool in port['pools']:
+
                         pool['port'] = port['port']
                         content = DataSpec().port(pool, port['id'])
-                        self._construct('port', 'napi', content)
+                        data = self._construct('napi', content)
+                        data_list.append(data)
+
+            res = data_list
+            data_list = []
+            yield res
 
     def pools(self):
         """Load pools"""
+        data_list = []
 
         obj = self.client.create_api_pool()
-        for pools in self._paging(obj, 'server_pools', self.search):
+        pages = self._paging(obj, 'server_pools', self.search)
+        while True:
+            pools = pages.next()
             for pool in pools:
+
                 content = DataSpec().pool(pool)
-                self._construct('pool', 'napi', content)
+                data = self._construct('napi', content)
+                data_list.append(data)
 
                 for member in pool['server_pool_members']:
 
                     content = DataSpec().pool_comp_unit(member, pool['id'])
-                    self._construct('pool_comp_unit', 'napi', content)
+                    data = self._construct('napi', content)
+                    data_list.append(data)
 
                     eqpt = member['equipment']
                     content = DataSpec().comp_unit(eqpt)
-                    self._construct('comp_unit', 'globomap', content)
+                    data = self._construct('globomap', content)
+                    data_list.append(data)
+
+            res = data_list
+            data_list = []
+            yield res
 
     def _paging(self, obj, key, next_search):
 

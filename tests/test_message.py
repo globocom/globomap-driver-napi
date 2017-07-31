@@ -186,25 +186,25 @@ class TestDriver(unittest2.TestCase):
     def _mock_vip(self):
         napi_mock = patch(
             'globomap_driver_napi.driver.NetworkAPI.get_vip').start()
-        data = open_json('tests/json/driver/vip.json')
+        data = open_json('tests/json/driver/get_vip.json')
         napi_mock.return_value = data['vips'][0]
 
     def _mock_vip_by_portpool_id(self):
         napi_mock = patch(
             'globomap_driver_napi.driver.NetworkAPI.get_vip_by_portpool_id').start()
-        data = open_json('tests/json/driver/vip.json')
+        data = open_json('tests/json/driver/get_vip.json')
         napi_mock.return_value = data['vips'][0]
 
     def _mock_pool(self):
         napi_mock = patch(
             'globomap_driver_napi.driver.NetworkAPI.get_pool').start()
-        data = open_json('tests/json/driver/pool.json')
+        data = open_json('tests/json/driver/get_pool.json')
         napi_mock.return_value = data['server_pools'][0]
 
     def _mock_pool_member_id(self):
         napi_mock = patch(
             'globomap_driver_napi.driver.NetworkAPI.get_pool_by_member_id').start()
-        data = open_json('tests/json/driver/pool.json')
+        data = open_json('tests/json/driver/get_pool.json')
         napi_mock.return_value = data['server_pools'][0]
 
     def _assert_vip(self, action, data):

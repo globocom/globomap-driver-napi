@@ -30,7 +30,7 @@ class TestDataSpec(unittest2.TestCase):
             DataSpec().comp_unit(list())
 
     def test_data_spec_vip(self):
-        vip = open_json('tests/json/vip.json')
+        vip = open_json('tests/json/data_spec/vip.json')
         data = DataSpec().vip(vip)
         expected = {
             'collection': 'vip',
@@ -47,7 +47,7 @@ class TestDataSpec(unittest2.TestCase):
         self.assertDictEqual(data, expected)
 
     def test_data_spec_port(self):
-        vip = open_json('tests/json/port.json')
+        vip = open_json('tests/json/data_spec/port.json')
         data = DataSpec().port(vip, 1)
         expected = {
             'collection': 'port',
@@ -69,7 +69,7 @@ class TestDataSpec(unittest2.TestCase):
         self.assertDictEqual(data, expected)
 
     def test_data_spec_pool(self):
-        pool = open_json('tests/json/pool.json')
+        pool = open_json('tests/json/data_spec/pool.json')
         data = DataSpec().pool(pool)
         expected = {
             'collection': 'pool',
@@ -91,7 +91,7 @@ class TestDataSpec(unittest2.TestCase):
         self.assertDictEqual(data, expected)
 
     def test_data_spec_pool_comp_unit(self):
-        vip = open_json('tests/json/pool_comp_unit.json')
+        vip = open_json('tests/json/data_spec/pool_comp_unit.json')
         data = DataSpec().pool_comp_unit(vip, 1)
         expected = {
             'collection': 'pool_comp_unit',
@@ -120,7 +120,7 @@ class TestDataSpec(unittest2.TestCase):
         self.assertDictEqual(data, expected)
 
     def test_data_spec_comp_unit(self):
-        pool = open_json('tests/json/comp_unit.json')
+        pool = open_json('tests/json/data_spec/comp_unit.json')
         data = DataSpec().comp_unit(pool)
         expected = {
             'collection': 'comp_unit',
