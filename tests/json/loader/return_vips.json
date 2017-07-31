@@ -1,8 +1,8 @@
 [
   {
     "action": "CREATE",
+    "collection": "vip",
     "element": {
-      "collection": "vip",
       "content": {
         "id": 1,
         "name": "vip_teste",
@@ -14,12 +14,13 @@
         "provider": "napi",
         "timestamp": 1501448160
       }
-    }
+    },
+    "type": "document"
   },
   {
     "action": "CREATE",
+    "collection": "port",
     "element": {
-      "collection": "port",
       "content": {
         "id": 1,
         "name": "8080",
@@ -36,6 +37,7 @@
         "id": 1,
         "provider": "napi"
       }
-    }
+    },
+    "type": "edge"
   }
 ]

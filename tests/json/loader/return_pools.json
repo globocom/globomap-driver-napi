@@ -1,8 +1,8 @@
 [
   {
     "action": "CREATE",
+    "collection": "pool",
     "element": {
-      "collection": "pool",
       "content": {
         "id": 1,
         "name": "Pool_1",
@@ -18,12 +18,13 @@
         "provider": "napi",
         "timestamp": 1501448160
       }
-    }
+    },
+    "type": "document"
   },
   {
     "action": "CREATE",
+    "collection": "pool_comp_unit",
     "element": {
-      "collection": "pool_comp_unit",
       "content": {
         "id": 1,
         "name": "10.0.0.2",
@@ -47,24 +48,26 @@
         "id": "SERVERSPACE1",
         "provider": "globomap"
       }
-    }
+    },
+    "type": "edge"
   },
   {
     "action": "CREATE",
+    "collection": "comp_unit",
     "element": {
-      "collection": "comp_unit",
       "content": {
         "id": "SERVERSPACE1",
         "name": "SERVERSPACE1",
         "provider": "globomap",
         "timestamp": 1501448160
       }
-    }
+    },
+    "type": "document"
   },
   {
     "action": "CREATE",
+    "collection": "pool_comp_unit",
     "element": {
-      "collection": "pool_comp_unit",
       "content": {
         "id": 2,
         "name": "10.1.0.2",
@@ -88,18 +91,20 @@
         "id": "SERVERSPACE2",
         "provider": "globomap"
       }
-    }
+    },
+    "type": "edge"
   },
   {
     "action": "CREATE",
+    "collection": "comp_unit",
     "element": {
-      "collection": "comp_unit",
       "content": {
         "id": "SERVERSPACE2",
         "name": "SERVERSPACE2",
         "provider": "globomap",
         "timestamp": 1501448160
       }
-    }
+    },
+    "type": "document"
   }
 ]

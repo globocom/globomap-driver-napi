@@ -63,6 +63,7 @@ class Napi(object):
         method = kind.get('method')
         name = kind.get('name')
         provider = kind.get('provider')
+        type_coll = kind.get('type')
 
         try:
             class_type = getattr(importlib.import_module(package), kind_class)
@@ -86,9 +87,9 @@ class Napi(object):
 
         update = {
             'action': action,
-            'element': {
-                'collection': name
-            }
+            'collection': name,
+            'type': type_coll,
+            'element': {}
         }
 
         if action != 'DELETE':
