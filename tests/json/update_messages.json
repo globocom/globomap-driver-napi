@@ -3,7 +3,7 @@
     "action": "DELETE",
     "collection": "vip",
     "element": {
-      "key": "vip/napi_1"
+      "key": "napi_1"
     },
     "type": "collections"
   },
@@ -37,7 +37,7 @@
     "collection": "vip",
     "element": {
       "id": 1,
-      "key": "vip/napi_1",
+      "key": "napi_1",
       "name": "vip_teste",
       "properties": [
         {
@@ -62,7 +62,7 @@
     "action": "DELETE",
     "collection": "port",
     "element": {
-      "key": "port/napi_1"
+      "key": "napi_1"
     },
     "type": "edges"
   },
@@ -85,7 +85,7 @@
     "element": {
       "from": "vip/napi_1",
       "id": 1,
-      "key": "port/napi_1",
+      "key": "napi_1",
       "name": "8080",
       "provider": "napi",
       "timestamp": 1501264297,
@@ -97,7 +97,7 @@
     "action": "DELETE",
     "collection": "pool",
     "element": {
-      "key": "pool/napi_1"
+      "key": "napi_1"
     },
     "type": "collections"
   },
@@ -147,7 +147,7 @@
     "collection": "pool",
     "element": {
       "id": 1,
-      "key": "pool/napi_1",
+      "key": "napi_1",
       "name": "Pool_1",
       "properties": [
         {
@@ -188,7 +188,7 @@
     "action": "DELETE",
     "collection": "pool_comp_unit",
     "element": {
-      "key": "pool_comp_unit/napi_1"
+      "key": "napi_1"
     },
     "type": "edges"
   },
@@ -233,7 +233,7 @@
     "element": {
       "from": "pool/napi_1",
       "id": 1,
-      "key": "pool_comp_unit/napi_1",
+      "key": "napi_1",
       "name": "10.0.0.2",
       "properties": [
         {
@@ -267,7 +267,7 @@
     "action": "DELETE",
     "collection": "comp_unit",
     "element": {
-      "key": "comp_unit/globomap_SERVERSPACE1"
+      "key": "globomap_SERVERSPACE1"
     },
     "type": "collections"
   },
@@ -287,7 +287,7 @@
     "collection": "comp_unit",
     "element": {
       "id": 1,
-      "key": "comp_unit/globomap_SERVERSPACE1",
+      "key": "globomap_SERVERSPACE1",
       "name": "SERVERSPACE1",
       "provider": "globomap",
       "timestamp": 1501264297
