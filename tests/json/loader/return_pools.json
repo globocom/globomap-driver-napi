@@ -3,108 +3,133 @@
     "action": "CREATE",
     "collection": "pool",
     "element": {
-      "content": {
-        "id": 1,
-        "name": "Pool_1",
-        "properties": {
-          "default_limit": 100,
-          "default_port": 8080,
-          "environment": "DIVISAO_DC_POOL - AMBIENTE_LOGICO_POOL - GRUPO_L3_POOL",
-          "healthcheck": "TCP",
-          "lb_method": "least-conn",
-          "pool_created": true,
-          "servicedownaction": "none"
+      "id": 1,
+      "name": "Pool_1",
+      "properties": [
+        {
+          "key": "default_port",
+          "value": 8080
         },
-        "provider": "napi",
-        "timestamp": 1501448160
-      }
+        {
+          "key": "environment",
+          "value": "DIVISAO_DC_POOL - AMBIENTE_LOGICO_POOL - GRUPO_L3_POOL"
+        },
+        {
+          "key": "servicedownaction",
+          "value": "none"
+        },
+        {
+          "key": "healthcheck",
+          "value": "TCP"
+        },
+        {
+          "key": "lb_method",
+          "value": "least-conn"
+        },
+        {
+          "key": "default_limit",
+          "value": 100
+        },
+        {
+          "key": "pool_created",
+          "value": true
+        }
+      ],
+      "provider": "napi",
+      "timestamp": 1501448160
     },
-    "type": "document"
+    "type": "collections"
   },
   {
     "action": "CREATE",
     "collection": "pool_comp_unit",
     "element": {
-      "content": {
-        "id": 1,
-        "name": "10.0.0.2",
-        "properties": {
-          "ip": "10.0.0.2",
-          "limit": 1000,
-          "port_real": 8080,
-          "priority": 0,
-          "weight": 1
+      "from": "pool/napi_1",
+      "id": 1,
+      "name": "10.0.0.2",
+      "properties": [
+        {
+          "key": "ip",
+          "value": "10.0.0.2"
         },
-        "provider": "napi",
-        "timestamp": 1501448160
-      },
-      "from": {
-        "collection": "pool",
-        "id": 1,
-        "provider": "napi"
-      },
-      "to": {
-        "collection": "comp_unit",
-        "id": "SERVERSPACE1",
-        "provider": "globomap"
-      }
+        {
+          "key": "priority",
+          "value": 0
+        },
+        {
+          "key": "weight",
+          "value": 1
+        },
+        {
+          "key": "limit",
+          "value": 1000
+        },
+        {
+          "key": "port_real",
+          "value": 8080
+        }
+      ],
+      "provider": "napi",
+      "timestamp": 1501448160,
+      "to": "comp_unit/globomap_SERVERSPACE1"
     },
-    "type": "edge"
+    "type": "edges"
   },
   {
     "action": "CREATE",
     "collection": "comp_unit",
     "element": {
-      "content": {
-        "id": "SERVERSPACE1",
-        "name": "SERVERSPACE1",
-        "provider": "globomap",
-        "timestamp": 1501448160
-      }
+      "id": "SERVERSPACE1",
+      "name": "SERVERSPACE1",
+      "provider": "globomap",
+      "timestamp": 1501448160
     },
-    "type": "document"
+    "type": "collections"
   },
   {
     "action": "CREATE",
     "collection": "pool_comp_unit",
     "element": {
-      "content": {
-        "id": 2,
-        "name": "10.1.0.2",
-        "properties": {
-          "ip": "10.1.0.2",
-          "limit": 1000,
-          "port_real": 8080,
-          "priority": 0,
-          "weight": 1
+      "from": "pool/napi_1",
+      "id": 2,
+      "name": "10.1.0.2",
+      "properties": [
+        {
+          "key": "ip",
+          "value": "10.1.0.2"
         },
-        "provider": "napi",
-        "timestamp": 1501448160
-      },
-      "from": {
-        "collection": "pool",
-        "id": 1,
-        "provider": "napi"
-      },
-      "to": {
-        "collection": "comp_unit",
-        "id": "SERVERSPACE2",
-        "provider": "globomap"
-      }
+        {
+          "key": "priority",
+          "value": 0
+        },
+        {
+          "key": "weight",
+          "value": 1
+        },
+        {
+          "key": "limit",
+          "value": 1000
+        },
+        {
+          "key": "port_real",
+          "value": 8080
+        }
+      ],
+      "provider": "napi",
+      "timestamp": 1501448160,
+      "to": "comp_unit/globomap_SERVERSPACE2"
     },
-    "type": "edge"
+    "type": "edges"
   },
   {
     "action": "CREATE",
     "collection": "comp_unit",
     "element": {
-      "content": {
-        "id": "SERVERSPACE2",
-        "name": "SERVERSPACE2",
-        "provider": "globomap",
-        "timestamp": 1501448160
-      }
+      "id": "SERVERSPACE2",
+      "name": "SERVERSPACE2",
+      "provider": "globomap",
+      "timestamp": 1501448160
     },
-    "type": "document"
+    "type": "collections"
   }
 ]

@@ -9,6 +9,7 @@ class TestSettings(unittest2.TestCase):
 
         keys = MAP_FUNC.keys()
         expected = [
+            'Equipamento',
             'NetworkIPv4',
             'NetworkIPv6',
             'ServerPool',

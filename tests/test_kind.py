@@ -12,120 +12,57 @@ class TestKind(unittest2.TestCase):
     def tearDown(self):
         patch.stopall()
 
-    def test_driver_vip(self):
+    def _open_message(self):
+        data = open_json('tests/json/queue_messages.json')
+        return data
+
+    def _open_return_message(self):
+        data = open_json('tests/json/update_messages.json')
+        return data
+
+    def test_vip(self):
         self._mock_vip()
 
-        kind = Kind()
-        data = kind.vip(1)
+        data = self._open_message()[0:3]
+        data_ret = self._open_return_message()[0:3]
 
-        expected = {
-            'content': {
-                'properties': {
-                    'ip': u'10.16.0.2',
-                    'environmentvip':
-                    'FIN_VIP-ClientTxt-VIP-EnvP44Txt-VIP',
-                    'created': False
-                },
-                'id': 1,
-                'name': u'vip_teste'
-            }
-        }
-        self.assertDictEqual(data, expected)
+        for i in range(3):
+            kind = Kind()
+            res = kind.vip(data[i])
+            self.assertDictEqual(res, data_ret[i])
 
-    def test_driver_port(self):
+    def test_port(self):
         self._mock_vip_by_portpool_id()
 
-        kind = Kind()
-        data = kind.port(1)
+        data = self._open_message()[3:6]
+        data_ret = self._open_return_message()[3:6]
 
-        expected = {
-            'content': {
-                'id': 1,
-                'name': '8080'
-            },
-            'to': {
-                'id': 1,
-                'collection': 'pool',
-                'provider': 'napi'
-            },
-            'from': {
-                'id': 1,
-                'collection': 'vip',
-                'provider': 'napi'
-            }
-        }
-        self.assertDictEqual(data, expected)
+        for i in range(3):
+            kind = Kind()
+            res = kind.port(data[i])
+            self.assertDictEqual(res, data_ret[i])
 
-    def test_driver_pool(self):
+    def test_pool(self):
         self._mock_pool()
 
-        kind = Kind()
-        data = kind.pool(1)
+        data = self._open_message()[6:9]
+        data_ret = self._open_return_message()[6:9]
 
-        expected = {
-            'content': {
-                'properties': {
-                    'lb_method': u'least-conn',
-                    'healthcheck': u'TCP',
-                    'pool_created': True,
-                    'environment': u'DIVISAO_DC_POOL - ' +
-                    'AMBIENTE_LOGICO_POOL - GRUPO_L3_POOL',
-                    'servicedownaction': u'none',
-                    'default_port': 8080,
-                    'default_limit': 100
-                },
-                'id': 1,
-                'name': u'Pool_1'
-            }
-        }
-        self.assertDictEqual(data, expected)
+        for i in range(3):
+            kind = Kind()
+            res = kind.pool(data[i])
+            self.assertDictEqual(res, data_ret[i])
 
     def test_driver_pool_comp_unit(self):
         self._mock_pool_member_id()
 
-        kind = Kind()
-        data = kind.pool_comp_unit(1)
+        data = self._open_message()[9:12]
+        data_ret = self._open_return_message()[9:12]
 
-        expected = {
-            'content': {
-                'properties': {
-                    'priority': 0,
-                    'ip': u'10.0.0.2',
-                    'limit': 1000,
-                    'weight': 1,
-                    'port_real': 8080
-                },
-                'id': 1,
-                'name': u'10.0.0.2'
-            },
-            'to': {
-                'id': u'SERVERSPACE1',
-                'collection': 'comp_unit',
-                'provider': 'globomap'
-            },
-            'from': {
-                'id': 1,
-                'collection':
-                'pool',
-                'provider': 'napi'
-            }
-        }
-        self.assertDictEqual(data, expected)
-
-    def test_driver_comp_unit(self):
-        self._mock_pool_member_id()
-
-        kind = Kind()
-        data = kind.comp_unit(1)
-
-        expected = {
-            'content': {
-                'id': u'SERVERSPACE1',
-                'name': u'SERVERSPACE1'
-            }
-        }
-
-        self.assertDictEqual(data, expected)
+        for i in range(3):
+            kind = Kind()
+            res = kind.pool_comp_unit(data[i])
+            self.assertDictEqual(res, data_ret[i])
 
     def _mock_vip(self):
         napi_mock = patch(

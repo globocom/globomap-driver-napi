@@ -29,7 +29,6 @@ class RabbitMQClient(object):
                 messages.append(message)
                 if len(messages) == number_messages:
                     yield messages
-                    messages = []
 
     def get_message(self):
         message = self._consumer().next()
