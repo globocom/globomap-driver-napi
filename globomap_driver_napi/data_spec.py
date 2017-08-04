@@ -14,17 +14,17 @@ class DataSpec(object):
             if vip['ipv4'] else vip['ipv6']['ip_formated']
         envvip = vip['environmentvip']
         envvip = '{}-{}-{}'.format(envvip['finalidade_txt'],
-                                   envvip['cliente_txt'], envvip['ambiente_p44_txt'])
+                                   envvip['cliente_txt'],
+                                   envvip['ambiente_p44_txt'])
         data = {
-            'content': {
-                'id': vip['id'],
-                'name': vip['name'],
-                'properties': {
-                    'created': vip['created'],
-                    'ip': ip_formated,
-                    'environmentvip': envvip
-                }
-            }
+            'id': vip['id'],
+            'name': vip['name'],
+            'provider': 'napi',
+            'properties': [
+                {'key': 'created', 'value': vip['created']},
+                {'key': 'ip', 'value': ip_formated},
+                {'key': 'environmentvip', 'value': envvip}
+            ]
         }
 
         return data
@@ -37,20 +37,11 @@ class DataSpec(object):
         name = '{}:{}'.format(port['port'], l7_value) \
             if l7_value else port['port']
         data = {
-            'from': {
-                'collection': 'vip',
-                'provider': 'napi',
-                'id': vip_id
-            },
-            'to': {
-                'collection': 'pool',
-                'provider': 'napi',
-                'id': port['server_pool']['id']
-            },
-            'content': {
-                'id': port['id'],
-                'name': str(name)
-            }
+            'from': 'vip/napi_{}'.format(vip_id),
+            'to': 'pool/napi_{}'.format(port['server_pool']['id']),
+            'id': port['id'],
+            'name': str(name),
+            'provider': 'napi'
         }
 
         return data
@@ -60,19 +51,38 @@ class DataSpec(object):
 
         self._validate(pool)
         data = {
-            'content': {
-                'id': pool['id'],
-                'name': pool['identifier'],
-                'properties': {
-                    'default_port': pool['default_port'],
-                    'environment': pool['environment']['name'],
-                    'servicedownaction': pool['servicedownaction']['name'],
-                    'healthcheck': pool['healthcheck']['healthcheck_type'],
-                    'lb_method': pool['lb_method'],
-                    'default_limit': pool['default_limit'],
-                    'pool_created': pool['pool_created']
+            'id': pool['id'],
+            'name': pool['identifier'],
+            'provider': 'napi',
+            'properties': [
+                {
+                    'key': 'default_port',
+                    'value': pool['default_port']
+                },
+                {
+                    'key': 'environment',
+                    'value': pool['environment']['name']
+                },
+                {
+                    'key': 'servicedownaction',
+                    'value': pool['servicedownaction']['name']},
+                {
+                    'key': 'healthcheck',
+                    'value': pool['healthcheck']['healthcheck_type']
+                },
+                {
+                    'key': 'lb_method',
+                    'value': pool['lb_method']
+                },
+                {
+                    'key': 'default_limit',
+                    'value': pool['default_limit']
+                },
+                {
+                    'key': 'pool_created',
+                    'value': pool['pool_created']
                 }
-            }
+            ]
         }
         return data
 
@@ -83,27 +93,18 @@ class DataSpec(object):
         ip_formated = member['ip']['ip_formated'] \
             if member['ip'] else member['ipv6']['ip_formated']
         data = {
-            'from': {
-                'collection': 'pool',
-                'provider': 'napi',
-                'id': pool_id
-            },
-            'to': {
-                'collection': 'comp_unit',
-                'provider': 'globomap',
-                'id': member['equipment']['name']
-            },
-            'content': {
-                'id': member['id'],
-                'name': member['identifier'],
-                'properties': {
-                    'ip': ip_formated,
-                    'priority': member['priority'],
-                    'weight': member['weight'],
-                    'limit': member['limit'],
-                    'port_real': member['port_real']
-                }
-            }
+            'from': 'pool/napi_{}'.format(pool_id),
+            'to': 'comp_unit/globomap_{}'.format(member['equipment']['name']),
+            'id': member['id'],
+            'name': member['identifier'],
+            'provider': 'napi',
+            'properties': [
+                {'key': 'ip', 'value': ip_formated},
+                {'key': 'priority', 'value': member['priority']},
+                {'key': 'weight', 'value': member['weight']},
+                {'key': 'limit', 'value': member['limit']},
+                {'key': 'port_real', 'value': member['port_real']}
+            ]
         }
 
         return data
@@ -113,10 +114,9 @@ class DataSpec(object):
 
         self._validate(compunit)
         data = {
-            'content': {
-                'id': compunit['name'],
-                'name': compunit['name']
-            }
+            'id': compunit['name'],
+            'name': compunit['name'],
+            'provider': 'globomap'
         }
 
         return data

@@ -61,9 +61,10 @@ class NetworkAPI(object):
     def get_network_ipv4_id(self, net_id):
         """Return NetworkIpv4"""
 
-        response = self.client.create_api_network_ipv4().get(ids=[net_id],
-                                                             fields=['id', 'network_type__details',
-                                                                     'active', 'networkv4', 'vlan'])
+        response = self.client.create_api_network_ipv4().get(
+            ids=[net_id],
+            fields=['id', 'network_type__details',
+                    'active', 'networkv4', 'vlan'])
 
         networks = response.get('networks')
         if networks:
@@ -73,9 +74,10 @@ class NetworkAPI(object):
     def get_network_ipv6_id(self, net_id):
         """Return NetworkIpv6"""
 
-        response = self.client.create_api_network_ipv6().get(ids=[net_id],
-                                                             fields=['id', 'network_type__details',
-                                                                     'active', 'networkv6', 'vlan'])
+        response = self.client.create_api_network_ipv6().get(
+            ids=[net_id],
+            fields=['id', 'network_type__details',
+                    'active', 'networkv6', 'vlan'])
 
         networks = response.get('networks')
         if networks:

@@ -33,36 +33,27 @@ class TestDataSpec(unittest2.TestCase):
         vip = open_json('tests/json/data_spec/vip.json')
         data = DataSpec().vip(vip)
         expected = {
-            'content': {
-                'id': 1,
-                'name': 'vip_teste',
-                'properties': {
-                    'ip': '10.10.0.2',
-                    'created': False,
-                    'environmentvip': 'FIN_VIP-ClientTxt-VIP-EnvP44Txt-VIP'
-                }
-            }
+            'id': 1,
+            'name': 'vip_teste',
+            'provider': 'napi',
+            'properties': [
+                {'key': 'created', 'value': False},
+                {'key': 'ip', 'value': '10.10.0.2'},
+                {'key': 'environmentvip', 'value': 'FIN_VIP-ClientTxt-VIP-EnvP44Txt-VIP'}
+            ]
         }
+
         self.assertDictEqual(data, expected)
 
     def test_data_spec_port(self):
         vip = open_json('tests/json/data_spec/port.json')
         data = DataSpec().port(vip, 1)
         expected = {
-            'from': {
-                'collection': 'vip',
-                'provider': 'napi',
-                'id': 1
-            },
-            'to': {
-                'collection': 'pool',
-                'provider': 'napi',
-                'id': 1
-            },
-            'content': {
-                'id': 1,
-                'name': '8080'
-            }
+            'from': 'vip/napi_1',
+            'to': 'pool/napi_1',
+            'id': 1,
+            'name': '8080',
+            'provider': 'napi'
         }
         self.assertDictEqual(data, expected)
 
@@ -70,20 +61,40 @@ class TestDataSpec(unittest2.TestCase):
         pool = open_json('tests/json/data_spec/pool.json')
         data = DataSpec().pool(pool)
         expected = {
-            'content': {
-                'id': 1,
-                'name': 'Pool_1',
-                'properties': {
-                    'default_port': 8080,
-                    'environment': 'DIVISAO_DC_POOL - ' +
-                                   'AMBIENTE_LOGICO_POOL - GRUPO_L3_POOL',
-                    'servicedownaction': 'none',
-                    'healthcheck': 'TCP',
-                    'lb_method': 'least-conn',
-                    'default_limit': 100,
-                    'pool_created': True
+            'id': 1,
+            'name': 'Pool_1',
+            'provider': 'napi',
+            'properties': [
+                {
+                    'key': 'default_port',
+                    'value': 8080
+                },
+                {
+                    'key': 'environment',
+                    'value': 'DIVISAO_DC_POOL - ' +
+                             'AMBIENTE_LOGICO_POOL - GRUPO_L3_POOL'
+                },
+                {
+                    'key': 'servicedownaction',
+                    'value': 'none'
+                },
+                {
+                    'key': 'healthcheck',
+                    'value': 'TCP'
+                },
+                {
+                    'key': 'lb_method',
+                    'value': 'least-conn'
+                },
+                {
+                    'key': 'default_limit',
+                    'value': 100
+                },
+                {
+                    'key': 'pool_created',
+                    'value': True
                 }
-            }
+            ]
         }
         self.assertDictEqual(data, expected)
 
@@ -91,38 +102,29 @@ class TestDataSpec(unittest2.TestCase):
         vip = open_json('tests/json/data_spec/pool_comp_unit.json')
         data = DataSpec().pool_comp_unit(vip, 1)
         expected = {
-            'from': {
-                'collection': 'pool',
-                'provider': 'napi',
-                'id': 1
-            },
-            'to': {
-                'collection': 'comp_unit',
-                'provider': 'globomap',
-                'id': 'SERVERSPACE1'
-            },
-            'content': {
-                'id': 1,
-                'name': '10.0.0.2',
-                'properties': {
-                    'priority': 0,
-                    'ip': u'10.0.0.2',
-                    'limit': 1000,
-                    'weight': 1,
-                    'port_real': 8080
-                }
-            }
+            'from': 'pool/napi_1',
+            'to': 'comp_unit/globomap_SERVERSPACE1',
+            'id': 1,
+            'name': '10.0.0.2',
+            'provider': 'napi',
+            'properties': [
+                {'key': 'ip', 'value': u'10.0.0.2'},
+                {'key': 'priority', 'value': 0},
+                {'key': 'weight', 'value': 1},
+                {'key': 'limit', 'value': 1000},
+                {'key': 'port_real', 'value': 8080}
+            ]
         }
+
         self.assertDictEqual(data, expected)
 
     def test_data_spec_comp_unit(self):
         pool = open_json('tests/json/data_spec/comp_unit.json')
         data = DataSpec().comp_unit(pool)
         expected = {
-            'content': {
-                'id': 'SERVERSPACE1',
-                'name': 'SERVERSPACE1'
-            }
+            'id': 'SERVERSPACE1',
+            'name': 'SERVERSPACE1',
+            'provider': 'globomap'
         }
         self.assertDictEqual(data, expected)
 

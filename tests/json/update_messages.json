@@ -3,301 +3,295 @@
     "action": "DELETE",
     "collection": "vip",
     "element": {
-      "content": {
-        "id": 1,
-        "provider": "napi"
-      }
+      "key": "vip/napi_1"
     },
-    "type": "document"
+    "type": "collections"
   },
   {
     "action": "CREATE",
     "collection": "vip",
     "element": {
-      "content": {
-        "id": 1,
-        "name": "vip_teste",
-        "properties": {
-          "created": false,
-          "environmentvip": "FIN_VIP-ClientTxt-VIP-EnvP44Txt-VIP",
-          "ip": "10.16.0.2"
+      "id": 1,
+      "name": "vip_teste",
+      "properties": [
+        {
+          "key": "created",
+          "value": false
         },
-        "provider": "napi",
-        "timestamp": 1501264297
-      }
+        {
+          "key": "ip",
+          "value": "10.16.0.2"
+        },
+        {
+          "key": "environmentvip",
+          "value": "FIN_VIP-ClientTxt-VIP-EnvP44Txt-VIP"
+        }
+      ],
+      "provider": "napi",
+      "timestamp": 1501264297
     },
-    "type": "document"
+    "type": "collections"
   },
   {
     "action": "UPDATE",
     "collection": "vip",
     "element": {
-      "content": {
-        "id": 1,
-        "name": "vip_teste",
-        "properties": {
-          "created": false,
-          "environmentvip": "FIN_VIP-ClientTxt-VIP-EnvP44Txt-VIP",
-          "ip": "10.16.0.2"
+      "id": 1,
+      "key": "vip/napi_1",
+      "name": "vip_teste",
+      "properties": [
+        {
+          "key": "created",
+          "value": false
         },
-        "provider": "napi",
-        "timestamp": 1501264297
-      }
+        {
+          "key": "ip",
+          "value": "10.16.0.2"
+        },
+        {
+          "key": "environmentvip",
+          "value": "FIN_VIP-ClientTxt-VIP-EnvP44Txt-VIP"
+        }
+      ],
+      "provider": "napi",
+      "timestamp": 1501264297
     },
-    "type": "document"
+    "type": "collections"
   },
   {
     "action": "DELETE",
     "collection": "port",
     "element": {
-      "content": {
-        "id": 1,
-        "provider": "napi"
-      }
+      "key": "port/napi_1"
     },
-    "type": "edge"
+    "type": "edges"
   },
   {
     "action": "CREATE",
     "collection": "port",
     "element": {
-      "content": {
-        "id": 1,
-        "name": "8080",
-        "provider": "napi",
-        "timestamp": 1501264297
-      },
-      "from": {
-        "collection": "vip",
-        "id": 1,
-        "provider": "napi"
-      },
-      "to": {
-        "collection": "pool",
-        "id": 1,
-        "provider": "napi"
-      }
+      "from": "vip/napi_1",
+      "id": 1,
+      "name": "8080",
+      "provider": "napi",
+      "timestamp": 1501264297,
+      "to": "pool/napi_1"
     },
-    "type": "edge"
+    "type": "edges"
   },
   {
     "action": "UPDATE",
     "collection": "port",
     "element": {
-      "content": {
-        "id": 1,
-        "name": "8080",
-        "provider": "napi",
-        "timestamp": 1501264297
-      },
-      "from": {
-        "collection": "vip",
-        "id": 1,
-        "provider": "napi"
-      },
-      "to": {
-        "collection": "pool",
-        "id": 1,
-        "provider": "napi"
-      }
+      "from": "vip/napi_1",
+      "id": 1,
+      "key": "port/napi_1",
+      "name": "8080",
+      "provider": "napi",
+      "timestamp": 1501264297,
+      "to": "pool/napi_1"
     },
-    "type": "edge"
+    "type": "edges"
   },
   {
     "action": "DELETE",
     "collection": "pool",
     "element": {
-      "content": {
-        "id": 1,
-        "provider": "napi"
-      }
+      "key": "pool/napi_1"
     },
-    "type": "document"
+    "type": "collections"
   },
   {
     "action": "CREATE",
     "collection": "pool",
     "element": {
-      "content": {
-        "id": 1,
-        "name": "Pool_1",
-        "properties": {
-          "default_limit": 100,
-          "default_port": 8080,
-          "environment": "DIVISAO_DC_POOL - AMBIENTE_LOGICO_POOL - GRUPO_L3_POOL",
-          "healthcheck": "TCP",
-          "lb_method": "least-conn",
-          "pool_created": true,
-          "servicedownaction": "none"
+      "id": 1,
+      "name": "Pool_1",
+      "properties": [
+        {
+          "key": "default_port",
+          "value": 8080
         },
-        "provider": "napi",
-        "timestamp": 1501264297
-      }
+        {
+          "key": "environment",
+          "value": "DIVISAO_DC_POOL - AMBIENTE_LOGICO_POOL - GRUPO_L3_POOL"
+        },
+        {
+          "key": "servicedownaction",
+          "value": "none"
+        },
+        {
+          "key": "healthcheck",
+          "value": "TCP"
+        },
+        {
+          "key": "lb_method",
+          "value": "least-conn"
+        },
+        {
+          "key": "default_limit",
+          "value": 100
+        },
+        {
+          "key": "pool_created",
+          "value": true
+        }
+      ],
+      "provider": "napi",
+      "timestamp": 1501264297
     },
-    "type": "document"
+    "type": "collections"
   },
   {
     "action": "UPDATE",
     "collection": "pool",
     "element": {
-      "content": {
-        "id": 1,
-        "name": "Pool_1",
-        "properties": {
-          "default_limit": 100,
-          "default_port": 8080,
-          "environment": "DIVISAO_DC_POOL - AMBIENTE_LOGICO_POOL - GRUPO_L3_POOL",
-          "healthcheck": "TCP",
-          "lb_method": "least-conn",
-          "pool_created": true,
-          "servicedownaction": "none"
+      "id": 1,
+      "key": "pool/napi_1",
+      "name": "Pool_1",
+      "properties": [
+        {
+          "key": "default_port",
+          "value": 8080
         },
-        "provider": "napi",
-        "timestamp": 1501264297
-      }
+        {
+          "key": "environment",
+          "value": "DIVISAO_DC_POOL - AMBIENTE_LOGICO_POOL - GRUPO_L3_POOL"
+        },
+        {
+          "key": "servicedownaction",
+          "value": "none"
+        },
+        {
+          "key": "healthcheck",
+          "value": "TCP"
+        },
+        {
+          "key": "lb_method",
+          "value": "least-conn"
+        },
+        {
+          "key": "default_limit",
+          "value": 100
+        },
+        {
+          "key": "pool_created",
+          "value": true
+        }
+      ],
+      "provider": "napi",
+      "timestamp": 1501264297
     },
-    "type": "document"
+    "type": "collections"
   },
   {
     "action": "DELETE",
     "collection": "pool_comp_unit",
     "element": {
-      "content": {
-        "id": 1,
-        "provider": "napi"
-      }
+      "key": "pool_comp_unit/napi_1"
     },
-    "type": "edge"
+    "type": "edges"
   },
   {
     "action": "CREATE",
     "collection": "pool_comp_unit",
     "element": {
-      "content": {
-        "id": 1,
-        "name": "10.0.0.2",
-        "properties": {
-          "ip": "10.0.0.2",
-          "limit": 1000,
-          "port_real": 8080,
-          "priority": 0,
-          "weight": 1
+      "from": "pool/napi_1",
+      "id": 1,
+      "name": "10.0.0.2",
+      "properties": [
+        {
+          "key": "ip",
+          "value": "10.0.0.2"
         },
-        "provider": "napi",
-        "timestamp": 1501264297
-      },
-      "from": {
-        "collection": "pool",
-        "id": 1,
-        "provider": "napi"
-      },
-      "to": {
-        "collection": "comp_unit",
-        "id": "SERVERSPACE1",
-        "provider": "globomap"
-      }
+        {
+          "key": "priority",
+          "value": 0
+        },
+        {
+          "key": "weight",
+          "value": 1
+        },
+        {
+          "key": "limit",
+          "value": 1000
+        },
+        {
+          "key": "port_real",
+          "value": 8080
+        }
+      ],
+      "provider": "napi",
+      "timestamp": 1501264297,
+      "to": "comp_unit/globomap_SERVERSPACE1"
     },
-    "type": "edge"
+    "type": "edges"
   },
   {
     "action": "UPDATE",
     "collection": "pool_comp_unit",
     "element": {
-      "content": {
-        "id": 1,
-        "name": "10.0.0.2",
-        "properties": {
-          "ip": "10.0.0.2",
-          "limit": 1000,
-          "port_real": 8080,
-          "priority": 0,
-          "weight": 1
+      "from": "pool/napi_1",
+      "id": 1,
+      "key": "pool_comp_unit/napi_1",
+      "name": "10.0.0.2",
+      "properties": [
+        {
+          "key": "ip",
+          "value": "10.0.0.2"
         },
-        "provider": "napi",
-        "timestamp": 1501264297
-      },
-      "from": {
-        "collection": "pool",
-        "id": 1,
-        "provider": "napi"
-      },
-      "to": {
-        "collection": "comp_unit",
-        "id": "SERVERSPACE1",
-        "provider": "globomap"
-      }
+        {
+          "key": "priority",
+          "value": 0
+        },
+        {
+          "key": "weight",
+          "value": 1
+        },
+        {
+          "key": "limit",
+          "value": 1000
+        },
+        {
+          "key": "port_real",
+          "value": 8080
+        }
+      ],
+      "provider": "napi",
+      "timestamp": 1501264297,
+      "to": "comp_unit/globomap_SERVERSPACE1"
     },
-    "type": "edge"
+    "type": "edges"
   },
   {
     "action": "DELETE",
-    "collection": "pool_comp_unit",
+    "collection": "comp_unit",
     "element": {
-      "content": {
-        "id": 1,
-        "provider": "napi"
-      }
+      "key": "comp_unit/globomap_SERVERSPACE1"
     },
-    "type": "edge"
+    "type": "collections"
   },
   {
     "action": "CREATE",
-    "collection": "pool_comp_unit",
+    "collection": "comp_unit",
     "element": {
-      "content": {
-        "id": 1,
-        "name": "10.0.0.2",
-        "properties": {
-          "ip": "10.0.0.2",
-          "limit": 1000,
-          "port_real": 8080,
-          "priority": 0,
-          "weight": 1
-        },
-        "provider": "napi",
-        "timestamp": 1501264297
-      },
-      "from": {
-        "collection": "pool",
-        "id": 1,
-        "provider": "napi"
-      },
-      "to": {
-        "collection": "comp_unit",
-        "id": "SERVERSPACE1",
-        "provider": "globomap"
-      }
+      "id": 1,
+      "name": "SERVERSPACE1",
+      "provider": "globomap",
+      "timestamp": 1501264297
     },
-    "type": "edge"
+    "type": "collections"
   },
   {
     "action": "UPDATE",
-    "collection": "pool_comp_unit",
+    "collection": "comp_unit",
     "element": {
-      "content": {
-        "id": 1,
-        "name": "10.0.0.2",
-        "properties": {
-          "ip": "10.0.0.2",
-          "limit": 1000,
-          "port_real": 8080,
-          "priority": 0,
-          "weight": 1
-        },
-        "provider": "napi",
-        "timestamp": 1501264297
-      },
-      "from": {
-        "collection": "pool",
-        "id": 1,
-        "provider": "napi"
-      },
-      "to": {
-        "collection": "comp_unit",
-        "id": "SERVERSPACE1",
-        "provider": "globomap"
-      }
+      "id": 1,
+      "key": "comp_unit/globomap_SERVERSPACE1",
+      "name": "SERVERSPACE1",
+      "provider": "globomap",
+      "timestamp": 1501264297
     },
-    "type": "edge"
+    "type": "collections"
   }
 ]

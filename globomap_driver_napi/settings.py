@@ -18,7 +18,7 @@ MAP_FUNC = {
             'class': 'Kind',
             'method': 'vip',
             'provider': 'napi',
-            'type': 'document'
+            'type': 'collections'
         }
     ],
     'VipRequestPortPool': [
@@ -28,7 +28,7 @@ MAP_FUNC = {
             'class': 'Kind',
             'method': 'port',
             'provider': 'napi',
-            'type': 'edge'
+            'type': 'edges'
         }
     ],
     'ServerPool': [
@@ -38,7 +38,7 @@ MAP_FUNC = {
             'class': 'Kind',
             'method': 'pool',
             'provider': 'napi',
-            'type': 'document'
+            'type': 'collections'
         }
     ],
     'ServerPoolMember': [
@@ -48,15 +48,17 @@ MAP_FUNC = {
             'class': 'Kind',
             'method': 'pool_comp_unit',
             'provider': 'napi',
-            'type': 'edge'
-        },
+            'type': 'edges'
+        }
+    ],
+    'Equipamento': [
         {
             'name': 'comp_unit',
             'package': 'globomap_driver_napi.kind',
             'class': 'Kind',
             'method': 'comp_unit',
             'provider': 'globomap',
-            'type': 'document'
+            'type': 'collections'
         }
     ],
     'NetworkIPv4': [
@@ -66,7 +68,7 @@ MAP_FUNC = {
             'class': 'Kind',
             'method': 'network',
             'provider': 'napi',
-            'type': 'document'
+            'type': 'collections'
         }
     ],
     'NetworkIPv6': [
@@ -76,7 +78,13 @@ MAP_FUNC = {
             'class': 'Kind',
             'method': 'network',
             'provider': 'napi',
-            'type': 'document'
+            'type': 'collections'
         }
     ],
+}
+
+ACTIONS = {
+    'Alterar': 'UPDATE',
+    'Cadastrar': 'CREATE',
+    'Remover': 'DELETE'
 }

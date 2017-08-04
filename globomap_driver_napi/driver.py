@@ -16,12 +16,6 @@ from .settings import NETWORKAPI_RMQ_QUEUE
 from .settings import NETWORKAPI_RMQ_USER
 from .settings import NETWORKAPI_RMQ_VIRTUAL_HOST
 
-ACTIONS = {
-    'Alterar': 'UPDATE',
-    'Cadastrar': 'CREATE',
-    'Remover': 'DELETE'
-}
-
 
 class Napi(object):
 
@@ -50,7 +44,13 @@ class Napi(object):
                 self.log.debug('Treating message %s', message)
                 msgs = []
                 for func in funcs:
-                    msgs.append(self._treat_message(func, message))
+                    msg = self._treat_message(func, message)
+                    if msg:
+                        msgs.append(msg)
+                    else:
+                        self.log.debug('Message don\'t treated %s.', message)
+                if not msgs:
+                    return self.next_message()
                 return msgs
             else:
                 self.log.debug('Discarding message %s', message)
@@ -61,49 +61,11 @@ class Napi(object):
         package = kind.get('package')
         kind_class = kind.get('class')
         method = kind.get('method')
-        name = kind.get('name')
-        provider = kind.get('provider')
-        type_coll = kind.get('type')
 
-        try:
-            class_type = getattr(importlib.import_module(package), kind_class)
-            if not hasattr(class_type, method) and \
-                    not callable(getattr(class_type, method)):
-                raise AttributeError(
-                    'Kind {} does not implement the method {}'.format(
-                        kind_class, method
-                    )
-                )
-            self.log.debug("Kind '%s' loaded" % class_type)
-        except AttributeError:
-            self.log.error('Cannot load kind %s attribute not found'
-                           % kind_class)
-        except ImportError:
-            self.log.error('Cannot load kind %s. Module not found %s'
-                           % (kind_class, package))
+        class_type = getattr(importlib.import_module(package), kind_class)
+        data = getattr(class_type(), method)(message)
 
-        action = ACTIONS.get(message.get('action'))
-        id_object = message.get('data').get('id_object')
-
-        update = {
-            'action': action,
-            'collection': name,
-            'type': type_coll,
-            'element': {}
-        }
-
-        if action != 'DELETE':
-            data = getattr(class_type(), method)(id_object)
-            if data is not None:
-                data['content']['timestamp'] = message.get('timestamp')
-                data['content']['provider'] = provider
-                update['element'].update(data)
-        else:
-            update['element']['content'] = {
-                'id': id_object,
-                'provider': provider
-            }
-        return update
+        return data
 
     def updates(self, number_messages=1):
         """Return list of updates"""
@@ -121,8 +83,11 @@ class Napi(object):
                 raise StopIteration
             else:
                 while True:
-                    msg = self.msg_rest.pop(0)
-                    messages.append(msg)
+                    if self.msg_rest:
+                        msg = self.msg_rest.pop(0)
+                        messages.append(msg)
                     if len(messages) == number_messages:
                         yield messages
-                        messages = []
+
+                    if not self.msg_rest:
+                        break
