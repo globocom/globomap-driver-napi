@@ -36,7 +36,7 @@ class Kind(object):
                 return False
 
         if action != 'CREATE':
-            data['key'] = 'vip/napi_{}'.format(id_object)
+            data['key'] = 'napi_{}'.format(id_object)
 
         data = self._encapsulate(action, 'vip', 'collections', data)
 
@@ -57,7 +57,7 @@ class Kind(object):
                 return False
 
         if action != 'CREATE':
-            data['key'] = 'pool/napi_{}'.format(id_object)
+            data['key'] = 'napi_{}'.format(id_object)
 
         data = self._encapsulate(action, 'pool', 'collections', data)
 
@@ -87,7 +87,7 @@ class Kind(object):
                 return False
 
         if action != 'CREATE':
-            data['key'] = 'port/napi_{}'.format(id_object)
+            data['key'] = 'napi_{}'.format(id_object)
 
         data = self._encapsulate(action, 'port', 'edges', data)
 
@@ -136,7 +136,7 @@ class Kind(object):
                 return False
 
         if action != 'CREATE':
-            data['key'] = 'pool_comp_unit/napi_{}'.format(id_object)
+            data['key'] = 'napi_{}'.format(id_object)
 
         data = self._encapsulate(action, 'pool_comp_unit', 'edges', data)
 
