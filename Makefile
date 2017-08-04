@@ -27,7 +27,7 @@ help:
 clean:
 	@echo "Cleaning project ..."
 	@rm -rf build dist *.egg-info
-	@find . \( -name '*.pyc' -o -name '**/*.pyc' -o -name '*~' \) -delete
+	@find . \( -name '*.pyc' -o  -name '__pycache__' -o -name '**/*.pyc' -o -name '*~' \) -delete
 
 compile: clean
 	@echo "Compiling source code..."
@@ -48,4 +48,3 @@ publish: clean dist
 	twine upload dist/*
 	@git tag ${VERSION}
 	@git push --tags
-
