@@ -53,7 +53,7 @@ class TestKind(unittest2.TestCase):
             res = kind.pool(data[i])
             self.assertDictEqual(res, data_ret[i])
 
-    def test_driver_pool_comp_unit(self):
+    def test_pool_comp_unit(self):
         self._mock_pool_member_id()
 
         data = self._open_message()[9:12]
@@ -63,6 +63,50 @@ class TestKind(unittest2.TestCase):
             kind = Kind()
             res = kind.pool_comp_unit(data[i])
             self.assertDictEqual(res, data_ret[i])
+
+    def test_vip_non_existent(self):
+        napi_mock = patch(
+            'globomap_driver_napi.driver.NetworkAPI.get_vip').start()
+        napi_mock.return_value = []
+
+        kind = Kind()
+        data = self._open_message()[1]
+        res = kind.vip(data)
+
+        self.assertEqual(res, False)
+
+    def test_port_non_existent(self):
+        napi_mock = patch(
+            'globomap_driver_napi.driver.NetworkAPI.get_vip_by_portpool_id').start()
+        napi_mock.return_value = []
+
+        kind = Kind()
+        data = self._open_message()[4]
+        res = kind.port(data)
+
+        self.assertEqual(res, False)
+
+    def test_pool_non_existent(self):
+        napi_mock = patch(
+            'globomap_driver_napi.driver.NetworkAPI.get_pool').start()
+        napi_mock.return_value = []
+
+        kind = Kind()
+        data = self._open_message()[7]
+        res = kind.pool(data)
+
+        self.assertEqual(res, False)
+
+    def test_pool_comp_unit_non_existent(self):
+        napi_mock = patch(
+            'globomap_driver_napi.driver.NetworkAPI.get_pool_by_member_id').start()
+        napi_mock.return_value = []
+
+        kind = Kind()
+        data = self._open_message()[10]
+        res = kind.pool_comp_unit(data)
+
+        self.assertEqual(res, False)
 
     def _mock_vip(self):
         napi_mock = patch(
