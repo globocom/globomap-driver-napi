@@ -43,6 +43,4 @@ class RabbitMQClient(object):
                 body = json.loads(body)
                 yield body
             else:
-                self.channel.close()
-                self.connection.close()
                 break
