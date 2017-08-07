@@ -141,3 +141,6 @@ class Kind(object):
         data = self._encapsulate(action, 'pool_comp_unit', 'edges', data)
 
         return data
+
+    def network(self, message):
+        return False
