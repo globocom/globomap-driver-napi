@@ -11,13 +11,18 @@ class Kind(object):
 
         return action, id_object
 
-    def _encapsulate(self, action, collection, kind, data):
+    def _encapsulate(self, action, collection, kind, key, element):
         data = {
             'action': action,
             'collection': collection,
-            'type': kind,
-            'element': data,
+            'type': kind
         }
+
+        if action != 'DELETE':
+            data['element'] = element
+
+        if action != 'CREATE':
+            data['key'] = key
 
         return data
 
@@ -35,10 +40,9 @@ class Kind(object):
             else:
                 return False
 
-        if action != 'CREATE':
-            data['key'] = 'napi_{}'.format(id_object)
+        key = 'napi_{}'.format(id_object)
 
-        data = self._encapsulate(action, 'vip', 'collections', data)
+        data = self._encapsulate(action, 'vip', 'collections', key, data)
 
         return data
 
@@ -56,10 +60,9 @@ class Kind(object):
             else:
                 return False
 
-        if action != 'CREATE':
-            data['key'] = 'napi_{}'.format(id_object)
+        key = 'napi_{}'.format(id_object)
 
-        data = self._encapsulate(action, 'pool', 'collections', data)
+        data = self._encapsulate(action, 'pool', 'collections', key, data)
 
         return data
 
@@ -86,10 +89,9 @@ class Kind(object):
             if not data:
                 return False
 
-        if action != 'CREATE':
-            data['key'] = 'napi_{}'.format(id_object)
+        key = 'napi_{}'.format(id_object)
 
-        data = self._encapsulate(action, 'port', 'edges', data)
+        data = self._encapsulate(action, 'port', 'edges', key, data)
 
         return data
 
@@ -135,10 +137,9 @@ class Kind(object):
             if not data:
                 return False
 
-        if action != 'CREATE':
-            data['key'] = 'napi_{}'.format(id_object)
+        key = 'napi_{}'.format(id_object)
 
-        data = self._encapsulate(action, 'pool_comp_unit', 'edges', data)
+        data = self._encapsulate(action, 'pool_comp_unit', 'edges', key, data)
 
         return data
 

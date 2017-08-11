@@ -228,7 +228,7 @@ class TestMessage(unittest2.TestCase):
             }
         }
         if action != 'CREATE':
-            expected['element']['key'] = 'napi_1'
+            expected['key'] = 'napi_1'
 
         self.assertDictEqual(data, expected)
 
@@ -247,7 +247,7 @@ class TestMessage(unittest2.TestCase):
             }
         }
         if action != 'CREATE':
-            expected['element']['key'] = 'napi_1'
+            expected['key'] = 'napi_1'
 
         self.assertDictEqual(data, expected)
 
@@ -276,7 +276,7 @@ class TestMessage(unittest2.TestCase):
             }
         }
         if action != 'CREATE':
-            expected['element']['key'] = 'napi_1'
+            expected['key'] = 'napi_1'
 
         self.assertDictEqual(data, expected)
 
@@ -302,7 +302,7 @@ class TestMessage(unittest2.TestCase):
             }
         }
         if action != 'CREATE':
-            expected['element']['key'] = 'napi_1'
+            expected['key'] = 'napi_1'
 
         self.assertDictEqual(data, expected)
 
@@ -319,7 +319,7 @@ class TestMessage(unittest2.TestCase):
             }
         }
         if action != 'CREATE':
-            expected['element']['key'] = 'globomap_SERVERSPACE1'
+            expected['key'] = 'globomap_SERVERSPACE1'
 
         self.assertDictEqual(data, expected)
 
@@ -329,9 +329,7 @@ class TestMessage(unittest2.TestCase):
             'action': 'DELETE',
             'collection': collection,
             'type': type_coll,
-            'element': {
-                'key': '{}_{}'.format(provider, 1)
-            }
+            'key': '{}_{}'.format(provider, 1)
         }
         self.assertDictEqual(data, expected)
 
