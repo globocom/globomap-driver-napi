@@ -3,7 +3,7 @@
     "action": "CREATE",
     "collection": "pool",
     "element": {
-      "id": 1,
+      "id": "1",
       "name": "Pool_1",
       "properties": [
         {
@@ -45,7 +45,7 @@
     "collection": "pool_comp_unit",
     "element": {
       "from": "pool/napi_1",
-      "id": 1,
+      "id": "1",
       "name": "10.0.0.2",
       "properties": [
         {
@@ -77,21 +77,10 @@
   },
   {
     "action": "CREATE",
-    "collection": "comp_unit",
-    "element": {
-      "id": "SERVERSPACE1",
-      "name": "SERVERSPACE1",
-      "provider": "globomap",
-      "timestamp": 1501448160
-    },
-    "type": "collections"
-  },
-  {
-    "action": "CREATE",
     "collection": "pool_comp_unit",
     "element": {
       "from": "pool/napi_1",
-      "id": 2,
+      "id": "2",
       "name": "10.1.0.2",
       "properties": [
         {
@@ -120,16 +109,5 @@
       "to": "comp_unit/globomap_SERVERSPACE2"
     },
     "type": "edges"
-  },
-  {
-    "action": "CREATE",
-    "collection": "comp_unit",
-    "element": {
-      "id": "SERVERSPACE2",
-      "name": "SERVERSPACE2",
-      "provider": "globomap",
-      "timestamp": 1501448160
-    },
-    "type": "collections"
   }
 ]

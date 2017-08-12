@@ -14,3 +14,7 @@ def dump_dict(received, expected):
     received_data = json.dumps(received, sort_keys=True)
 
     return received_data, expected_data
+
+
+def as_json(data):
+    return json.dumps(data)

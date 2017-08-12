@@ -9,7 +9,7 @@
     "action": "CREATE",
     "collection": "vip",
     "element": {
-      "id": 1,
+      "id": "1",
       "name": "vip_teste",
       "properties": [
         {
@@ -34,7 +34,7 @@
     "action": "UPDATE",
     "collection": "vip",
     "element": {
-      "id": 1,
+      "id": "1",
       "name": "vip_teste",
       "properties": [
         {
@@ -67,7 +67,7 @@
     "collection": "port",
     "element": {
       "from": "vip/napi_1",
-      "id": 1,
+      "id": "1",
       "name": "8080",
       "provider": "napi",
       "timestamp": 1501264297,
@@ -80,7 +80,7 @@
     "collection": "port",
     "element": {
       "from": "vip/napi_1",
-      "id": 1,
+      "id": "1",
       "name": "8080",
       "provider": "napi",
       "timestamp": 1501264297,
@@ -99,7 +99,7 @@
     "action": "CREATE",
     "collection": "pool",
     "element": {
-      "id": 1,
+      "id": "1",
       "name": "Pool_1",
       "properties": [
         {
@@ -140,7 +140,7 @@
     "action": "UPDATE",
     "collection": "pool",
     "element": {
-      "id": 1,
+      "id": "1",
       "name": "Pool_1",
       "properties": [
         {
@@ -189,7 +189,7 @@
     "collection": "pool_comp_unit",
     "element": {
       "from": "pool/napi_1",
-      "id": 1,
+      "id": "1",
       "name": "10.0.0.2",
       "properties": [
         {
@@ -224,7 +224,7 @@
     "collection": "pool_comp_unit",
     "element": {
       "from": "pool/napi_1",
-      "id": 1,
+      "id": "1",
       "name": "10.0.0.2",
       "properties": [
         {
@@ -265,7 +265,7 @@
     "action": "CREATE",
     "collection": "comp_unit",
     "element": {
-      "id": 1,
+      "id": "1",
       "name": "SERVERSPACE1",
       "provider": "globomap",
       "timestamp": 1501264297
@@ -276,7 +276,7 @@
     "action": "UPDATE",
     "collection": "comp_unit",
     "element": {
-      "id": 1,
+      "id": "1",
       "name": "SERVERSPACE1",
       "provider": "globomap",
       "timestamp": 1501264297

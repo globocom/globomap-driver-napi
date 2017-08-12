@@ -33,7 +33,7 @@ class TestDataSpec(unittest2.TestCase):
         vip = open_json('tests/json/data_spec/vip.json')
         data = DataSpec().vip(vip)
         expected = {
-            'id': 1,
+            'id': '1',
             'name': 'vip_teste',
             'provider': 'napi',
             'properties': [
@@ -51,7 +51,7 @@ class TestDataSpec(unittest2.TestCase):
         expected = {
             'from': 'vip/napi_1',
             'to': 'pool/napi_1',
-            'id': 1,
+            'id': '1',
             'name': '8080',
             'provider': 'napi'
         }
@@ -61,7 +61,7 @@ class TestDataSpec(unittest2.TestCase):
         pool = open_json('tests/json/data_spec/pool.json')
         data = DataSpec().pool(pool)
         expected = {
-            'id': 1,
+            'id': '1',
             'name': 'Pool_1',
             'provider': 'napi',
             'properties': [
@@ -104,7 +104,7 @@ class TestDataSpec(unittest2.TestCase):
         expected = {
             'from': 'pool/napi_1',
             'to': 'comp_unit/globomap_SERVERSPACE1',
-            'id': 1,
+            'id': '1',
             'name': '10.0.0.2',
             'provider': 'napi',
             'properties': [

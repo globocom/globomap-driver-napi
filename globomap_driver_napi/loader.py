@@ -1,14 +1,22 @@
+import json
+import logging
 from time import time
 
-from .data_spec import DataSpec
-from .networkapi import NetworkAPI
+import requests
+
+from globomap_driver_napi import settings
+from globomap_driver_napi.data_spec import DataSpec
+from globomap_driver_napi.networkapi import NetworkAPI
 
 
 class Loader(object):
 
+    log = logging.getLogger(__name__)
+
     def __init__(self):
         self.search = {'asorting_cols': ['-id']}
         self.client = NetworkAPI().client
+        self.url = settings.GLOBOMAP_LOADER_ENDPOINT
 
     def _construct(self, provider, collection, type_coll, content):
         new_time = int(time())
@@ -21,6 +29,16 @@ class Loader(object):
             'element': content
         }
         return data
+
+    def send(self, data):
+
+        response = requests.post(
+            '{}/v1/updates'.format(self.url),
+            data=json.dumps(data),
+            headers={'Content-Type': 'application/json'}
+        )
+        if response.status_code != 200:
+            self.log.error('Message dont sent %s', data)
 
     def vips(self):
         """Load vips"""
@@ -70,11 +88,11 @@ class Loader(object):
                         'napi', 'pool_comp_unit', 'edges', content)
                     data_list.append(data)
 
-                    eqpt = member['equipment']
-                    content = DataSpec().comp_unit(eqpt)
-                    data = self._construct(
-                        'globomap', 'comp_unit', 'collections', content)
-                    data_list.append(data)
+                    # eqpt = member['equipment']
+                    # content = DataSpec().comp_unit(eqpt)
+                    # data = self._construct(
+                    #     'globomap', 'comp_unit', 'collections', content)
+                    # data_list.append(data)
 
             res = data_list
             data_list = []
@@ -83,7 +101,7 @@ class Loader(object):
     def _paging(self, obj, key, next_search):
 
         while True:
-            objs = obj.search(search=next_search)
+            objs = obj.search(search=next_search, kind='details')
             if objs[key]:
                 next_search = objs['next_search']
                 yield objs[key]
