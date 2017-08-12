@@ -1,7 +1,9 @@
 from copy import deepcopy
 
 import unittest2
+from mock import MagicMock
 from mock import patch
+from util import as_json
 from util import open_json
 
 from globomap_driver_napi.loader import Loader
@@ -14,6 +16,28 @@ class TestLoader(unittest2.TestCase):
     def setUp(self):
         time_mock = patch('globomap_driver_napi.loader.time').start()
         time_mock.return_value = 1501448160
+
+    def test_send(self):
+        self._mock_settings()
+
+        payload = [
+            {
+                'action': 'DELETE',
+                'collection': 'vip',
+                'key': 'napi_1',
+                'type': 'collections'
+            }
+        ]
+        requests_mock = self._mock_request(payload, 200)
+
+        inst_client = Loader()
+        inst_client.send(payload)
+
+        requests_mock.assert_called_once_with(
+            'http://localhost:8080/v1/updates',
+            data=as_json(payload),
+            headers={'Content-Type': 'application/json'}
+        )
 
     def test_vip_2_pages(self):
         requests_mock = self._mock_vip()
@@ -114,6 +138,18 @@ class TestLoader(unittest2.TestCase):
     def _mock_vip(self):
         requests_mock = patch(
             'networkapiclient.ClientFactory.ApiVipRequest.search').start()
+        return requests_mock
+
+    def _mock_settings(self):
+        mock_settings = patch('globomap_driver_napi.loader.settings').start()
+        mock_settings.GLOBOMAP_LOADER_ENDPOINT = 'http://localhost:8080'
+
+    def _mock_request(self, content, status=200):
+        requests_mock = patch(
+            'globomap_driver_napi.loader.requests.post').start()
+        response_mock = MagicMock(status_code=status,
+                                  content=as_json(content))
+        requests_mock.return_value = response_mock
         return requests_mock
 
 

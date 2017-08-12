@@ -221,7 +221,7 @@ class TestMessage(unittest2.TestCase):
                         'value': 'FIN_VIP-ClientTxt-VIP-EnvP44Txt-VIP'
                     }
                 ],
-                'id': 1,
+                'id': '1',
                 'name': u'vip_teste',
                 'provider': 'napi',
                 'timestamp': 1501264297
@@ -238,7 +238,7 @@ class TestMessage(unittest2.TestCase):
             'collection': 'port',
             'type': 'edges',
             'element': {
-                'id': 1,
+                'id': '1',
                 'name': '8080',
                 'provider': 'napi',
                 'timestamp': 1501264297,
@@ -257,7 +257,7 @@ class TestMessage(unittest2.TestCase):
             'collection': 'pool',
             'type': 'collections',
             'element': {
-                'id': 1,
+                'id': '1',
                 'name': u'Pool_1',
                 'timestamp': 1501264297,
                 'provider': 'napi',
@@ -288,7 +288,7 @@ class TestMessage(unittest2.TestCase):
             'element': {
                 'to': 'comp_unit/globomap_SERVERSPACE1',
                 'from': 'pool/napi_1',
-                'id': 1,
+                'id': '1',
                 'name': u'10.0.0.2',
                 'properties': [
                     {'key': 'ip', 'value': u'10.0.0.2'},

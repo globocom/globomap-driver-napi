@@ -3,7 +3,7 @@
     "action": "CREATE",
     "collection": "vip",
     "element": {
-      "id": 1,
+      "id": "1",
       "name": "vip_teste",
       "properties": [
         {
@@ -29,7 +29,7 @@
     "collection": "port",
     "element": {
       "from": "vip/napi_1",
-      "id": 1,
+      "id": "1",
       "name": "8080",
       "provider": "napi",
       "timestamp": 1501448160,

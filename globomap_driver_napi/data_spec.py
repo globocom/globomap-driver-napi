@@ -17,7 +17,7 @@ class DataSpec(object):
                                    envvip['cliente_txt'],
                                    envvip['ambiente_p44_txt'])
         data = {
-            'id': vip['id'],
+            'id': str(vip['id']),
             'name': vip['name'],
             'provider': 'napi',
             'properties': [
@@ -39,7 +39,7 @@ class DataSpec(object):
         data = {
             'from': 'vip/napi_{}'.format(vip_id),
             'to': 'pool/napi_{}'.format(port['server_pool']['id']),
-            'id': port['id'],
+            'id': str(port['id']),
             'name': str(name),
             'provider': 'napi'
         }
@@ -51,7 +51,7 @@ class DataSpec(object):
 
         self._validate(pool)
         data = {
-            'id': pool['id'],
+            'id': str(pool['id']),
             'name': pool['identifier'],
             'provider': 'napi',
             'properties': [
@@ -95,7 +95,7 @@ class DataSpec(object):
         data = {
             'from': 'pool/napi_{}'.format(pool_id),
             'to': 'comp_unit/globomap_{}'.format(member['equipment']['name']),
-            'id': member['id'],
+            'id': str(member['id']),
             'name': member['identifier'],
             'provider': 'napi',
             'properties': [
@@ -114,7 +114,7 @@ class DataSpec(object):
 
         self._validate(compunit)
         data = {
-            'id': compunit['name'],
+            'id': str(compunit['name']),
             'name': compunit['name'],
             'provider': 'globomap'
         }
