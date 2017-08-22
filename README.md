@@ -1,5 +1,5 @@
 # globomap-driver-napi
-Python library for globomap-driver to get data from GloboNetworkAPI
+Python library for globomap-core-loader to get data from GloboNetworkAPI
 
 ## Plugin environment variables configuration
 All of the environment variables below must be set for the plugin to work properly.
