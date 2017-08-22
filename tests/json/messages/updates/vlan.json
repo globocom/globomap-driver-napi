@@ -1,0 +1,65 @@
+[
+  {
+    "action": "CREATE",
+    "collection": "vlan",
+    "element": {
+      "id": "27678",
+      "name": "Vlan Space 2",
+      "properties": [
+        {
+          "description": "Number of VLAN",
+          "key": "num_vlan",
+          "value": 312
+        },
+        {
+          "description": "Description",
+          "key": "description",
+          "value": null
+        },
+        {
+          "description": "Status",
+          "key": "active",
+          "value": false
+        }
+      ],
+      "provider": "napi",
+      "timestamp": 1503286339
+    },
+    "type": "collections"
+  },
+  {
+    "action": "UPDATE",
+    "collection": "vlan",
+    "element": {
+      "id": "27678",
+      "name": "Vlan Space 2",
+      "properties": [
+        {
+          "description": "Number of VLAN",
+          "key": "num_vlan",
+          "value": 312
+        },
+        {
+          "description": "Description",
+          "key": "description",
+          "value": null
+        },
+        {
+          "description": "Status",
+          "key": "active",
+          "value": false
+        }
+      ],
+      "provider": "napi",
+      "timestamp": 1503266033
+    },
+    "key": "napi_27678",
+    "type": "collections"
+  },
+  {
+    "action": "DELETE",
+    "collection": "vlan",
+    "key": "napi_27678",
+    "type": "collections"
+  }
+]

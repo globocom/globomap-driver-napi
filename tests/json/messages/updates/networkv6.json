@@ -1,0 +1,55 @@
+[
+  {
+    "action": "CREATE",
+    "collection": "network",
+    "element": {
+      "id": "v6_328",
+      "name": "fdbe:bebe:bebe:1200:0000:0000:0000:0000/64",
+      "properties": [
+        {
+          "description": "Network Status",
+          "key": "active",
+          "value": false
+        },
+        {
+          "description": "Network Type",
+          "key": "network_type",
+          "value": "Ponto a ponto"
+        }
+      ],
+      "provider": "napi",
+      "timestamp": 1503343905
+    },
+    "type": "collections"
+  },
+  {
+    "action": "UPDATE",
+    "collection": "network",
+    "element": {
+      "id": "v6_328",
+      "name": "fdbe:bebe:bebe:1200:0000:0000:0000:0000/64",
+      "properties": [
+        {
+          "description": "Network Status",
+          "key": "active",
+          "value": false
+        },
+        {
+          "description": "Network Type",
+          "key": "network_type",
+          "value": "Ponto a ponto"
+        }
+      ],
+      "provider": "napi",
+      "timestamp": 1503343951
+    },
+    "key": "napi_v6_328",
+    "type": "collections"
+  },
+  {
+    "action": "DELETE",
+    "collection": "network",
+    "key": "napi_v6_328",
+    "type": "collections"
+  }
+]

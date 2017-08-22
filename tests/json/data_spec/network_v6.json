@@ -1,0 +1,14 @@
+{
+  "active": false,
+  "id": 1,
+  "network_type": {
+    "id": 2,
+    "tipo_rede": "Point-to-Point"
+  },
+  "networkv6": "bebe:bebe:bebe:0000:0000:0000:0000:0000/64",
+  "vlan": {
+    "id": 3,
+    "name": "Vlan 31",
+    "num_vlan": 31
+  }
+}

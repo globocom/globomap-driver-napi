@@ -1,0 +1,65 @@
+[
+  {
+    "action": "CREATE",
+    "collection": "vip",
+    "element": {
+      "id": "13622",
+      "name": "vip_teste",
+      "properties": [
+        {
+          "description": "Created id Load Balancer",
+          "key": "created",
+          "value": false
+        },
+        {
+          "description": "IP",
+          "key": "ip",
+          "value": "10.16.0.2"
+        },
+        {
+          "description": "Environment of VIP",
+          "key": "environmentvip",
+          "value": "FIN_VIP-ClientTxt-VIP-EnvP44Txt-VIP"
+        }
+      ],
+      "provider": "napi",
+      "timestamp": 1503288596
+    },
+    "type": "collections"
+  },
+  {
+    "action": "UPDATE",
+    "collection": "vip",
+    "element": {
+      "id": "13622",
+      "name": "vip_teste",
+      "properties": [
+        {
+          "description": "Created id Load Balancer",
+          "key": "created",
+          "value": false
+        },
+        {
+          "description": "IP",
+          "key": "ip",
+          "value": "10.16.0.2"
+        },
+        {
+          "description": "Environment of VIP",
+          "key": "environmentvip",
+          "value": "FIN_VIP-ClientTxt-VIP-EnvP44Txt-VIP"
+        }
+      ],
+      "provider": "napi",
+      "timestamp": 1503288596
+    },
+    "key": "napi_13622",
+    "type": "collections"
+  },
+  {
+    "action": "DELETE",
+    "collection": "vip",
+    "key": "napi_13622",
+    "type": "collections"
+  }
+]

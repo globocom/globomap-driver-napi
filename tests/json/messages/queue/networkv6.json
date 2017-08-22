@@ -1,0 +1,149 @@
+[
+  {
+    "action": "Cadastrar",
+    "data": {
+      "id_object": 328,
+      "new_value": {
+        "active": false,
+        "ambient_vip": {
+          "id": 13,
+          "value": "13"
+        },
+        "block": 64,
+        "block1": "fdbe",
+        "block2": "bebe",
+        "block3": "bebe",
+        "block4": "1200",
+        "block5": "0000",
+        "block6": "0000",
+        "block7": "0000",
+        "block8": "0000",
+        "id": 328,
+        "mask1": "ffff",
+        "mask2": "ffff",
+        "mask3": "ffff",
+        "mask4": "ffff",
+        "mask5": "0000",
+        "mask6": "0000",
+        "mask7": "0000",
+        "mask8": "0000",
+        "network_type": {
+          "id": 2,
+          "value": "2"
+        },
+        "vlan": {
+          "id": 10,
+          "value": "Vlan-Test-Pool"
+        }
+      },
+      "old_value": {
+        "active": null,
+        "ambient_vip": null,
+        "block": null,
+        "block1": null,
+        "block2": null,
+        "block3": null,
+        "block4": null,
+        "block5": null,
+        "block6": null,
+        "block7": null,
+        "block8": null,
+        "id": null,
+        "mask1": null,
+        "mask2": null,
+        "mask3": null,
+        "mask4": null,
+        "mask5": null,
+        "mask6": null,
+        "mask7": null,
+        "mask8": null,
+        "network_type": null,
+        "vlan": null
+      },
+      "user": 1
+    },
+    "kind": "NetworkIPv6",
+    "timestamp": 1503343905
+  },
+  {
+    "action": "Alterar",
+    "data": {
+      "id_object": 328,
+      "new_value": {
+        "cluster_unit": "test"
+      },
+      "old_value": {
+        "cluster_unit": null
+      },
+      "user": 1
+    },
+    "kind": "NetworkIPv6",
+    "timestamp": 1503343951
+  },
+  {
+    "action": "Remover",
+    "data": {
+      "id_object": 328,
+      "new_value": {
+        "active": false,
+        "ambient_vip": {
+          "id": 13,
+          "value": "13"
+        },
+        "block": 64,
+        "block1": "fdbe",
+        "block2": "bebe",
+        "block3": "bebe",
+        "block4": "1200",
+        "block5": "0000",
+        "block6": "0000",
+        "block7": "0000",
+        "block8": "0000",
+        "id": 328,
+        "mask1": "ffff",
+        "mask2": "ffff",
+        "mask3": "ffff",
+        "mask4": "ffff",
+        "mask5": "0000",
+        "mask6": "0000",
+        "mask7": "0000",
+        "mask8": "0000",
+        "network_type": {
+          "id": 2,
+          "value": "2"
+        },
+        "vlan": {
+          "id": 10,
+          "value": "Vlan-Test-Pool"
+        }
+      },
+      "old_value": {
+        "active": null,
+        "ambient_vip": null,
+        "block": null,
+        "block1": null,
+        "block2": null,
+        "block3": null,
+        "block4": null,
+        "block5": null,
+        "block6": null,
+        "block7": null,
+        "block8": null,
+        "id": null,
+        "mask1": null,
+        "mask2": null,
+        "mask3": null,
+        "mask4": null,
+        "mask5": null,
+        "mask6": null,
+        "mask7": null,
+        "mask8": null,
+        "network_type": null,
+        "vlan": null
+      },
+      "user": 1
+    },
+    "kind": "NetworkIPv6",
+    "timestamp": 1503345905
+  }
+]

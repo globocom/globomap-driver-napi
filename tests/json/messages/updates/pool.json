@@ -1,0 +1,105 @@
+[
+  {
+    "action": "CREATE",
+    "collection": "pool",
+    "element": {
+      "id": "17466",
+      "name": "POOL1",
+      "properties": [
+        {
+          "description": "Default Port of Pool",
+          "key": "default_port",
+          "value": 8080
+        },
+        {
+          "description": "Environment of Pool",
+          "key": "environment",
+          "value": "DIVISAO_DC_POOL - AMBIENTE_LOGICO_POOL - GRUPO_L3_POOL"
+        },
+        {
+          "description": "Action On Service Down",
+          "key": "servicedownaction",
+          "value": "none"
+        },
+        {
+          "description": "Healthcheck Type",
+          "key": "healthcheck",
+          "value": "TCP"
+        },
+        {
+          "description": "Method of Load Balancing",
+          "key": "lb_method",
+          "value": "least-conn"
+        },
+        {
+          "description": "Limit of Connections",
+          "key": "default_limit",
+          "value": 100
+        },
+        {
+          "description": "Created in Load Balancer",
+          "key": "pool_created",
+          "value": false
+        }
+      ],
+      "provider": "napi",
+      "timestamp": 1501264297
+    },
+    "type": "collections"
+  },
+  {
+    "action": "UPDATE",
+    "collection": "pool",
+    "element": {
+      "id": "17466",
+      "name": "POOL1",
+      "properties": [
+        {
+          "description": "Default Port of Pool",
+          "key": "default_port",
+          "value": 8080
+        },
+        {
+          "description": "Environment of Pool",
+          "key": "environment",
+          "value": "DIVISAO_DC_POOL - AMBIENTE_LOGICO_POOL - GRUPO_L3_POOL"
+        },
+        {
+          "description": "Action On Service Down",
+          "key": "servicedownaction",
+          "value": "none"
+        },
+        {
+          "description": "Healthcheck Type",
+          "key": "healthcheck",
+          "value": "TCP"
+        },
+        {
+          "description": "Method of Load Balancing",
+          "key": "lb_method",
+          "value": "least-conn"
+        },
+        {
+          "description": "Limit of Connections",
+          "key": "default_limit",
+          "value": 100
+        },
+        {
+          "description": "Created in Load Balancer",
+          "key": "pool_created",
+          "value": false
+        }
+      ],
+      "provider": "napi",
+      "timestamp": 1501264297
+    },
+    "key": "napi_17466",
+    "type": "collections"
+  },
+  {
+    "action": "DELETE",
+    "collection": "pool",
+    "key": "napi_17466",
+    "type": "collections"
+  }
+]

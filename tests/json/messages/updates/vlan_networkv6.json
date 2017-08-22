@@ -1,0 +1,35 @@
+[
+  {
+    "action": "CREATE",
+    "collection": "vlan_network",
+    "element": {
+      "from": "vlan/napi_10",
+      "id": "v6_328",
+      "name": "1 - fdbe:bebe:bebe:1200:0000:0000:0000:0000/64",
+      "provider": "napi",
+      "timestamp": 1503343905,
+      "to": "network/napi_v6_328"
+    },
+    "type": "edges"
+  },
+  {
+    "action": "UPDATE",
+    "collection": "vlan_network",
+    "element": {
+      "from": "vlan/napi_10",
+      "id": "v6_328",
+      "name": "1 - fdbe:bebe:bebe:1200:0000:0000:0000:0000/64",
+      "provider": "napi",
+      "timestamp": 1503343951,
+      "to": "network/napi_v6_328"
+    },
+    "key": "napi_v6_328",
+    "type": "edges"
+  },
+  {
+    "action": "DELETE",
+    "collection": "vlan_network",
+    "key": "napi_v6_328",
+    "type": "edges"
+  }
+]

@@ -1,0 +1,71 @@
+[
+  {
+    "action": "CREATE",
+    "collection": "comp_unit",
+    "element": {
+      "id": "eqpt1",
+      "name": "",
+      "properties": [
+        {
+          "description": "Maintenance",
+          "key": "maintenance",
+          "value": false
+        },
+        {
+          "description": "Equipment Type",
+          "key": "equipment_type",
+          "value": "Balanceador"
+        },
+        {
+          "description": "IPs",
+          "key": "ips",
+          "value": [
+            "10.16.0.2",
+            "fdbe:bebe:bebe:11c0:0000:0000:0000:0005"
+          ]
+        }
+      ],
+      "provider": "globomap",
+      "timestamp": 1503341577
+    },
+    "type": "collections"
+  },
+  {
+    "action": "UPDATE",
+    "collection": "comp_unit",
+    "element": {
+      "id": "eqpt1",
+      "name": "",
+      "properties": [
+        {
+          "description": "Maintenance",
+          "key": "maintenance",
+          "value": false
+        },
+        {
+          "description": "Equipment Type",
+          "key": "equipment_type",
+          "value": "Balanceador"
+        },
+        {
+          "description": "IPs",
+          "key": "ips",
+          "value": [
+            "10.16.0.2",
+            "fdbe:bebe:bebe:11c0:0000:0000:0000:0005"
+          ]
+        }
+      ],
+      "provider": "globomap",
+      "timestamp": 1503341617
+    },
+    "key": "globomap_eqpt1",
+    "type": "collections"
+  },
+  {
+    "action": "DELETE",
+    "collection": "comp_unit",
+    "key": "globomap_eqpt1",
+    "type": "collections"
+  }
+]

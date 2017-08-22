@@ -1,0 +1,18 @@
+{
+  "networks": [
+    {
+      "active": false,
+      "id": 26397,
+      "network_type": {
+        "id": 2,
+        "tipo_rede": "Ponto a ponto"
+      },
+      "networkv4": "10.237.128.0/28",
+      "vlan": {
+        "id": 10,
+        "name": "Vlan-Test-Pool",
+        "num_vlan": 1
+      }
+    }
+  ]
+}
