@@ -1,0 +1,30 @@
+{
+  "equipments": [
+    {
+      "equipment_type": {
+        "equipment_type": "Balanceador",
+        "id": 5
+      },
+      "id": 65152,
+      "ipv4": [
+        {
+          "description": "IP of VIP 1",
+          "id": 20,
+          "ip_formated": "10.16.0.2",
+          "networkipv4": 8
+        }
+      ],
+      "ipv6": [
+        {
+          "description": "IPv6 of Real P5",
+          "id": 5,
+          "ip_formated": "fdbe:bebe:bebe:11c0:0000:0000:0000:0005",
+          "networkipv6": 1
+        }
+      ],
+      "maintenance": false,
+      "model": 1,
+      "name": "EQPT1"
+    }
+  ]
+}

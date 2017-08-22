@@ -1,0 +1,35 @@
+[
+  {
+    "action": "CREATE",
+    "collection": "port",
+    "element": {
+      "from": "vip/napi_2",
+      "id": "2",
+      "name": "8080",
+      "provider": "napi",
+      "timestamp": 1503289376,
+      "to": "pool/napi_17466"
+    },
+    "type": "edges"
+  },
+  {
+    "action": "UPDATE",
+    "collection": "port",
+    "element": {
+      "from": "vip/napi_2",
+      "id": "2",
+      "name": "8080",
+      "provider": "napi",
+      "timestamp": 1503288596,
+      "to": "pool/napi_17466"
+    },
+    "key": "napi_2",
+    "type": "edges"
+  },
+  {
+    "action": "DELETE",
+    "collection": "port",
+    "key": "napi_2",
+    "type": "edges"
+  }
+]

@@ -1,0 +1,45 @@
+[
+  {
+    "action": "CREATE",
+    "collection": "environment",
+    "element": {
+      "id": "597",
+      "name": "DIVISAO_DC_SPACE_1 - AMBIENTE_LOGICO_SPACE_2 - GRUPO_L3_SPACE_2",
+      "properties": [
+        {
+          "description": "Default VRF",
+          "key": "default_vrf",
+          "value": "default"
+        }
+      ],
+      "provider": "napi",
+      "timestamp": 1503341310
+    },
+    "type": "collections"
+  },
+  {
+    "action": "UPDATE",
+    "collection": "environment",
+    "element": {
+      "id": "597",
+      "name": "DIVISAO_DC_SPACE_1 - AMBIENTE_LOGICO_SPACE_2 - GRUPO_L3_SPACE_2",
+      "properties": [
+        {
+          "description": "Default VRF",
+          "key": "default_vrf",
+          "value": "default"
+        }
+      ],
+      "provider": "napi",
+      "timestamp": 1503341408
+    },
+    "key": "napi_597",
+    "type": "collections"
+  },
+  {
+    "action": "DELETE",
+    "collection": "environment",
+    "key": "napi_597",
+    "type": "collections"
+  }
+]

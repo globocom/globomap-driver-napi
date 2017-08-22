@@ -1,0 +1,97 @@
+[
+  {
+    "action": "Cadastrar",
+    "data": {
+      "id_object": 65152,
+      "new_value": {
+        "equipamento_ilo": [],
+        "equipamento_sw1": [],
+        "equipamento_sw2": [],
+        "grupos": [],
+        "id": 65152,
+        "maintenance": false,
+        "modelo": {
+          "id": 1,
+          "value": "MODELO"
+        },
+        "nome": "EQPT1",
+        "tipo_equipamento": {
+          "id": 5,
+          "value": "5"
+        }
+      },
+      "old_value": {
+        "equipamento_ilo": null,
+        "equipamento_sw1": null,
+        "equipamento_sw2": null,
+        "grupos": null,
+        "id": null,
+        "maintenance": null,
+        "modelo": null,
+        "nome": null,
+        "tipo_equipamento": null
+      },
+      "user": 1
+    },
+    "kind": "Equipamento",
+    "timestamp": 1503341577
+  },
+  {
+    "action": "Alterar",
+    "data": {
+      "id_object": 65152,
+      "new_value": {
+        "tipo_equipamento": {
+          "id": 3,
+          "value": "3"
+        }
+      },
+      "old_value": {
+        "tipo_equipamento": {
+          "id": 5,
+          "value": "5"
+        }
+      },
+      "user": 1
+    },
+    "kind": "Equipamento",
+    "timestamp": 1503341617
+  },
+  {
+    "action": "Remover",
+    "data": {
+      "id_object": 65152,
+      "new_value": {
+        "equipamento_ilo": [],
+        "equipamento_sw1": [],
+        "equipamento_sw2": [],
+        "grupos": [],
+        "id": 65152,
+        "maintenance": false,
+        "modelo": {
+          "id": 1,
+          "value": "MODELO"
+        },
+        "nome": "EQPT1",
+        "tipo_equipamento": {
+          "id": 5,
+          "value": "5"
+        }
+      },
+      "old_value": {
+        "equipamento_ilo": null,
+        "equipamento_sw1": null,
+        "equipamento_sw2": null,
+        "grupos": null,
+        "id": null,
+        "maintenance": null,
+        "modelo": null,
+        "nome": null,
+        "tipo_equipamento": null
+      },
+      "user": 1
+    },
+    "kind": "Equipamento",
+    "timestamp": 1503286881
+  }
+]

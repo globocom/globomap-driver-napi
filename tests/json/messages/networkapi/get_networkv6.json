@@ -1,0 +1,18 @@
+{
+  "networks": [
+    {
+      "active": false,
+      "id": 328,
+      "network_type": {
+        "id": 2,
+        "tipo_rede": "Ponto a ponto"
+      },
+      "networkv6": "fdbe:bebe:bebe:1200:0000:0000:0000:0000/64",
+      "vlan": {
+        "id": 10,
+        "name": "Vlan-Test-Pool",
+        "num_vlan": 1
+      }
+    }
+  ]
+}

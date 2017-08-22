@@ -1,0 +1,22 @@
+{
+  "vlans": [
+    {
+      "acl_draft": null,
+      "acl_draft_v6": null,
+      "acl_file_name": null,
+      "acl_file_name_v6": null,
+      "acl_valida": false,
+      "acl_valida_v6": false,
+      "active": false,
+      "description": null,
+      "environment": {
+        "id": 13,
+        "name": "DIVISAO_DC_SPACE_2 - AMBIENTE_LOGICO_SPACE_2 - GRUPO_L3_SPACE_2"
+      },
+      "id": 27678,
+      "name": "Vlan Space 2",
+      "num_vlan": 312,
+      "vrf": null
+    }
+  ]
+}

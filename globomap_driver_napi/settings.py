@@ -22,6 +22,17 @@ MAP_FUNC = {
             'type': 'collections'
         }
     ],
+    # TODO: Method vip_port to changes in port
+    # 'VipRequestPort': [
+    #     {
+    #         'name': 'vip',
+    #         'package': 'globomap_driver_napi.kind',
+    #         'class': 'Kind',
+    #         'method': 'vip_port',
+    #         'provider': 'napi',
+    #         'type': 'collections'
+    #     }
+    # ],
     'VipRequestPortPool': [
         {
             'name': 'port',
@@ -62,14 +73,42 @@ MAP_FUNC = {
             'type': 'collections'
         }
     ],
+    'IpEquipamento': [
+        {
+            'name': 'network_comp_unit',
+            'package': 'globomap_driver_napi.kind',
+            'class': 'Kind',
+            'method': 'network_v4_comp_unit',
+            'provider': 'napi',
+            'type': 'edges'
+        }
+    ],
+    'Ipv6Equipament': [
+        {
+            'name': 'network_comp_unit',
+            'package': 'globomap_driver_napi.kind',
+            'class': 'Kind',
+            'method': 'network_v6_comp_unit',
+            'provider': 'napi',
+            'type': 'edges'
+        }
+    ],
     'NetworkIPv4': [
         {
             'name': 'network',
             'package': 'globomap_driver_napi.kind',
             'class': 'Kind',
-            'method': 'network',
+            'method': 'network_v4',
             'provider': 'napi',
             'type': 'collections'
+        },
+        {
+            'name': 'vlan_network',
+            'package': 'globomap_driver_napi.kind',
+            'class': 'Kind',
+            'method': 'vlan_network_v4',
+            'provider': 'napi',
+            'type': 'edges'
         }
     ],
     'NetworkIPv6': [
@@ -77,9 +116,53 @@ MAP_FUNC = {
             'name': 'network',
             'package': 'globomap_driver_napi.kind',
             'class': 'Kind',
-            'method': 'network',
+            'method': 'network_v6',
             'provider': 'napi',
             'type': 'collections'
+        },
+        {
+            'name': 'vlan_network',
+            'package': 'globomap_driver_napi.kind',
+            'class': 'Kind',
+            'method': 'vlan_network_v6',
+            'provider': 'napi',
+            'type': 'edges'
+        }
+    ],
+    'Vlan': [
+        {
+            'name': 'vlan',
+            'package': 'globomap_driver_napi.kind',
+            'class': 'Kind',
+            'method': 'vlan',
+            'provider': 'napi',
+            'type': 'collections'
+        },
+        {
+            'name': 'environment_vlan',
+            'package': 'globomap_driver_napi.kind',
+            'class': 'Kind',
+            'method': 'environment_vlan',
+            'provider': 'napi',
+            'type': 'edges'
+        }
+    ],
+    'Environment': [
+        {
+            'name': 'environment',
+            'package': 'globomap_driver_napi.kind',
+            'class': 'Kind',
+            'method': 'environment',
+            'provider': 'napi',
+            'type': 'collections'
+        },
+        {
+            'name': 'father_environment',
+            'package': 'globomap_driver_napi.kind',
+            'class': 'Kind',
+            'method': 'father_environment',
+            'provider': 'napi',
+            'type': 'edges'
         }
     ],
 }

@@ -1,0 +1,31 @@
+{
+  "environments": [
+    {
+      "acl_path": "NULL",
+      "ambiente_logico": 18,
+      "default_vrf": {
+        "id": 1,
+        "internal_name": "default",
+        "vrf": "default"
+      },
+      "divisao_dc": 27,
+      "father_environment": {
+        "father_environment": null,
+        "id": 2,
+        "name": "DIVISAO_DC_BLUE - AMBIENTE_LOGICO_BLUE - GRUPO_L3_BLUE"
+      },
+      "filter": 1,
+      "grupo_l3": 38,
+      "id": 597,
+      "ipv4_template": null,
+      "ipv6_template": null,
+      "link": "http://globonetworkapi.readthedocs.org/en/latest/definitions.html#environment",
+      "max_num_vlan_1": 500,
+      "max_num_vlan_2": 1000,
+      "min_num_vlan_1": 1,
+      "min_num_vlan_2": 501,
+      "name": "DIVISAO_DC_SPACE_1 - AMBIENTE_LOGICO_SPACE_2 - GRUPO_L3_SPACE_2",
+      "sdn_controllers": null
+    }
+  ]
+}

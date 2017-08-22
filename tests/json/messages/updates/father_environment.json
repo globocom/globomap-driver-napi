@@ -1,0 +1,35 @@
+[
+  {
+    "action": "CREATE",
+    "collection": "father_environment",
+    "element": {
+      "from": "environment/napi_2",
+      "id": "597",
+      "name": "DIVISAO_DC_SPACE_1 - AMBIENTE_LOGICO_SPACE_2 - GRUPO_L3_SPACE_2 / DIVISAO_DC_BLUE - AMBIENTE_LOGICO_BLUE - GRUPO_L3_BLUE",
+      "provider": "napi",
+      "timestamp": 1503341310,
+      "to": "environment/napi_597"
+    },
+    "type": "edges"
+  },
+  {
+    "action": "UPDATE",
+    "collection": "father_environment",
+    "element": {
+      "from": "environment/napi_2",
+      "id": "597",
+      "name": "DIVISAO_DC_SPACE_1 - AMBIENTE_LOGICO_SPACE_2 - GRUPO_L3_SPACE_2 / DIVISAO_DC_BLUE - AMBIENTE_LOGICO_BLUE - GRUPO_L3_BLUE",
+      "provider": "napi",
+      "timestamp": 1503341408,
+      "to": "environment/napi_597"
+    },
+    "key": "napi_597",
+    "type": "edges"
+  },
+  {
+    "action": "DELETE",
+    "collection": "father_environment",
+    "key": "napi_597",
+    "type": "edges"
+  }
+]

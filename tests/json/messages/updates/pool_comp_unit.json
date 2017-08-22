@@ -1,0 +1,89 @@
+[
+  {
+    "action": "CREATE",
+    "collection": "pool_comp_unit",
+    "element": {
+      "from": "pool/napi_17466",
+      "id": "31623",
+      "name": "10.0.0.2",
+      "properties": [
+        {
+          "description": "IP",
+          "key": "ip",
+          "value": "10.0.0.2"
+        },
+        {
+          "description": "Priority",
+          "key": "priority",
+          "value": 0
+        },
+        {
+          "description": "Weight",
+          "key": "weight",
+          "value": 1
+        },
+        {
+          "description": "Limit",
+          "key": "limit",
+          "value": 1000
+        },
+        {
+          "description": "Port",
+          "key": "port_real",
+          "value": 8080
+        }
+      ],
+      "provider": "napi",
+      "timestamp": 1503288483,
+      "to": "comp_unit/globomap_serverspace1"
+    },
+    "type": "edges"
+  },
+  {
+    "action": "UPDATE",
+    "collection": "pool_comp_unit",
+    "element": {
+      "from": "pool/napi_17466",
+      "id": "31623",
+      "name": "10.0.0.2",
+      "properties": [
+        {
+          "description": "IP",
+          "key": "ip",
+          "value": "10.0.0.2"
+        },
+        {
+          "description": "Priority",
+          "key": "priority",
+          "value": 0
+        },
+        {
+          "description": "Weight",
+          "key": "weight",
+          "value": 1
+        },
+        {
+          "description": "Limit",
+          "key": "limit",
+          "value": 1000
+        },
+        {
+          "description": "Port",
+          "key": "port_real",
+          "value": 8080
+        }
+      ],
+      "provider": "napi",
+      "timestamp": 1503351035,
+      "to": "comp_unit/globomap_serverspace1"
+    },
+    "key": "napi_31623",
+    "type": "edges"
+  },
+  {
+    "action": "DELETE",
+    "collection": "pool_comp_unit",
+    "key": "napi_31623",
+    "type": "edges"
+  }
+]

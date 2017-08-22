@@ -1,0 +1,91 @@
+[
+  {
+    "action": "Cadastrar",
+    "data": {
+      "id_object": 31623,
+      "new_value": {
+        "id": 31623,
+        "identifier": "10.0.0.2",
+        "ip": {
+          "id": 18,
+          "value": "18"
+        },
+        "limit": 1000,
+        "member_status": 7,
+        "port_real": 8080,
+        "priority": 0,
+        "server_pool": {
+          "id": 17466,
+          "value": "17466"
+        },
+        "weight": 1
+      },
+      "old_value": {
+        "id": null,
+        "identifier": null,
+        "ip": null,
+        "limit": null,
+        "member_status": null,
+        "port_real": null,
+        "priority": null,
+        "server_pool": null,
+        "weight": null
+      },
+      "user": 1
+    },
+    "kind": "ServerPoolMember",
+    "timestamp": 1503288483
+  },
+  {
+    "action": "Alterar",
+    "data": {
+      "id_object": 31623,
+      "new_value": {
+        "weight": 1
+      },
+      "old_value": {
+        "weight": 12
+      },
+      "user": 1
+    },
+    "kind": "ServerPoolMember",
+    "timestamp": 1503351035
+  },
+  {
+    "action": "Remover",
+    "data": {
+      "id_object": 31623,
+      "new_value": {
+        "id": 31623,
+        "identifier": "10.0.0.2",
+        "ip": {
+          "id": 18,
+          "value": "18"
+        },
+        "limit": 1000,
+        "member_status": 7,
+        "port_real": 8080,
+        "priority": 0,
+        "server_pool": {
+          "id": 17466,
+          "value": "17466"
+        },
+        "weight": 1
+      },
+      "old_value": {
+        "id": null,
+        "identifier": null,
+        "ip": null,
+        "limit": null,
+        "member_status": null,
+        "port_real": null,
+        "priority": null,
+        "server_pool": null,
+        "weight": null
+      },
+      "user": 1
+    },
+    "kind": "ServerPoolMember",
+    "timestamp": 1503288483
+  }
+]

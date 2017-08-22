@@ -120,7 +120,3 @@ class TestRabbitMQClient(unittest.TestCase):
         pika_mock.BlockingConnection.return_value = connection_mock
 
         return channel_mock
-
-
-if __name__ == '__main__':
-    unittest2.main()

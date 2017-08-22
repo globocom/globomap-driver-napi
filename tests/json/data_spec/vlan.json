@@ -1,0 +1,18 @@
+{
+  "acl_draft": null,
+  "acl_draft_v6": null,
+  "acl_file_name": null,
+  "acl_file_name_v6": null,
+  "acl_valida": false,
+  "acl_valida_v6": false,
+  "active": false,
+  "description": "Vlan Description",
+  "environment": {
+    "id": 3,
+    "name": "DIVISAO_DC_SPACE_2 - AMBIENTE_LOGICO_SPACE_2 - GRUPO_L3_SPACE_2"
+  },
+  "id": 1,
+  "name": "Vlan1",
+  "num_vlan": 2,
+  "vrf": null
+}

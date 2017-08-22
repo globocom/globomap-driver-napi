@@ -1,0 +1,84 @@
+[
+  {
+    "action": "Cadastrar",
+    "data": {
+      "id_object": 26397,
+      "new_value": {
+        "active": false,
+        "ambient_vip": {
+          "id": 13,
+          "value": "13"
+        },
+        "block": 28,
+        "broadcast": "10.237.128.15",
+        "id": 26397,
+        "mask_oct1": "255",
+        "mask_oct2": "255",
+        "mask_oct3": "255",
+        "mask_oct4": "240",
+        "network_type": {
+          "id": 2,
+          "value": "2"
+        },
+        "oct1": 10,
+        "oct2": 237,
+        "oct3": 128,
+        "oct4": 0,
+        "vlan": {
+          "id": 10,
+          "value": "Vlan-Test-Pool"
+        }
+      },
+      "old_value": {
+        "active": null,
+        "ambient_vip": null,
+        "block": null,
+        "broadcast": null,
+        "id": null,
+        "mask_oct1": null,
+        "mask_oct2": null,
+        "mask_oct3": null,
+        "mask_oct4": null,
+        "network_type": null,
+        "oct1": null,
+        "oct2": null,
+        "oct3": null,
+        "oct4": null,
+        "vlan": null
+      },
+      "user": 1
+    },
+    "kind": "NetworkIPv4",
+    "timestamp": 1503343722
+  },
+  {
+    "action": "Alterar",
+    "data": {
+      "id_object": 26397,
+      "new_value": {
+        "cluster_unit": "teste"
+      },
+      "old_value": {
+        "cluster_unit": null
+      },
+      "user": 1
+    },
+    "kind": "NetworkIPv4",
+    "timestamp": 1503343793
+  },
+  {
+    "action": "Remover",
+    "data": {
+      "id_object": 26397,
+      "new_value": {
+        "cluster_unit": "teste"
+      },
+      "old_value": {
+        "cluster_unit": null
+      },
+      "user": 1
+    },
+    "kind": "NetworkIPv4",
+    "timestamp": 1503343893
+  }
+]
