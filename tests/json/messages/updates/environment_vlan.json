@@ -10,7 +10,7 @@
       "timestamp": 1503286339,
       "to": "vlan/napi_27678"
     },
-    "type": "collections"
+    "type": "edges"
   },
   {
     "action": "UPDATE",
@@ -24,12 +24,12 @@
       "to": "vlan/napi_27678"
     },
     "key": "napi_27678",
-    "type": "collections"
+    "type": "edges"
   },
   {
     "action": "DELETE",
     "collection": "environment_vlan",
     "key": "napi_27678",
-    "type": "collections"
+    "type": "edges"
   }
 ]
