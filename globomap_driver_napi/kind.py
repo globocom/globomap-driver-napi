@@ -40,7 +40,7 @@ class Kind(object):
             vip = napi.get_vip(id_object)
             if vip:
                 data = DataSpec().vip(vip)
-                data['timestamp'] = message['timestamp']
+                data['timestamp'] = message.get('timestamp')
             else:
                 return False
         else:
@@ -60,7 +60,7 @@ class Kind(object):
             pool = napi.get_pool(id_object)
             if pool:
                 data = DataSpec().pool(pool)
-                data['timestamp'] = message['timestamp']
+                data['timestamp'] = message.get('timestamp')
             else:
                 return False
         else:
@@ -85,7 +85,7 @@ class Kind(object):
                         if pool['id'] == id_object:
                             pool['port'] = port['port']
                             data = DataSpec().port(pool, port['id'])
-                            data['timestamp'] = message['timestamp']
+                            data['timestamp'] = message.get('timestamp')
                             break
                     else:
                         continue
@@ -110,7 +110,7 @@ class Kind(object):
             equipment = napi.get_equipment(id_object)
             if equipment:
                 data = DataSpec().comp_unit(equipment)
-                data['timestamp'] = message['timestamp']
+                data['timestamp'] = message.get('timestamp')
             else:
                 return False
         else:
@@ -134,7 +134,7 @@ class Kind(object):
                 for member in pool['server_pool_members']:
                     if member['id'] == id_object:
                         res = DataSpec().pool_comp_unit(member, pool['id'])
-                        res['timestamp'] = message['timestamp']
+                        res['timestamp'] = message.get('timestamp')
                         data.update(res)
                         break
             if not data:
@@ -161,7 +161,7 @@ class Kind(object):
             ipv4 = napi.get_ipv4_by_ip_equipment_id(id_object)
             if ipv4:
                 res = DataSpec().network_comp_unit(ipv4, name, id_object)
-                res['timestamp'] = message['timestamp']
+                res['timestamp'] = message.get('timestamp')
                 data.update(res)
             else:
                 return False
@@ -189,7 +189,7 @@ class Kind(object):
             ipv6 = napi.get_ipv6_by_ip_equipment_id(id_object)
             if ipv6:
                 res = DataSpec().network_comp_unit(ipv6, name, id_object)
-                res['timestamp'] = message['timestamp']
+                res['timestamp'] = message.get('timestamp')
                 data.update(res)
             else:
                 return False
@@ -213,7 +213,7 @@ class Kind(object):
             network = napi.get_network_ipv4_id(id_object)
             if network:
                 res = DataSpec().network(network)
-                res['timestamp'] = message['timestamp']
+                res['timestamp'] = message.get('timestamp')
                 data.update(res)
             else:
                 return False
@@ -236,7 +236,7 @@ class Kind(object):
             network = napi.get_network_ipv6_id(id_object)
             if network:
                 res = DataSpec().network(network)
-                res['timestamp'] = message['timestamp']
+                res['timestamp'] = message.get('timestamp')
                 data.update(res)
             else:
                 return False
@@ -259,7 +259,7 @@ class Kind(object):
             vlan = napi.get_network_ipv4_id(id_object)
             if vlan:
                 res = DataSpec().vlan_network(vlan)
-                res['timestamp'] = message['timestamp']
+                res['timestamp'] = message.get('timestamp')
                 data.update(res)
             else:
                 return False
@@ -282,7 +282,7 @@ class Kind(object):
             vlan = napi.get_network_ipv6_id(id_object)
             if vlan:
                 res = DataSpec().vlan_network(vlan)
-                res['timestamp'] = message['timestamp']
+                res['timestamp'] = message.get('timestamp')
                 data.update(res)
             else:
                 return False
@@ -305,7 +305,7 @@ class Kind(object):
             vlan = napi.get_vlan(id_object)
             if vlan:
                 res = DataSpec().vlan(vlan)
-                res['timestamp'] = message['timestamp']
+                res['timestamp'] = message.get('timestamp')
                 data.update(res)
             else:
                 return False
@@ -327,7 +327,7 @@ class Kind(object):
             vlan = napi.get_vlan(id_object)
             if vlan:
                 res = DataSpec().environment_vlan(vlan)
-                res['timestamp'] = message['timestamp']
+                res['timestamp'] = message.get('timestamp')
                 data.update(res)
             else:
                 return False
@@ -335,7 +335,7 @@ class Kind(object):
             data = self._treat_delete('napi', id_object)
 
         data_enc = self._encapsulate(
-            action, 'environment_vlan', 'collections', data)
+            action, 'environment_vlan', 'edges', data)
 
         return data_enc
 
@@ -350,7 +350,7 @@ class Kind(object):
             environment = napi.get_environment(id_object)
             if environment:
                 res = DataSpec().environment(environment)
-                res['timestamp'] = message['timestamp']
+                res['timestamp'] = message.get('timestamp')
                 data.update(res)
             else:
                 return False
@@ -373,7 +373,7 @@ class Kind(object):
             environment = napi.get_environment(id_object)
             if environment:
                 res = DataSpec().father_environment(environment)
-                res['timestamp'] = message['timestamp']
+                res['timestamp'] = message.get('timestamp')
                 data.update(res)
             else:
                 return False
