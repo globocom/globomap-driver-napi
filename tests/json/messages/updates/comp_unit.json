@@ -4,7 +4,6 @@
     "collection": "comp_unit",
     "element": {
       "id": "eqpt1",
-      "name": "",
       "properties": [
         {
           "description": "Maintenance",
@@ -35,7 +34,6 @@
     "collection": "comp_unit",
     "element": {
       "id": "eqpt1",
-      "name": "",
       "properties": [
         {
           "description": "Maintenance",
