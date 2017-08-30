@@ -167,6 +167,7 @@ class DataSpec(object):
 
         data = {
             'id': compunit['name'].lower(),
+            'name': '',
             'provider': 'globomap',
             'properties': [
                 {

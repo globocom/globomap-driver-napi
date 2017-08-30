@@ -112,6 +112,8 @@ class Kind(object):
             if equipment:
                 data = DataSpec().comp_unit(equipment)
                 data['timestamp'] = message.get('timestamp')
+                if action == 'CREATE':
+                    data['name'] = data['id']
             else:
                 return False
         else:
