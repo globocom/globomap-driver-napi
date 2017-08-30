@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 import importlib
 import json
 import logging
@@ -44,11 +44,16 @@ class Napi(object):
                 self.log.debug('Treating message %s', message)
                 msgs = []
                 for func in funcs:
-                    msg = self._treat_message(func, message)
-                    if msg:
-                        msgs.append(msg)
-                    else:
-                        self.log.debug('Message don\'t treated %s.', message)
+                    try:
+                        msg = self._treat_message(func, message)
+                        if msg:
+                            msgs.append(msg)
+                        else:
+                            self.log.debug(
+                                'Message don\'t treated %s.', message)
+                    except Exception as err:
+                        self.log.error(
+                            'Message with problem %s. Error: %s' % (message, err))
                 if not msgs:
                     return self.next_message()
                 return msgs

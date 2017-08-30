@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+
+
 class DataSpec(object):
 
     """Class to prepare dicts"""
@@ -164,7 +167,6 @@ class DataSpec(object):
 
         data = {
             'id': compunit['name'].lower(),
-            'name': '',
             'provider': 'globomap',
             'properties': [
                 {

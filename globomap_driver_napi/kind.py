@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from .data_spec import DataSpec
 from .networkapi import NetworkAPI
 from .settings import ACTIONS
@@ -371,7 +372,7 @@ class Kind(object):
         if action != 'DELETE':
             napi = NetworkAPI()
             environment = napi.get_environment(id_object)
-            if environment:
+            if environment and environment.get('father_environment'):
                 res = DataSpec().father_environment(environment)
                 res['timestamp'] = message.get('timestamp')
                 data.update(res)

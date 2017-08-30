@@ -173,7 +173,6 @@ class TestDataSpec(unittest2.TestCase):
         data = DataSpec().comp_unit(comp_unit)
         expected = {
             'id': 'eqpt1',
-            'name': '',
             'provider': 'globomap',
             'properties': [
                 {
