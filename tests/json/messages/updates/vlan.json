@@ -5,23 +5,22 @@
     "element": {
       "id": "27678",
       "name": "Vlan Space 2",
-      "properties": [
-        {
-          "description": "Number of VLAN",
-          "key": "num_vlan",
-          "value": 312
+      "properties": {
+        "active": false,
+        "description": null,
+        "num_vlan": 312
+      },
+      "properties_metadata": {
+        "active": {
+          "description": "Status"
         },
-        {
-          "description": "Description",
-          "key": "description",
-          "value": null
+        "description": {
+          "description": "Description"
         },
-        {
-          "description": "Status",
-          "key": "active",
-          "value": false
+        "num_vlan": {
+          "description": "Number of VLAN"
         }
-      ],
+      },
       "provider": "napi",
       "timestamp": 1503286339
     },
@@ -33,23 +32,22 @@
     "element": {
       "id": "27678",
       "name": "Vlan Space 2",
-      "properties": [
-        {
-          "description": "Number of VLAN",
-          "key": "num_vlan",
-          "value": 312
+      "properties": {
+        "active": false,
+        "description": null,
+        "num_vlan": 312
+      },
+      "properties_metadata": {
+        "active": {
+          "description": "Status"
         },
-        {
-          "description": "Description",
-          "key": "description",
-          "value": null
+        "description": {
+          "description": "Description"
         },
-        {
-          "description": "Status",
-          "key": "active",
-          "value": false
+        "num_vlan": {
+          "description": "Number of VLAN"
         }
-      ],
+      },
       "provider": "napi",
       "timestamp": 1503266033
     },

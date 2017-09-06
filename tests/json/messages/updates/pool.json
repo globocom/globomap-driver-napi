@@ -5,43 +5,38 @@
     "element": {
       "id": "17466",
       "name": "POOL1",
-      "properties": [
-        {
-          "description": "Default Port of Pool",
-          "key": "default_port",
-          "value": 8080
+      "properties": {
+        "default_limit": 100,
+        "default_port": 8080,
+        "environment": "DIVISAO_DC_POOL - AMBIENTE_LOGICO_POOL - GRUPO_L3_POOL",
+        "healthcheck": "TCP",
+        "lb_method": "least-conn",
+        "pool_created": false,
+        "servicedownaction": "none"
+      },
+      "properties_metadata": {
+        "default_limit": {
+          "description": "Limit of Connections"
         },
-        {
-          "description": "Environment of Pool",
-          "key": "environment",
-          "value": "DIVISAO_DC_POOL - AMBIENTE_LOGICO_POOL - GRUPO_L3_POOL"
+        "default_port": {
+          "description": "Default Port of Pool"
         },
-        {
-          "description": "Action On Service Down",
-          "key": "servicedownaction",
-          "value": "none"
+        "environment": {
+          "description": "Environment of Pool"
         },
-        {
-          "description": "Healthcheck Type",
-          "key": "healthcheck",
-          "value": "TCP"
+        "healthcheck": {
+          "description": "Healthcheck Type"
         },
-        {
-          "description": "Method of Load Balancing",
-          "key": "lb_method",
-          "value": "least-conn"
+        "lb_method": {
+          "description": "Method of Load Balancing"
         },
-        {
-          "description": "Limit of Connections",
-          "key": "default_limit",
-          "value": 100
+        "pool_created": {
+          "description": "Created in Load Balancer"
         },
-        {
-          "description": "Created in Load Balancer",
-          "key": "pool_created",
-          "value": false
+        "servicedownaction": {
+          "description": "Action On Service Down"
         }
-      ],
+      },
       "provider": "napi",
       "timestamp": 1501264297
     },
@@ -53,43 +48,38 @@
     "element": {
       "id": "17466",
       "name": "POOL1",
-      "properties": [
-        {
-          "description": "Default Port of Pool",
-          "key": "default_port",
-          "value": 8080
+      "properties": {
+        "default_limit": 100,
+        "default_port": 8080,
+        "environment": "DIVISAO_DC_POOL - AMBIENTE_LOGICO_POOL - GRUPO_L3_POOL",
+        "healthcheck": "TCP",
+        "lb_method": "least-conn",
+        "pool_created": false,
+        "servicedownaction": "none"
+      },
+      "properties_metadata": {
+        "default_limit": {
+          "description": "Limit of Connections"
         },
-        {
-          "description": "Environment of Pool",
-          "key": "environment",
-          "value": "DIVISAO_DC_POOL - AMBIENTE_LOGICO_POOL - GRUPO_L3_POOL"
+        "default_port": {
+          "description": "Default Port of Pool"
         },
-        {
-          "description": "Action On Service Down",
-          "key": "servicedownaction",
-          "value": "none"
+        "environment": {
+          "description": "Environment of Pool"
         },
-        {
-          "description": "Healthcheck Type",
-          "key": "healthcheck",
-          "value": "TCP"
+        "healthcheck": {
+          "description": "Healthcheck Type"
         },
-        {
-          "description": "Method of Load Balancing",
-          "key": "lb_method",
-          "value": "least-conn"
+        "lb_method": {
+          "description": "Method of Load Balancing"
         },
-        {
-          "description": "Limit of Connections",
-          "key": "default_limit",
-          "value": 100
+        "pool_created": {
+          "description": "Created in Load Balancer"
         },
-        {
-          "description": "Created in Load Balancer",
-          "key": "pool_created",
-          "value": false
+        "servicedownaction": {
+          "description": "Action On Service Down"
         }
-      ],
+      },
       "provider": "napi",
       "timestamp": 1501264297
     },

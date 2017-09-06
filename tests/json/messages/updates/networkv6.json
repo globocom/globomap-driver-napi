@@ -5,18 +5,18 @@
     "element": {
       "id": "v6_328",
       "name": "fdbe:bebe:bebe:1200:0000:0000:0000:0000/64",
-      "properties": [
-        {
-          "description": "Network Status",
-          "key": "active",
-          "value": false
+      "properties": {
+        "active": false,
+        "network_type": "Ponto a ponto"
+      },
+      "properties_metadata": {
+        "active": {
+          "description": "Network Status"
         },
-        {
-          "description": "Network Type",
-          "key": "network_type",
-          "value": "Ponto a ponto"
+        "network_type": {
+          "description": "Network Type"
         }
-      ],
+      },
       "provider": "napi",
       "timestamp": 1503343905
     },
@@ -28,18 +28,18 @@
     "element": {
       "id": "v6_328",
       "name": "fdbe:bebe:bebe:1200:0000:0000:0000:0000/64",
-      "properties": [
-        {
-          "description": "Network Status",
-          "key": "active",
-          "value": false
+      "properties": {
+        "active": false,
+        "network_type": "Ponto a ponto"
+      },
+      "properties_metadata": {
+        "active": {
+          "description": "Network Status"
         },
-        {
-          "description": "Network Type",
-          "key": "network_type",
-          "value": "Ponto a ponto"
+        "network_type": {
+          "description": "Network Type"
         }
-      ],
+      },
       "provider": "napi",
       "timestamp": 1503343951
     },

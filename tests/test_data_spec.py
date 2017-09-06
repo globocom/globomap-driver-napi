@@ -55,23 +55,22 @@ class TestDataSpec(unittest2.TestCase):
             'id': '1',
             'name': 'vip_teste',
             'provider': 'napi',
-            'properties': [
-                {
-                    'key': 'created',
-                    'value': False,
+            'properties': {
+                'created': False,
+                'ip': '10.10.0.2',
+                'environmentvip': 'FIN_VIP-ClientTxt-VIP-EnvP44Txt-VIP'
+            },
+            'properties_metadata': {
+                'created': {
                     'description': 'Created id Load Balancer'
                 },
-                {
-                    'key': 'ip',
-                    'value': '10.10.0.2',
+                'ip': {
                     'description': 'IP'
                 },
-                {
-                    'key': 'environmentvip',
-                    'value': 'FIN_VIP-ClientTxt-VIP-EnvP44Txt-VIP',
+                'environmentvip': {
                     'description': 'Environment of VIP'
                 }
-            ]
+            }
         }
 
         self.assertDictEqual(data, expected)
@@ -99,43 +98,38 @@ class TestDataSpec(unittest2.TestCase):
             'id': '1',
             'name': 'Pool_1',
             'provider': 'napi',
-            'properties': [
-                {
-                    'key': 'default_port',
-                    'value': 8080,
+            'properties': {
+                'default_port': 8080,
+                'environment': 'DIVISAO_DC_POOL - AMBIENTE_LOGICO_POOL - GRUPO_L3_POOL',
+                'servicedownaction': 'none',
+                'healthcheck': 'TCP',
+                'lb_method': 'least-conn',
+                'default_limit': 100,
+                'pool_created': True
+            },
+            'properties_metadata': {
+                'default_port': {
                     'description': 'Default Port of Pool'
                 },
-                {
-                    'key': 'environment',
-                    'value': 'DIVISAO_DC_POOL - AMBIENTE_LOGICO_POOL - GRUPO_L3_POOL',
+                'environment': {
                     'description': 'Environment of Pool'
                 },
-                {
-                    'key': 'servicedownaction',
-                    'value': 'none',
+                'servicedownaction': {
                     'description': 'Action On Service Down'
                 },
-                {
-                    'key': 'healthcheck',
-                    'value': 'TCP',
+                'healthcheck': {
                     'description': 'Healthcheck Type'
                 },
-                {
-                    'key': 'lb_method',
-                    'value': 'least-conn',
+                'lb_method': {
                     'description': 'Method of Load Balancing'
                 },
-                {
-                    'key': 'default_limit',
-                    'value': 100,
+                'default_limit': {
                     'description': 'Limit of Connections'
                 },
-                {
-                    'key': 'pool_created',
-                    'value': True,
+                'pool_created': {
                     'description': 'Created in Load Balancer'
                 }
-            ]
+            }
         }
         self.assertDictEqual(data, expected)
 
@@ -150,33 +144,30 @@ class TestDataSpec(unittest2.TestCase):
             'id': '1',
             'name': '10.0.0.2',
             'provider': 'napi',
-            'properties': [
-                {
-                    'key': 'ip',
-                    'value': u'10.0.0.2',
+            'properties': {
+                'ip': u'10.0.0.2',
+                'priority': 0,
+                'weight': 1,
+                'limit': 1000,
+                'port_real': 8080
+            },
+            'properties_metadata': {
+                'ip': {
                     'description': 'IP'
                 },
-                {
-                    'key': 'priority',
-                    'value': 0,
+                'priority': {
                     'description': 'Priority'
                 },
-                {
-                    'key': 'weight',
-                    'value': 1,
+                'weight': {
                     'description': 'Weight'
                 },
-                {
-                    'key': 'limit',
-                    'value': 1000,
+                'limit': {
                     'description': 'Limit'
                 },
-                {
-                    'key': 'port_real',
-                    'value': 8080,
+                'port_real': {
                     'description': 'Port'
                 }
-            ]
+            }
         }
 
         self.assertDictEqual(data, expected)
@@ -190,26 +181,25 @@ class TestDataSpec(unittest2.TestCase):
             'id': 'eqpt1',
             'name': '',
             'provider': 'globomap',
-            'properties': [
-                {
-                    'key': 'maintenance',
-                    'value': False,
+            'properties': {
+                'maintenance': False,
+                'equipment_type': 'Server',
+                'ips': [
+                    '10.0.0.1',
+                    'bebe:bebe:bebe:0000:0000:0000:0000:0001'
+                ],
+            },
+            'properties_metadata': {
+                'maintenance': {
                     'description': 'Maintenance'
                 },
-                {
-                    'key': 'equipment_type',
-                    'value': 'Server',
+                'equipment_type': {
                     'description': 'Equipment Type'
                 },
-                {
-                    'key': 'ips',
-                    'value': [
-                        '10.0.0.1',
-                        'bebe:bebe:bebe:0000:0000:0000:0000:0001'
-                    ],
+                'ips': {
                     'description': 'IPs'
                 },
-            ]
+            }
         }
         self.assertDictEqual(data, expected)
 
@@ -250,18 +240,18 @@ class TestDataSpec(unittest2.TestCase):
             'id': 'v4_1',
             'name': '10.0.0.0/24',
             'provider': 'napi',
-            'properties': [
-                {
-                    'key': 'active',
-                    'value': True,
+            'properties': {
+                'active': True,
+                'network_type': 'Point-to-Point'
+            },
+            'properties_metadata': {
+                'active': {
                     'description': 'Network Status'
                 },
-                {
-                    'key': 'network_type',
-                    'value': 'Point-to-Point',
+                'network_type': {
                     'description': 'Network Type'
                 }
-            ]
+            }
         }
         self.assertDictEqual(data, expected)
 
@@ -274,18 +264,18 @@ class TestDataSpec(unittest2.TestCase):
             'id': 'v6_1',
             'name': 'bebe:bebe:bebe:0000:0000:0000:0000:0000/64',
             'provider': 'napi',
-            'properties': [
-                {
-                    'key': 'active',
-                    'value': False,
+            'properties': {
+                'active': False,
+                'network_type': 'Point-to-Point'
+            },
+            'properties_metadata': {
+                'active': {
                     'description': 'Network Status'
                 },
-                {
-                    'key': 'network_type',
-                    'value': 'Point-to-Point',
+                'network_type': {
                     'description': 'Network Type'
                 }
-            ]
+            }
         }
         self.assertDictEqual(data, expected)
 
@@ -327,23 +317,22 @@ class TestDataSpec(unittest2.TestCase):
             'id': '1',
             'name': 'Vlan1',
             'provider': 'napi',
-            'properties': [
-                {
-                    'key': 'num_vlan',
-                    'value': 2,
+            'properties': {
+                'num_vlan': 2,
+                'description': 'Vlan Description',
+                'active': False
+            },
+            'properties_metadata': {
+                'num_vlan': {
                     'description': 'Number of VLAN'
                 },
-                {
-                    'key': 'description',
-                    'value': 'Vlan Description',
+                'description': {
                     'description': 'Description'
                 },
-                {
-                    'value': False,
-                    'key': 'active',
+                'active': {
                     'description': 'Status'
                 }
-            ]
+            }
         }
         self.assertDictEqual(data, expected)
 
@@ -373,13 +362,14 @@ class TestDataSpec(unittest2.TestCase):
             'id': '1',
             'name': 'DIVISAO_DC_SPACE_2 - AMBIENTE_LOGICO_SPACE_2 - GRUPO_L3_SPACE_2',
             'provider': 'napi',
-            'properties': [
-                {
-                    'key': 'default_vrf',
-                    'value': 'default',
+            'properties': {
+                'default_vrf': 'default'
+            },
+            'properties_metadata': {
+                'default_vrf': {
                     'description': 'Default VRF'
                 }
-            ]
+            }
         }
         self.assertDictEqual(data, expected)
 

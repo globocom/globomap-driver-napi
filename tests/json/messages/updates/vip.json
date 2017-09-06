@@ -5,23 +5,22 @@
     "element": {
       "id": "13622",
       "name": "vip_teste",
-      "properties": [
-        {
-          "description": "Created id Load Balancer",
-          "key": "created",
-          "value": false
+      "properties": {
+        "created": false,
+        "environmentvip": "FIN_VIP-ClientTxt-VIP-EnvP44Txt-VIP",
+        "ip": "10.16.0.2"
+      },
+      "properties_metadata": {
+        "created": {
+          "description": "Created id Load Balancer"
         },
-        {
-          "description": "IP",
-          "key": "ip",
-          "value": "10.16.0.2"
+        "environmentvip": {
+          "description": "Environment of VIP"
         },
-        {
-          "description": "Environment of VIP",
-          "key": "environmentvip",
-          "value": "FIN_VIP-ClientTxt-VIP-EnvP44Txt-VIP"
+        "ip": {
+          "description": "IP"
         }
-      ],
+      },
       "provider": "napi",
       "timestamp": 1503288596
     },
@@ -33,23 +32,22 @@
     "element": {
       "id": "13622",
       "name": "vip_teste",
-      "properties": [
-        {
-          "description": "Created id Load Balancer",
-          "key": "created",
-          "value": false
+      "properties": {
+        "created": false,
+        "environmentvip": "FIN_VIP-ClientTxt-VIP-EnvP44Txt-VIP",
+        "ip": "10.16.0.2"
+      },
+      "properties_metadata": {
+        "created": {
+          "description": "Created id Load Balancer"
         },
-        {
-          "description": "IP",
-          "key": "ip",
-          "value": "10.16.0.2"
+        "environmentvip": {
+          "description": "Environment of VIP"
         },
-        {
-          "description": "Environment of VIP",
-          "key": "environmentvip",
-          "value": "FIN_VIP-ClientTxt-VIP-EnvP44Txt-VIP"
+        "ip": {
+          "description": "IP"
         }
-      ],
+      },
       "provider": "napi",
       "timestamp": 1503288596
     },

@@ -5,13 +5,14 @@
     "element": {
       "id": "597",
       "name": "DIVISAO_DC_SPACE_1 - AMBIENTE_LOGICO_SPACE_2 - GRUPO_L3_SPACE_2",
-      "properties": [
-        {
-          "description": "Default VRF",
-          "key": "default_vrf",
-          "value": "default"
+      "properties": {
+        "default_vrf": "default"
+      },
+      "properties_metadata": {
+        "default_vrf": {
+          "description": "Default VRF"
         }
-      ],
+      },
       "provider": "napi",
       "timestamp": 1503341310
     },
@@ -23,13 +24,14 @@
     "element": {
       "id": "597",
       "name": "DIVISAO_DC_SPACE_1 - AMBIENTE_LOGICO_SPACE_2 - GRUPO_L3_SPACE_2",
-      "properties": [
-        {
-          "description": "Default VRF",
-          "key": "default_vrf",
-          "value": "default"
+      "properties": {
+        "default_vrf": "default"
+      },
+      "properties_metadata": {
+        "default_vrf": {
+          "description": "Default VRF"
         }
-      ],
+      },
       "provider": "napi",
       "timestamp": 1503341408
     },

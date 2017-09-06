@@ -39,23 +39,22 @@ class DataSpec(object):
             'id': str(vip['id']),
             'name': vip['name'],
             'provider': 'napi',
-            'properties': [
-                {
-                    'key': 'created',
-                    'value': vip['created'],
+            'properties': {
+                'created': vip['created'],
+                'ip': ip_formated,
+                'environmentvip': envvip
+            },
+            'properties_metadata': {
+                'created': {
                     'description': 'Created id Load Balancer'
                 },
-                {
-                    'key': 'ip',
-                    'value': ip_formated,
+                'ip': {
                     'description': 'IP'
                 },
-                {
-                    'key': 'environmentvip',
-                    'value': envvip,
+                'environmentvip': {
                     'description': 'Environment of VIP'
                 }
-            ]
+            }
         }
 
         return data
@@ -87,43 +86,38 @@ class DataSpec(object):
             'id': str(pool['id']),
             'name': pool['identifier'],
             'provider': 'napi',
-            'properties': [
-                {
-                    'key': 'default_port',
-                    'value': pool['default_port'],
+            'properties': {
+                'default_port': pool['default_port'],
+                'environment': pool['environment']['name'],
+                'servicedownaction': pool['servicedownaction']['name'],
+                'healthcheck': pool['healthcheck']['healthcheck_type'],
+                'lb_method': pool['lb_method'],
+                'default_limit': pool['default_limit'],
+                'pool_created': pool['pool_created']
+            },
+            'properties_metadata': {
+                'default_port': {
                     'description': 'Default Port of Pool'
                 },
-                {
-                    'key': 'environment',
-                    'value': pool['environment']['name'],
+                'environment': {
                     'description': 'Environment of Pool'
                 },
-                {
-                    'key': 'servicedownaction',
-                    'value': pool['servicedownaction']['name'],
+                'servicedownaction': {
                     'description': 'Action On Service Down'
                 },
-                {
-                    'key': 'healthcheck',
-                    'value': pool['healthcheck']['healthcheck_type'],
-                    'description':'Healthcheck Type'
+                'healthcheck': {
+                    'description': 'Healthcheck Type'
                 },
-                {
-                    'key': 'lb_method',
-                    'value': pool['lb_method'],
-                    'description':'Method of Load Balancing'
+                'lb_method': {
+                    'description': 'Method of Load Balancing'
                 },
-                {
-                    'key': 'default_limit',
-                    'value': pool['default_limit'],
-                    'description':'Limit of Connections'
+                'default_limit': {
+                    'description': 'Limit of Connections'
                 },
-                {
-                    'key': 'pool_created',
-                    'value': pool['pool_created'],
-                    'description':'Created in Load Balancer'
+                'pool_created': {
+                    'description': 'Created in Load Balancer'
                 }
-            ]
+            }
         }
         return data
 
@@ -141,33 +135,30 @@ class DataSpec(object):
             'id': str(member['id']),
             'name': name,
             'provider': 'napi',
-            'properties': [
-                {
-                    'key': 'ip',
-                    'value': ip_formated,
+            'properties': {
+                'ip': ip_formated,
+                'priority': member['priority'],
+                'weight': member['weight'],
+                'limit': member['limit'],
+                'port_real': member['port_real']
+            },
+            'properties_metadata': {
+                'ip': {
                     'description': 'IP'
                 },
-                {
-                    'key': 'priority',
-                    'value': member['priority'],
+                'priority': {
                     'description': 'Priority'
                 },
-                {
-                    'key': 'weight',
-                    'value': member['weight'],
+                'weight': {
                     'description': 'Weight'
                 },
-                {
-                    'key': 'limit',
-                    'value': member['limit'],
+                'limit': {
                     'description': 'Limit'
                 },
-                {
-                    'key': 'port_real',
-                    'value': member['port_real'],
+                'port_real': {
                     'description': 'Port'
                 }
-            ]
+            }
         }
 
         return data
@@ -184,23 +175,22 @@ class DataSpec(object):
             'id': compunit['name'].lower(),
             'name': '',
             'provider': 'globomap',
-            'properties': [
-                {
-                    'key': 'maintenance',
-                    'value': compunit['maintenance'],
+            'properties': {
+                'maintenance': compunit['maintenance'],
+                'equipment_type': compunit['equipment_type']['equipment_type'],
+                'ips': ips
+            },
+            'properties_metadata': {
+                'maintenance': {
                     'description': 'Maintenance'
                 },
-                {
-                    'key': 'equipment_type',
-                    'value': compunit['equipment_type']['equipment_type'],
+                'equipment_type': {
                     'description': 'Equipment Type'
                 },
-                {
-                    'key': 'ips',
-                    'value': ips,
+                'ips': {
                     'description': 'IPs'
-                },
-            ]
+                }
+            }
         }
 
         return data
@@ -216,18 +206,18 @@ class DataSpec(object):
             'id': '{}_{}'.format(version, network['id']),
             'name': net,
             'provider': 'napi',
-            'properties': [
-                {
-                    'key': 'active',
-                    'value': network['active'],
+            'properties': {
+                'active': network['active'],
+                'network_type': network['network_type']['tipo_rede']
+            },
+            'properties_metadata': {
+                'active': {
                     'description': 'Network Status'
                 },
-                {
-                    'key': 'network_type',
-                    'value': network['network_type']['tipo_rede'],
+                'network_type': {
                     'description': 'Network Type'
                 }
-            ]
+            }
         }
 
         return data
@@ -281,23 +271,22 @@ class DataSpec(object):
             'id': str(vlan['id']),
             'name': vlan['name'],
             'provider': 'napi',
-            'properties': [
-                {
-                    'key': 'num_vlan',
-                    'value': vlan['num_vlan'],
+            'properties': {
+                'num_vlan': vlan['num_vlan'],
+                'description': vlan['description'],
+                'active': vlan['active']
+            },
+            'properties_metadata': {
+                'num_vlan': {
                     'description': 'Number of VLAN'
                 },
-                {
-                    'key': 'description',
-                    'value': vlan['description'],
+                'description': {
                     'description': 'Description'
                 },
-                {
-                    'key': 'active',
-                    'value': vlan['active'],
+                'active': {
                     'description': 'Status'
                 }
-            ]
+            }
         }
 
         return data
@@ -325,13 +314,14 @@ class DataSpec(object):
             'id': str(environment['id']),
             'name': environment['name'],
             'provider': 'napi',
-            'properties': [
-                {
-                    'key': 'default_vrf',
-                    'value': vrf,
+            'properties': {
+                'default_vrf': vrf
+            },
+            'properties_metadata': {
+                'default_vrf': {
                     'description': 'Default VRF'
                 }
-            ]
+            }
         }
 
         return data
