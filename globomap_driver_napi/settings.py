@@ -1,3 +1,4 @@
+
 import os
 
 NETWORKAPI_ENDPOINT = os.getenv('NETWORKAPI_ENDPOINT')
