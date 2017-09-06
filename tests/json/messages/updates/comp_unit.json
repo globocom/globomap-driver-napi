@@ -5,26 +5,25 @@
     "element": {
       "id": "eqpt1",
       "name": "eqpt1",
-      "properties": [
-        {
-          "description": "Maintenance",
-          "key": "maintenance",
-          "value": false
+      "properties": {
+        "equipment_type": "Balanceador",
+        "ips": [
+          "10.16.0.2",
+          "fdbe:bebe:bebe:11c0:0000:0000:0000:0005"
+        ],
+        "maintenance": false
+      },
+      "properties_metadata": {
+        "equipment_type": {
+          "description": "Equipment Type"
         },
-        {
-          "description": "Equipment Type",
-          "key": "equipment_type",
-          "value": "Balanceador"
+        "ips": {
+          "description": "IPs"
         },
-        {
-          "description": "IPs",
-          "key": "ips",
-          "value": [
-            "10.16.0.2",
-            "fdbe:bebe:bebe:11c0:0000:0000:0000:0005"
-          ]
+        "maintenance": {
+          "description": "Maintenance"
         }
-      ],
+      },
       "provider": "globomap",
       "timestamp": 1503341577
     },
@@ -36,26 +35,25 @@
     "element": {
       "id": "eqpt1",
       "name": "",
-      "properties": [
-        {
-          "description": "Maintenance",
-          "key": "maintenance",
-          "value": false
+      "properties": {
+        "equipment_type": "Balanceador",
+        "ips": [
+          "10.16.0.2",
+          "fdbe:bebe:bebe:11c0:0000:0000:0000:0005"
+        ],
+        "maintenance": false
+      },
+      "properties_metadata": {
+        "equipment_type": {
+          "description": "Equipment Type"
         },
-        {
-          "description": "Equipment Type",
-          "key": "equipment_type",
-          "value": "Balanceador"
+        "ips": {
+          "description": "IPs"
         },
-        {
-          "description": "IPs",
-          "key": "ips",
-          "value": [
-            "10.16.0.2",
-            "fdbe:bebe:bebe:11c0:0000:0000:0000:0005"
-          ]
+        "maintenance": {
+          "description": "Maintenance"
         }
-      ],
+      },
       "provider": "globomap",
       "timestamp": 1503341617
     },

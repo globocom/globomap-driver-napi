@@ -5,18 +5,18 @@
     "element": {
       "id": "v4_26397",
       "name": "10.237.128.0/28",
-      "properties": [
-        {
-          "description": "Network Status",
-          "key": "active",
-          "value": false
+      "properties": {
+        "active": false,
+        "network_type": "Ponto a ponto"
+      },
+      "properties_metadata": {
+        "active": {
+          "description": "Network Status"
         },
-        {
-          "description": "Network Type",
-          "key": "network_type",
-          "value": "Ponto a ponto"
+        "network_type": {
+          "description": "Network Type"
         }
-      ],
+      },
       "provider": "napi",
       "timestamp": 1503343722
     },
@@ -28,18 +28,18 @@
     "element": {
       "id": "v4_26397",
       "name": "10.237.128.0/28",
-      "properties": [
-        {
-          "description": "Network Status",
-          "key": "active",
-          "value": false
+      "properties": {
+        "active": false,
+        "network_type": "Ponto a ponto"
+      },
+      "properties_metadata": {
+        "active": {
+          "description": "Network Status"
         },
-        {
-          "description": "Network Type",
-          "key": "network_type",
-          "value": "Ponto a ponto"
+        "network_type": {
+          "description": "Network Type"
         }
-      ],
+      },
       "provider": "napi",
       "timestamp": 1503343793
     },

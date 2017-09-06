@@ -6,33 +6,30 @@
       "from": "pool/napi_17466",
       "id": "31623",
       "name": "10.0.0.2",
-      "properties": [
-        {
-          "description": "IP",
-          "key": "ip",
-          "value": "10.0.0.2"
+      "properties": {
+        "ip": "10.0.0.2",
+        "limit": 1000,
+        "port_real": 8080,
+        "priority": 0,
+        "weight": 1
+      },
+      "properties_metadata": {
+        "ip": {
+          "description": "IP"
         },
-        {
-          "description": "Priority",
-          "key": "priority",
-          "value": 0
+        "limit": {
+          "description": "Limit"
         },
-        {
-          "description": "Weight",
-          "key": "weight",
-          "value": 1
+        "port_real": {
+          "description": "Port"
         },
-        {
-          "description": "Limit",
-          "key": "limit",
-          "value": 1000
+        "priority": {
+          "description": "Priority"
         },
-        {
-          "description": "Port",
-          "key": "port_real",
-          "value": 8080
+        "weight": {
+          "description": "Weight"
         }
-      ],
+      },
       "provider": "napi",
       "timestamp": 1503288483,
       "to": "comp_unit/globomap_serverspace1"
@@ -46,33 +43,30 @@
       "from": "pool/napi_17466",
       "id": "31623",
       "name": "10.0.0.2",
-      "properties": [
-        {
-          "description": "IP",
-          "key": "ip",
-          "value": "10.0.0.2"
+      "properties": {
+        "ip": "10.0.0.2",
+        "limit": 1000,
+        "port_real": 8080,
+        "priority": 0,
+        "weight": 1
+      },
+      "properties_metadata": {
+        "ip": {
+          "description": "IP"
         },
-        {
-          "description": "Priority",
-          "key": "priority",
-          "value": 0
+        "limit": {
+          "description": "Limit"
         },
-        {
-          "description": "Weight",
-          "key": "weight",
-          "value": 1
+        "port_real": {
+          "description": "Port"
         },
-        {
-          "description": "Limit",
-          "key": "limit",
-          "value": 1000
+        "priority": {
+          "description": "Priority"
         },
-        {
-          "description": "Port",
-          "key": "port_real",
-          "value": 8080
+        "weight": {
+          "description": "Weight"
         }
-      ],
+      },
       "provider": "napi",
       "timestamp": 1503351035,
       "to": "comp_unit/globomap_serverspace1"
