@@ -153,6 +153,11 @@ class DataSpec(object):
         ip_formated = member['ip']['ip_formated'] \
             if member['ip'] else member['ipv6']['ip_formated']
         name = member.get('identifier') or ip_formated
+        monitor = 'Up' if str(member['member_status']) in '1357' else 'Down'
+        session = 'Up' if str(member['member_status']) in '2367' else 'Down'
+        healthcheck = 'Up' if str(
+            member['member_status']) in '4567' else 'Down'
+
         data = {
             'from': 'pool/napi_{}'.format(pool_id),
             'to': 'comp_unit/globomap_{}'.format(member['equipment']['name'].lower()),
@@ -164,7 +169,11 @@ class DataSpec(object):
                 'priority': member['priority'],
                 'weight': member['weight'],
                 'limit': member['limit'],
-                'port_real': member['port_real']
+                'port_real': member['port_real'],
+                'status_last_update': member['last_status_update_formated'],
+                'status_monitor': monitor,
+                'status_session': session,
+                'status_healthcheck': healthcheck
             },
             'properties_metadata': {
                 'ip': {
@@ -181,6 +190,18 @@ class DataSpec(object):
                 },
                 'port_real': {
                     'description': 'Port'
+                },
+                'status_last_update': {
+                    'description': 'Last Update of Status'
+                },
+                'status_monitor': {
+                    'description': 'User Up/Down (Forced)'
+                },
+                'status_session': {
+                    'description': 'Enabled/Disabled'
+                },
+                'status_healthcheck': {
+                    'description': 'Up/Down (Healthcheck)'
                 }
             }
         }
@@ -236,7 +257,7 @@ class DataSpec(object):
             },
             'properties_metadata': {
                 'active': {
-                    'description': 'Network Status'
+                    'description': 'Active Network'
                 },
                 'network_type': {
                     'description': 'Network Type'
@@ -308,7 +329,7 @@ class DataSpec(object):
                     'description': 'Description'
                 },
                 'active': {
-                    'description': 'Status'
+                    'description': 'Active Vlan'
                 }
             }
         }

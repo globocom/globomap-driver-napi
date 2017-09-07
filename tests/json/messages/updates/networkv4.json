@@ -11,7 +11,7 @@
       },
       "properties_metadata": {
         "active": {
-          "description": "Network Status"
+          "description": "Active Network"
         },
         "network_type": {
           "description": "Network Type"
@@ -34,7 +34,7 @@
       },
       "properties_metadata": {
         "active": {
-          "description": "Network Status"
+          "description": "Active Network"
         },
         "network_type": {
           "description": "Network Type"
