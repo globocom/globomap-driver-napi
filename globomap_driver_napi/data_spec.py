@@ -63,8 +63,12 @@ class DataSpec(object):
         """Prepare dict of port to send"""
 
         self._validate(port)
-
-        l7_value = port.get('l7_value')
+        if port['l7_rule']['nome_opcao_txt'] == 'default_vip':
+            l7_value = 'Default VIP'
+        elif port['l7_rule']['nome_opcao_txt'] == 'default_glob':
+            l7_value = 'Default Rule'
+        else:
+            l7_value = port.get('l7_value')
         name = '{}:{}'.format(port['port'], l7_value) \
             if l7_value else port['port']
         data = {
@@ -72,7 +76,27 @@ class DataSpec(object):
             'to': 'pool/napi_{}'.format(port['server_pool']['id']),
             'id': str(port['id']),
             'name': str(name),
-            'provider': 'napi'
+            'provider': 'napi',
+            'properties': {
+                'l4_protocol': port['options']['l4_protocol']['nome_opcao_txt'],
+                'l7_protocol': port['options']['l7_protocol']['nome_opcao_txt'],
+                'l7_rule': l7_value,
+                'port': port['port']
+            },
+            'properties_metadata': {
+                'l4_protocol': {
+                    'description': 'L4 Protocol'
+                },
+                'l7_protocol': {
+                    'description': 'L7 Protocol'
+                },
+                'l7_rule': {
+                    'description': 'L7 Rule'
+                },
+                'port': {
+                    'description': 'Port'
+                }
+            }
         }
 
         return data

@@ -30,7 +30,23 @@
     "element": {
       "from": "vip/napi_1",
       "id": "1",
-      "name": "8080",
+      "name": "8080:Default VIP",
+      "properties": {
+        "l4_protocol": "TCP",
+        "l7_protocol": "HTTP",
+        "l7_rule": "Default VIP"
+      },
+      "properties_metadata": {
+        "l4_protocol": {
+          "description": "L4 Protocol"
+        },
+        "l7_protocol": {
+          "description": "L7 Protocol"
+        },
+        "l7_rule": {
+          "description": "L7 Rule"
+        }
+      },
       "provider": "napi",
       "timestamp": 1501448160,
       "to": "pool/napi_1"
