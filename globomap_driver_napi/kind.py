@@ -100,6 +100,7 @@ class Kind(object):
                     for pool in port['pools']:
                         if pool['id'] == id_object:
                             pool['port'] = port['port']
+                            pool['options'] = port['options']
                             data = DataSpec().port(pool, port['id'])
                             data['timestamp'] = message.get('timestamp')
                             break

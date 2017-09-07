@@ -78,14 +78,34 @@ class TestDataSpec(unittest2.TestCase):
     def test_data_spec_port(self):
         """Test method port of DataSpec"""
 
-        vip = open_json('tests/json/data_spec/port.json')
-        data = DataSpec().port(vip, 1)
+        port = open_json('tests/json/data_spec/port.json')
+        data = DataSpec().port(port, 1)
         expected = {
             'from': 'vip/napi_1',
             'to': 'pool/napi_1',
             'id': '1',
-            'name': '8080',
-            'provider': 'napi'
+            'name': '8080:Default VIP',
+            'provider': 'napi',
+            'properties': {
+                'l4_protocol': 'TCP',
+                'l7_protocol': 'HTTP',
+                'l7_rule': 'Default VIP',
+                'port': 8080
+            },
+            'properties_metadata': {
+                'l4_protocol': {
+                    'description': 'L4 Protocol'
+                },
+                'l7_protocol': {
+                    'description': 'L7 Protocol'
+                },
+                'l7_rule': {
+                    'description': 'L7 Rule'
+                },
+                'port': {
+                    'description': 'Port'
+                }
+            }
         }
         self.assertDictEqual(data, expected)
 
