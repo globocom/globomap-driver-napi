@@ -12,7 +12,7 @@
       },
       "properties_metadata": {
         "active": {
-          "description": "Status"
+          "description": "Active Vlan"
         },
         "description": {
           "description": "Description"
@@ -39,7 +39,7 @@
       },
       "properties_metadata": {
         "active": {
-          "description": "Status"
+          "description": "Active Vlan"
         },
         "description": {
           "description": "Description"

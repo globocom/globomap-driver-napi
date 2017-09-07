@@ -169,7 +169,11 @@ class TestDataSpec(unittest2.TestCase):
                 'priority': 0,
                 'weight': 1,
                 'limit': 1000,
-                'port_real': 8080
+                'port_real': 8080,
+                'status_last_update': None,
+                'status_monitor': 'Up',
+                'status_session': 'Up',
+                'status_healthcheck': 'Up'
             },
             'properties_metadata': {
                 'ip': {
@@ -186,6 +190,18 @@ class TestDataSpec(unittest2.TestCase):
                 },
                 'port_real': {
                     'description': 'Port'
+                },
+                'status_last_update': {
+                    'description': 'Last Update of Status'
+                },
+                'status_monitor': {
+                    'description': 'User Up/Down (Forced)'
+                },
+                'status_session': {
+                    'description': 'Enabled/Disabled'
+                },
+                'status_healthcheck': {
+                    'description': 'Up/Down (Healthcheck)'
                 }
             }
         }
@@ -266,7 +282,7 @@ class TestDataSpec(unittest2.TestCase):
             },
             'properties_metadata': {
                 'active': {
-                    'description': 'Network Status'
+                    'description': 'Active Network'
                 },
                 'network_type': {
                     'description': 'Network Type'
@@ -290,7 +306,7 @@ class TestDataSpec(unittest2.TestCase):
             },
             'properties_metadata': {
                 'active': {
-                    'description': 'Network Status'
+                    'description': 'Active Network'
                 },
                 'network_type': {
                     'description': 'Network Type'
@@ -350,7 +366,7 @@ class TestDataSpec(unittest2.TestCase):
                     'description': 'Description'
                 },
                 'active': {
-                    'description': 'Status'
+                    'description': 'Active Vlan'
                 }
             }
         }
