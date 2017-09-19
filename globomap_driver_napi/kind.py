@@ -58,11 +58,11 @@ class Kind(object):
                 data = DataSpec().vip(vip)
                 data['timestamp'] = message.get('timestamp')
             else:
-                return False
+                return []
         else:
             data = self._treat_delete('napi', id_object)
 
-        data_enc = self._encapsulate(action, 'vip', 'collections', data)
+        data_enc = [self._encapsulate(action, 'vip', 'collections', data)]
 
         return data_enc
 
@@ -78,11 +78,11 @@ class Kind(object):
                 data = DataSpec().pool(pool)
                 data['timestamp'] = message.get('timestamp')
             else:
-                return False
+                return []
         else:
             data = self._treat_delete('napi', id_object)
 
-        data_enc = self._encapsulate(action, 'pool', 'collections', data)
+        data_enc = [self._encapsulate(action, 'pool', 'collections', data)]
 
         return data_enc
 
@@ -109,11 +109,11 @@ class Kind(object):
                     break
 
             if not data:
-                return False
+                return []
         else:
             data = self._treat_delete('napi', id_object)
 
-        data_enc = self._encapsulate(action, 'port', 'edges', data)
+        data_enc = [self._encapsulate(action, 'port', 'edges', data)]
 
         return data_enc
 
@@ -131,12 +131,13 @@ class Kind(object):
                 if action == 'CREATE':
                     data['name'] = data['id']
             else:
-                return False
+                return []
         else:
             name = message['data']['new_value']['nome'].lower()
             data = self._treat_delete('globomap', name)
 
-        data_enc = self._encapsulate(action, 'comp_unit', 'collections', data)
+        data_enc = [self._encapsulate(
+            action, 'comp_unit', 'collections', data)]
 
         return data_enc
 
@@ -157,11 +158,11 @@ class Kind(object):
                         data.update(res)
                         break
             if not data:
-                return False
+                return []
         else:
             data = self._treat_delete('napi', id_object)
 
-        data_enc = self._encapsulate(action, 'pool_comp_unit', 'edges', data)
+        data_enc = [self._encapsulate(action, 'pool_comp_unit', 'edges', data)]
 
         return data_enc
 
@@ -172,7 +173,7 @@ class Kind(object):
         data = {}
 
         if action == 'UPDATE':
-            return False
+            return []
 
         name = message['data']['new_value']['equipamento']['value'].lower()
         if action == 'CREATE':
@@ -183,13 +184,13 @@ class Kind(object):
                 res['timestamp'] = message.get('timestamp')
                 data.update(res)
             else:
-                return False
+                return []
         else:
             name = 'v4_{}'.format(id_object)
             data = self._treat_delete('napi', name)
 
-        data_enc = self._encapsulate(
-            action, 'network_comp_unit', 'edges', data)
+        data_enc = [self._encapsulate(
+            action, 'network_comp_unit', 'edges', data)]
 
         return data_enc
 
@@ -200,7 +201,7 @@ class Kind(object):
         data = {}
 
         if action == 'UPDATE':
-            return False
+            return []
 
         name = message['data']['new_value']['equipamento']['value'].lower()
         if action == 'CREATE':
@@ -211,13 +212,13 @@ class Kind(object):
                 res['timestamp'] = message.get('timestamp')
                 data.update(res)
             else:
-                return False
+                return []
         else:
             name = 'v6_{}'.format(id_object)
             data = self._treat_delete('napi', name)
 
-        data_enc = self._encapsulate(
-            action, 'network_comp_unit', 'edges', data)
+        data_enc = [self._encapsulate(
+            action, 'network_comp_unit', 'edges', data)]
 
         return data_enc
 
@@ -235,12 +236,12 @@ class Kind(object):
                 res['timestamp'] = message.get('timestamp')
                 data.update(res)
             else:
-                return False
+                return []
         else:
             name = 'v4_{}'.format(id_object)
             data = self._treat_delete('napi', name)
 
-        data_enc = self._encapsulate(action, 'network', 'collections', data)
+        data_enc = [self._encapsulate(action, 'network', 'collections', data)]
 
         return data_enc
 
@@ -258,12 +259,12 @@ class Kind(object):
                 res['timestamp'] = message.get('timestamp')
                 data.update(res)
             else:
-                return False
+                return []
         else:
             name = 'v6_{}'.format(id_object)
             data = self._treat_delete('napi', name)
 
-        data_enc = self._encapsulate(action, 'network', 'collections', data)
+        data_enc = [self._encapsulate(action, 'network', 'collections', data)]
 
         return data_enc
 
@@ -281,12 +282,12 @@ class Kind(object):
                 res['timestamp'] = message.get('timestamp')
                 data.update(res)
             else:
-                return False
+                return []
         else:
             name = 'v4_{}'.format(id_object)
             data = self._treat_delete('napi', name)
 
-        data_enc = self._encapsulate(action, 'vlan_network', 'edges', data)
+        data_enc = [self._encapsulate(action, 'vlan_network', 'edges', data)]
 
         return data_enc
 
@@ -304,12 +305,12 @@ class Kind(object):
                 res['timestamp'] = message.get('timestamp')
                 data.update(res)
             else:
-                return False
+                return []
         else:
             name = 'v6_{}'.format(id_object)
             data = self._treat_delete('napi', name)
 
-        data_enc = self._encapsulate(action, 'vlan_network', 'edges', data)
+        data_enc = [self._encapsulate(action, 'vlan_network', 'edges', data)]
 
         return data_enc
 
@@ -327,11 +328,11 @@ class Kind(object):
                 res['timestamp'] = message.get('timestamp')
                 data.update(res)
             else:
-                return False
+                return []
         else:
             data = self._treat_delete('napi', id_object)
 
-        data_enc = self._encapsulate(action, 'vlan', 'collections', data)
+        data_enc = [self._encapsulate(action, 'vlan', 'collections', data)]
 
         return data_enc
 
@@ -349,12 +350,12 @@ class Kind(object):
                 res['timestamp'] = message.get('timestamp')
                 data.update(res)
             else:
-                return False
+                return []
         else:
             data = self._treat_delete('napi', id_object)
 
-        data_enc = self._encapsulate(
-            action, 'environment_vlan', 'edges', data)
+        data_enc = [self._encapsulate(
+            action, 'environment_vlan', 'edges', data)]
 
         return data_enc
 
@@ -372,12 +373,12 @@ class Kind(object):
                 res['timestamp'] = message.get('timestamp')
                 data.update(res)
             else:
-                return False
+                return []
         else:
             data = self._treat_delete('napi', id_object)
 
-        data_enc = self._encapsulate(
-            action, 'environment', 'collections', data)
+        data_enc = [self._encapsulate(
+            action, 'environment', 'collections', data)]
 
         return data_enc
 
@@ -395,11 +396,11 @@ class Kind(object):
                 res['timestamp'] = message.get('timestamp')
                 data.update(res)
             else:
-                return False
+                return []
         else:
             data = self._treat_delete('napi', id_object)
 
-        data_enc = self._encapsulate(
-            action, 'father_environment', 'edges', data)
+        data_enc = [self._encapsulate(
+            action, 'father_environment', 'edges', data)]
 
         return data_enc
