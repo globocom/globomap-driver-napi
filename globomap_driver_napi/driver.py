@@ -19,6 +19,7 @@ import json
 import logging
 
 import pika
+from pika.exceptions import ConnectionClosed
 
 from .data_spec import DataSpec
 from .networkapi import NetworkAPI
@@ -34,14 +35,13 @@ from .settings import NETWORKAPI_RMQ_VIRTUAL_HOST
 
 class Napi(object):
 
-    log = logging.getLogger(__name__)
+    logger = logging.getLogger(__name__)
 
     def __init__(self):
 
-        self._connection()
-        self.msg_rest = []
+        self._connect_rabbit()
 
-    def _connection(self):
+    def _connect_rabbit(self):
         self.rabbitmq = RabbitMQClient(
             host=NETWORKAPI_RMQ_HOST,
             port=NETWORKAPI_RMQ_PORT,
@@ -51,63 +51,79 @@ class Napi(object):
             queue_name=NETWORKAPI_RMQ_QUEUE
         )
 
-    def next_message(self):
-        message = self.rabbitmq.get_message()
-        if isinstance(message, dict):
-            funcs = MAP_FUNC.get(message.get('kind'))
+    def _create_updates(self, raw_msg):
+        """
+        Creates update documents/edges documents for some events for NetworkAPI.
+        This events are filtered by config in settings.
+        """
+
+        if isinstance(raw_msg, dict):
+            # MAP_FUNC have mapping of messages types.
+            # Messages not mapped are discarted
+            funcs = MAP_FUNC.get(raw_msg.get('kind'))
             if funcs:
-                self.log.debug('Treating message %s', message)
-                msgs = []
+                messages_processed = []
                 for func in funcs:
-                    try:
-                        msg = self._treat_message(func, message)
-                        if msg:
-                            msgs.append(msg)
-                        else:
-                            self.log.debug(
-                                'Message don\'t treated %s.', message)
-                    except Exception as err:
-                        self.log.error(
-                            'Message with problem %s. Error: %s' % (message, err))
-                if not msgs:
-                    return self.next_message()
-                return msgs
+                    msgs = self._treat_message_by_func(func, raw_msg)
+                    if msgs:
+                        messages_processed += msgs
+                return messages_processed
+
+        self.logger.debug('Discarding message %s.', raw_msg)
+
+        return []
+
+    def _treat_message_by_func(self, func, message):
+
+        self.logger.debug(
+            'Processing message %s with function %s' % (message, func))
+        try:
+            msgs = self._processing_message(func, message)
+            if not msgs:
+                self.logger.debug(
+                    'Message %s with function %s was not processed' %
+                    (message, func))
             else:
-                self.log.debug('Discarding message %s', message)
-                return self.next_message()
+                self.logger.debug(
+                    'Message %s with function %s was processed' %
+                    (message, func))
+            return msgs
+        except Exception as err:
+            self.logger.error(
+                'Message %s with problem. Error: %s.' % (message, err))
 
-    def _treat_message(self, kind, message):
+    def _processing_message(self, func, message):
 
-        package = kind.get('package')
-        kind_class = kind.get('class')
-        method = kind.get('method')
+        package = func.get('package')
+        func_class = func.get('class')
+        method = func.get('method')
 
-        class_type = getattr(importlib.import_module(package), kind_class)
+        class_type = getattr(importlib.import_module(package), func_class)
         data = getattr(class_type(), method)(message)
 
         return data
 
-    def updates(self, number_messages=1):
-        """Return list of updates"""
-        return self._get_update(number_messages).next()
-
-    def _get_update(self, number_messages=1):
-        messages = []
+    def process_updates(self, callback):
+        """
+        Reads and processes messages from the NetworkAPI event bus until
+        there's no message left in the target queue. Only acks message if
+        processed successfully by the callback.
+        """
         while True:
+            delivery_tag = None
             try:
-                if not self.msg_rest:
-                    self.msg_rest = self.next_message()
-            except StopIteration:
-                if messages:
-                    yield messages
-                raise StopIteration
-            else:
-                while True:
-                    if self.msg_rest:
-                        msg = self.msg_rest.pop(0)
-                        messages.append(msg)
-                    if len(messages) == number_messages:
-                        yield messages
+                raw_msg, delivery_tag = self.rabbitmq.get_message()
+                if raw_msg:
+                    updates = self._create_updates(raw_msg)
+                    for update in updates:
+                        callback(update)
 
-                    if not self.msg_rest:
-                        break
+                    self.rabbitmq.ack_message(delivery_tag)
+                else:
+                    return
+            except ConnectionClosed:
+                self.logger.error('Error connecting to RabbitMQ, reconnecting')
+                self._connect_rabbit()
+            except:
+                self.rabbitmq.nack_message(delivery_tag)
+                raise

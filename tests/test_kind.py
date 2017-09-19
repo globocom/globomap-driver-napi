@@ -39,7 +39,7 @@ class TestKind(unittest2.TestCase):
             kind = Kind()
 
             res = kind.father_environment(data[i])
-            self.assertDictEqual(res, data_ret[i])
+            self.assertDictEqual(res[0], data_ret[i])
 
     def test_environment(self):
         self._mock_environment()
@@ -53,7 +53,7 @@ class TestKind(unittest2.TestCase):
             kind = Kind()
 
             res = kind.environment(data[i])
-            self.assertDictEqual(res, data_ret[i])
+            self.assertDictEqual(res[0], data_ret[i])
 
     def test_environment_vlan(self):
         self._mock_vlan()
@@ -67,7 +67,7 @@ class TestKind(unittest2.TestCase):
             kind = Kind()
 
             res = kind.environment_vlan(data[i])
-            self.assertDictEqual(res, data_ret[i])
+            self.assertDictEqual(res[0], data_ret[i])
 
     def test_vlan(self):
         self._mock_vlan()
@@ -81,7 +81,7 @@ class TestKind(unittest2.TestCase):
             kind = Kind()
 
             res = kind.vlan(data[i])
-            self.assertDictEqual(res, data_ret[i])
+            self.assertDictEqual(res[0], data_ret[i])
 
     def test_vlan_networkv4(self):
         self._mock_networkv4()
@@ -95,7 +95,7 @@ class TestKind(unittest2.TestCase):
             kind = Kind()
 
             res = kind.vlan_network_v4(data[i])
-            self.assertDictEqual(res, data_ret[i])
+            self.assertDictEqual(res[0], data_ret[i])
 
     def test_vlan_networkv6(self):
         self._mock_networkv6()
@@ -109,7 +109,7 @@ class TestKind(unittest2.TestCase):
             kind = Kind()
 
             res = kind.vlan_network_v6(data[i])
-            self.assertDictEqual(res, data_ret[i])
+            self.assertDictEqual(res[0], data_ret[i])
 
     def test_networkv4(self):
         self._mock_networkv4()
@@ -123,7 +123,7 @@ class TestKind(unittest2.TestCase):
             kind = Kind()
 
             res = kind.network_v4(data[i])
-            self.assertDictEqual(res, data_ret[i])
+            self.assertDictEqual(res[0], data_ret[i])
 
     def test_networkv6(self):
         self._mock_networkv6()
@@ -137,7 +137,7 @@ class TestKind(unittest2.TestCase):
             kind = Kind()
 
             res = kind.network_v6(data[i])
-            self.assertDictEqual(res, data_ret[i])
+            self.assertDictEqual(res[0], data_ret[i])
 
     def test_ipv4_eqpt(self):
         self._mock_ipv4()
@@ -151,7 +151,7 @@ class TestKind(unittest2.TestCase):
             kind = Kind()
 
             res = kind.network_v4_comp_unit(data[i])
-            self.assertDictEqual(res, data_ret[i])
+            self.assertDictEqual(res[0], data_ret[i])
 
     def test_ipv6_eqpt(self):
         self._mock_ipv6()
@@ -165,7 +165,7 @@ class TestKind(unittest2.TestCase):
             kind = Kind()
 
             res = kind.network_v6_comp_unit(data[i])
-            self.assertDictEqual(res, data_ret[i])
+            self.assertDictEqual(res[0], data_ret[i])
 
     def test_comp_unit(self):
         self._mock_equipment()
@@ -179,7 +179,7 @@ class TestKind(unittest2.TestCase):
             kind = Kind()
 
             res = kind.comp_unit(data[i])
-            self.assertDictEqual(res, data_ret[i])
+            self.assertDictEqual(res[0], data_ret[i])
 
     def test_vip(self):
         self._mock_vip()
@@ -192,7 +192,7 @@ class TestKind(unittest2.TestCase):
             kind = Kind()
 
             res = kind.vip(data[i])
-            self.assertDictEqual(res, data_ret[i])
+            self.assertDictEqual(res[0], data_ret[i])
 
     # TODO
     # def test_vip_port(self):
@@ -205,7 +205,7 @@ class TestKind(unittest2.TestCase):
     #     for i in range(3):
     #         kind = Kind()
     #         res = kind.port(data[i])
-    #         self.assertDictEqual(res, data_ret[i])
+    #         self.assertDictEqual(res[0], data_ret[i])
 
     def test_port(self):
         self._mock_vip_by_portpool_id()
@@ -219,7 +219,7 @@ class TestKind(unittest2.TestCase):
             kind = Kind()
 
             res = kind.port(data[i])
-            self.assertDictEqual(res, data_ret[i])
+            self.assertDictEqual(res[0], data_ret[i])
 
     def test_pool(self):
         self._mock_pool()
@@ -233,7 +233,7 @@ class TestKind(unittest2.TestCase):
             kind = Kind()
 
             res = kind.pool(data[i])
-            self.assertDictEqual(res, data_ret[i])
+            self.assertDictEqual(res[0], data_ret[i])
 
     def test_pool_comp_unit(self):
         self._mock_pool_member_id()
@@ -247,7 +247,7 @@ class TestKind(unittest2.TestCase):
             kind = Kind()
 
             res = kind.pool_comp_unit(data[i])
-            self.assertDictEqual(res, data_ret[i])
+            self.assertDictEqual(res[0], data_ret[i])
 
     ################
     # Non Existent #
@@ -262,7 +262,7 @@ class TestKind(unittest2.TestCase):
         kind = Kind()
         res = kind.vip(data[1])
 
-        self.assertEqual(res, False)
+        self.assertEqual(res, [])
 
     def test_port_non_existent(self):
         napi_mock = patch(
@@ -274,7 +274,7 @@ class TestKind(unittest2.TestCase):
         kind = Kind()
         res = kind.port(data[1])
 
-        self.assertEqual(res, False)
+        self.assertEqual(res, [])
 
     def test_pool_non_existent(self):
         napi_mock = patch(
@@ -286,7 +286,7 @@ class TestKind(unittest2.TestCase):
         kind = Kind()
         res = kind.pool(data[1])
 
-        self.assertEqual(res, False)
+        self.assertEqual(res, [])
 
     def test_pool_comp_unit_non_existent(self):
         napi_mock = patch(
@@ -298,7 +298,7 @@ class TestKind(unittest2.TestCase):
         kind = Kind()
         res = kind.pool_comp_unit(data[1])
 
-        self.assertEqual(res, False)
+        self.assertEqual(res, [])
 
     def test_environment_non_existent(self):
         napi_mock = patch(
@@ -310,7 +310,7 @@ class TestKind(unittest2.TestCase):
         kind = Kind()
         res = kind.environment(data[1])
 
-        self.assertEqual(res, False)
+        self.assertEqual(res, [])
 
     def test_father_environment_non_existent(self):
         napi_mock = patch(
@@ -322,7 +322,7 @@ class TestKind(unittest2.TestCase):
         kind = Kind()
         res = kind.father_environment(data[1])
 
-        self.assertEqual(res, False)
+        self.assertEqual(res, [])
 
     def test_environment_vlan_non_existent(self):
         napi_mock = patch(
@@ -333,7 +333,7 @@ class TestKind(unittest2.TestCase):
         kind = Kind()
         res = kind.environment_vlan(data[1])
 
-        self.assertEqual(res, False)
+        self.assertEqual(res, [])
 
     def test_vlan_non_existent(self):
         napi_mock = patch(
@@ -344,7 +344,7 @@ class TestKind(unittest2.TestCase):
         kind = Kind()
         res = kind.vlan(data[1])
 
-        self.assertEqual(res, False)
+        self.assertEqual(res, [])
 
     def test_vlan_networkv4_non_existent(self):
         napi_mock = patch(
@@ -355,7 +355,7 @@ class TestKind(unittest2.TestCase):
         kind = Kind()
         res = kind.vlan_network_v4(data[1])
 
-        self.assertEqual(res, False)
+        self.assertEqual(res, [])
 
     def test_vlan_networkv6_non_existent(self):
         napi_mock = patch(
@@ -366,7 +366,7 @@ class TestKind(unittest2.TestCase):
         kind = Kind()
         res = kind.vlan_network_v6(data[1])
 
-        self.assertEqual(res, False)
+        self.assertEqual(res, [])
 
     def test_networkv4_non_existent(self):
         napi_mock = patch(
@@ -377,7 +377,7 @@ class TestKind(unittest2.TestCase):
         kind = Kind()
         res = kind.network_v4(data[1])
 
-        self.assertEqual(res, False)
+        self.assertEqual(res, [])
 
     def test_networkv6_non_existent(self):
         napi_mock = patch(
@@ -388,7 +388,7 @@ class TestKind(unittest2.TestCase):
         kind = Kind()
         res = kind.network_v6(data[1])
 
-        self.assertEqual(res, False)
+        self.assertEqual(res, [])
 
     def test_network_v4_comp_unit_non_existent(self):
         napi_mock = patch(
@@ -399,7 +399,7 @@ class TestKind(unittest2.TestCase):
         kind = Kind()
         res = kind.network_v4_comp_unit(data[0])
 
-        self.assertEqual(res, False)
+        self.assertEqual(res, [])
 
     def test_network_v6_comp_unit_non_existent(self):
         napi_mock = patch(
@@ -410,7 +410,7 @@ class TestKind(unittest2.TestCase):
         kind = Kind()
         res = kind.network_v6_comp_unit(data[0])
 
-        self.assertEqual(res, False)
+        self.assertEqual(res, [])
 
     def test_comp_unit_non_existent(self):
         napi_mock = patch(
@@ -421,7 +421,7 @@ class TestKind(unittest2.TestCase):
         kind = Kind()
         res = kind.comp_unit(data[0])
 
-        self.assertEqual(res, False)
+        self.assertEqual(res, [])
 
     def test_network_v4_comp_unit_update(self):
         kind = Kind()
@@ -430,8 +430,7 @@ class TestKind(unittest2.TestCase):
             'data': {'id_object': 1}
         })
 
-        self.assertEqual(res, False)
-        self.assertEqual(res, False)
+        self.assertEqual(res, [])
 
     def test_network_v6_comp_unit_update(self):
         kind = Kind()
@@ -440,7 +439,7 @@ class TestKind(unittest2.TestCase):
             'data': {'id_object': 1}
         })
 
-        self.assertEqual(res, False)
+        self.assertEqual(res, [])
 
     #########
     # MOCKS #
