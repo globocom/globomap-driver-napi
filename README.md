@@ -25,4 +25,4 @@ driver.updates()
 ```
 
 ## Example of implementation
-[Examples](https://github.com/globocom/globomap-driver-napi/doc/examples)
+[Examples](https://github.com/globocom/globomap-driver-napi/tree/master/doc/examples)
