@@ -22,3 +22,7 @@ All of the environment variables below must be set for the plugin to work proper
 from globomap_driver_napi.driver import Napi
 driver = Napi()
 driver.updates()
+```
+
+## Example of implementation
+[Examples](https://github.com/globocom/globomap-driver-napi/doc/examples)
