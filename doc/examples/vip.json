@@ -1,0 +1,63 @@
+[
+  {
+    "action": "CREATE",
+    "collection": "vip",
+    "element": {
+      "id": "13622",
+      "name": "vip_teste",
+      "properties": {
+        "created": false,
+        "environmentvip": "FIN_VIP-ClientTxt-VIP-EnvP44Txt-VIP",
+        "ip": "10.16.0.2"
+      },
+      "properties_metadata": {
+        "created": {
+          "description": "Created id Load Balancer"
+        },
+        "environmentvip": {
+          "description": "Environment of VIP"
+        },
+        "ip": {
+          "description": "IP"
+        }
+      },
+      "provider": "napi",
+      "timestamp": 1503288596
+    },
+    "type": "collections"
+  },
+  {
+    "action": "UPDATE",
+    "collection": "vip",
+    "element": {
+      "id": "13622",
+      "name": "vip_teste",
+      "properties": {
+        "created": false,
+        "environmentvip": "FIN_VIP-ClientTxt-VIP-EnvP44Txt-VIP",
+        "ip": "10.16.0.2"
+      },
+      "properties_metadata": {
+        "created": {
+          "description": "Created id Load Balancer"
+        },
+        "environmentvip": {
+          "description": "Environment of VIP"
+        },
+        "ip": {
+          "description": "IP"
+        }
+      },
+      "provider": "napi",
+      "timestamp": 1503288596
+    },
+    "key": "napi_13622",
+    "type": "collections"
+  },
+  {
+    "action": "DELETE",
+    "collection": "vip",
+    "key": "napi_13622",
+    "type": "collections"
+  }
+]
