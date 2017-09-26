@@ -205,6 +205,7 @@ class Loader(object):
         for port in vip['ports']:
             for pool in port['pools']:
                 pool['port'] = port['port']
+                pool['options'] = port['options']
                 content = DataSpec().port(pool, vip['id'])
                 data = self._construct('UPDATE', 'port', 'edges', content)
 

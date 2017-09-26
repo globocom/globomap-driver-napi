@@ -13,11 +13,10 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 """
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import logging
 
-from loader import Loader
+from globomap_driver_napi.loader import Loader
 
 if __name__ == '__main__':
     logging.basicConfig(

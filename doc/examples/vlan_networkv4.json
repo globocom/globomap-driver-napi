@@ -1,0 +1,35 @@
+[
+  {
+    "action": "CREATE",
+    "collection": "vlan_network",
+    "element": {
+      "from": "vlan/napi_10",
+      "id": "v4_26397",
+      "name": "1 - 10.237.128.0/28",
+      "provider": "napi",
+      "timestamp": 1503343722,
+      "to": "network/napi_v4_26397"
+    },
+    "type": "edges"
+  },
+  {
+    "action": "UPDATE",
+    "collection": "vlan_network",
+    "element": {
+      "from": "vlan/napi_10",
+      "id": "v4_26397",
+      "name": "1 - 10.237.128.0/28",
+      "provider": "napi",
+      "timestamp": 1503343793,
+      "to": "network/napi_v4_26397"
+    },
+    "key": "napi_v4_26397",
+    "type": "edges"
+  },
+  {
+    "action": "DELETE",
+    "collection": "vlan_network",
+    "key": "napi_v4_26397",
+    "type": "edges"
+  }
+]

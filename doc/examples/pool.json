@@ -1,0 +1,95 @@
+[
+  {
+    "action": "CREATE",
+    "collection": "pool",
+    "element": {
+      "id": "17466",
+      "name": "POOL1",
+      "properties": {
+        "default_limit": 100,
+        "default_port": 8080,
+        "environment": "DIVISAO_DC_POOL - AMBIENTE_LOGICO_POOL - GRUPO_L3_POOL",
+        "healthcheck": "TCP",
+        "lb_method": "least-conn",
+        "pool_created": false,
+        "servicedownaction": "none"
+      },
+      "properties_metadata": {
+        "default_limit": {
+          "description": "Limit of Connections"
+        },
+        "default_port": {
+          "description": "Default Port of Pool"
+        },
+        "environment": {
+          "description": "Environment of Pool"
+        },
+        "healthcheck": {
+          "description": "Healthcheck Type"
+        },
+        "lb_method": {
+          "description": "Method of Load Balancing"
+        },
+        "pool_created": {
+          "description": "Created in Load Balancer"
+        },
+        "servicedownaction": {
+          "description": "Action On Service Down"
+        }
+      },
+      "provider": "napi",
+      "timestamp": 1501264297
+    },
+    "type": "collections"
+  },
+  {
+    "action": "UPDATE",
+    "collection": "pool",
+    "element": {
+      "id": "17466",
+      "name": "POOL1",
+      "properties": {
+        "default_limit": 100,
+        "default_port": 8080,
+        "environment": "DIVISAO_DC_POOL - AMBIENTE_LOGICO_POOL - GRUPO_L3_POOL",
+        "healthcheck": "TCP",
+        "lb_method": "least-conn",
+        "pool_created": false,
+        "servicedownaction": "none"
+      },
+      "properties_metadata": {
+        "default_limit": {
+          "description": "Limit of Connections"
+        },
+        "default_port": {
+          "description": "Default Port of Pool"
+        },
+        "environment": {
+          "description": "Environment of Pool"
+        },
+        "healthcheck": {
+          "description": "Healthcheck Type"
+        },
+        "lb_method": {
+          "description": "Method of Load Balancing"
+        },
+        "pool_created": {
+          "description": "Created in Load Balancer"
+        },
+        "servicedownaction": {
+          "description": "Action On Service Down"
+        }
+      },
+      "provider": "napi",
+      "timestamp": 1501264297
+    },
+    "key": "napi_17466",
+    "type": "collections"
+  },
+  {
+    "action": "DELETE",
+    "collection": "pool",
+    "key": "napi_17466",
+    "type": "collections"
+  }
+]

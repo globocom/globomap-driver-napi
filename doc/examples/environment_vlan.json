@@ -1,0 +1,35 @@
+[
+  {
+    "action": "CREATE",
+    "collection": "environment_vlan",
+    "element": {
+      "from": "environment/napi_13",
+      "id": "27678",
+      "name": "DIVISAO_DC_SPACE_2 - AMBIENTE_LOGICO_SPACE_2 - GRUPO_L3_SPACE_2 / 312",
+      "provider": "napi",
+      "timestamp": 1503286339,
+      "to": "vlan/napi_27678"
+    },
+    "type": "edges"
+  },
+  {
+    "action": "UPDATE",
+    "collection": "environment_vlan",
+    "element": {
+      "from": "environment/napi_13",
+      "id": "27678",
+      "name": "DIVISAO_DC_SPACE_2 - AMBIENTE_LOGICO_SPACE_2 - GRUPO_L3_SPACE_2 / 312",
+      "provider": "napi",
+      "timestamp": 1503266033,
+      "to": "vlan/napi_27678"
+    },
+    "key": "napi_27678",
+    "type": "edges"
+  },
+  {
+    "action": "DELETE",
+    "collection": "environment_vlan",
+    "key": "napi_27678",
+    "type": "edges"
+  }
+]
