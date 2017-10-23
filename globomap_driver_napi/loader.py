@@ -107,9 +107,8 @@ class Loader(object):
         obj = self.client.create_api_v4_equipment()
         pages = self._paging(
             obj=obj, key='equipments', next_search=self.search,
-            include=['ipsv4__details__ip__details__ip_formated',
-                     'ipsv6__details__ip__details__ip_formated',
-                     'ipsv6__details__id', 'ipsv4__details__id',
+            include=['ipsv4__basic__ip__ip_formated',
+                     'ipsv4__basic__ip__ip_formated',
                      'equipment_type__details'])
         while True:
             equipments = pages.next()
@@ -339,3 +338,25 @@ class Loader(object):
                     yield objs[key]
                 else:
                     break
+
+    def run(self):
+        for messages in self.vips():
+            self.send(messages)
+
+        for messages in self.pools():
+            self.send(messages)
+
+        for messages in self.environments():
+            self.send(messages)
+
+        for messages in self.vlans():
+            self.send(messages)
+
+        for messages in self.networksv4():
+            self.send(messages)
+
+        for messages in self.networksv6():
+            self.send(messages)
+
+        for messages in self.equipments():
+            self.send(messages)

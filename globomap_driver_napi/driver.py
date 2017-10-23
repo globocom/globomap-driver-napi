@@ -21,16 +21,17 @@ import logging
 import pika
 from pika.exceptions import ConnectionClosed
 
-from .data_spec import DataSpec
-from .networkapi import NetworkAPI
-from .rabbitmq import RabbitMQClient
-from .settings import MAP_FUNC
-from .settings import NETWORKAPI_RMQ_HOST
-from .settings import NETWORKAPI_RMQ_PASSWORD
-from .settings import NETWORKAPI_RMQ_PORT
-from .settings import NETWORKAPI_RMQ_QUEUE
-from .settings import NETWORKAPI_RMQ_USER
-from .settings import NETWORKAPI_RMQ_VIRTUAL_HOST
+from globomap_driver_napi.data_spec import DataSpec
+from globomap_driver_napi.loader import Loader
+from globomap_driver_napi.networkapi import NetworkAPI
+from globomap_driver_napi.rabbitmq import RabbitMQClient
+from globomap_driver_napi.settings import MAP_FUNC
+from globomap_driver_napi.settings import NETWORKAPI_RMQ_HOST
+from globomap_driver_napi.settings import NETWORKAPI_RMQ_PASSWORD
+from globomap_driver_napi.settings import NETWORKAPI_RMQ_PORT
+from globomap_driver_napi.settings import NETWORKAPI_RMQ_QUEUE
+from globomap_driver_napi.settings import NETWORKAPI_RMQ_USER
+from globomap_driver_napi.settings import NETWORKAPI_RMQ_VIRTUAL_HOST
 
 
 class Napi(object):
@@ -127,3 +128,6 @@ class Napi(object):
             except:
                 self.rabbitmq.nack_message(delivery_tag)
                 raise
+
+    def full_load(self):
+        Loader().run()

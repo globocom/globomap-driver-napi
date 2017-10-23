@@ -16,7 +16,7 @@
 # -*- coding: utf-8 -*-
 import logging
 
-from globomap_driver_napi.loader import Loader
+from globomap_driver_napi.driver import Napi
 
 if __name__ == '__main__':
     logging.basicConfig(
@@ -24,25 +24,5 @@ if __name__ == '__main__':
         level=logging.DEBUG,
         format='%(asctime)s %(threadName)s %(levelname)s %(message)s')
 
-    inst_loader = Loader()
-
-    for messages in inst_loader.vips():
-        inst_loader.send(messages)
-
-    for messages in inst_loader.pools():
-        inst_loader.send(messages)
-
-    for messages in inst_loader.environments():
-        inst_loader.send(messages)
-
-    for messages in inst_loader.vlans():
-        inst_loader.send(messages)
-
-    for messages in inst_loader.networksv4():
-        inst_loader.send(messages)
-
-    for messages in inst_loader.networksv6():
-        inst_loader.send(messages)
-
-    for messages in inst_loader.equipments():
-        inst_loader.send(messages)
+    inst = Napi()
+    inst.full_load()
