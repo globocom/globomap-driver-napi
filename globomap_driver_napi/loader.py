@@ -58,7 +58,10 @@ class Loader(object):
         response = requests.post(
             '{}/v1/updates'.format(self.url),
             data=json.dumps(data),
-            headers={'Content-Type': 'application/json'}
+            headers={
+                'Content-Type': 'application/json',
+                'X-Driver-Name': 'napi'
+            }
         )
 
         self.logger.debug('[DriverNapi][loader][send][response]/n%s', data)
@@ -108,7 +111,7 @@ class Loader(object):
         pages = self._paging(
             obj=obj, key='equipments', next_search=self.search,
             include=['ipsv4__basic__ip__ip_formated',
-                     'ipsv4__basic__ip__ip_formated',
+                     'ipsv6__basic__ip__ip_formated',
                      'equipment_type__details'])
         while True:
             equipments = pages.next()
