@@ -15,12 +15,13 @@
 """
 # -*- coding: utf-8 -*-
 import logging
+import os
 
 from globomap_driver_napi.driver import Napi
 
 if __name__ == '__main__':
     logging.basicConfig(
-        filename='loader.log',
+        filename=os.getenv('NETWORKAPI_LOG_LOADER', 'loader.log'),
         level=logging.DEBUG,
         format='%(asctime)s %(threadName)s %(levelname)s %(message)s')
 
