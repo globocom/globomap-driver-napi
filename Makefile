@@ -37,6 +37,9 @@ compile: clean
 setup: requirements.txt
 	$(PIP) install -r $^
 
+test:
+	@python -m unittest2 discover tests
+
 install:
 	@python setup.py install
 
