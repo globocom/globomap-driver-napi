@@ -14,6 +14,7 @@
    limitations under the License.
 """
 # -*- coding: utf-8 -*-
+import re
 
 
 class DataSpec(object):
@@ -216,9 +217,13 @@ class DataSpec(object):
         ips = [ip['ip_formated'] for ip in compunit.get('ipv4', [])]
         ips += [ip['ip_formated'] for ip in compunit.get('ipv6', [])]
 
+        m = re.search(
+            '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$', compunit['name'])
+        name = compunit['name'] if m is not None else ''
+
         data = {
             'id': compunit['name'].lower(),
-            'name': '',
+            'name': name,
             'provider': 'globomap',
             'properties': {
                 'maintenance': compunit['maintenance'],
