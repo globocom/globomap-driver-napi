@@ -344,23 +344,23 @@ class Loader(object):
                     break
 
     def run(self):
-        # for messages in self.vips():
-        #     self.send(messages)
+        for messages in self.vips():
+            self.send(messages)
 
-        # for messages in self.pools():
-        #     self.send(messages)
+        for messages in self.pools():
+            self.send(messages)
 
-        # for messages in self.environments():
-        #     self.send(messages)
+        for messages in self.environments():
+            self.send(messages)
 
-        # for messages in self.vlans():
-        #     self.send(messages)
+        for messages in self.vlans():
+            self.send(messages)
 
-        # for messages in self.networksv4():
-        #     self.send(messages)
+        for messages in self.networksv4():
+            self.send(messages)
 
-        # for messages in self.networksv6():
-        #     self.send(messages)
+        for messages in self.networksv6():
+            self.send(messages)
 
         for messages in self.equipments():
             self.send(messages)
