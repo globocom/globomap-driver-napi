@@ -244,11 +244,11 @@ class Loader(object):
     def _equipment_ipv4(self, equipment):
         data_list = list()
         for ipv4 in equipment.get('ipsv4'):
+            ipv4['ip']['networkipv4'] = ipv4['ip']['networkipv4']['id']
             content = DataSpec().network_comp_unit(
                 ipv4['ip'], equipment['name'], ipv4['id'])
             data = self._construct(
                 'UPDATE', 'network_comp_unit', 'edges', content)
-
             data_list.append(data)
 
         return data_list
@@ -256,6 +256,7 @@ class Loader(object):
     def _equipment_ipv6(self, equipment):
         data_list = list()
         for ipv6 in equipment.get('ipsv6'):
+            ipv6['ip']['networkipv6'] = ipv6['ip']['networkipv6']['id']
             content = DataSpec().network_comp_unit(
                 ipv6['ip'], equipment['name'], ipv6['id'])
             data = self._construct(
@@ -343,23 +344,23 @@ class Loader(object):
                     break
 
     def run(self):
-        for messages in self.vips():
-            self.send(messages)
+        # for messages in self.vips():
+        #     self.send(messages)
 
-        for messages in self.pools():
-            self.send(messages)
+        # for messages in self.pools():
+        #     self.send(messages)
 
-        for messages in self.environments():
-            self.send(messages)
+        # for messages in self.environments():
+        #     self.send(messages)
 
-        for messages in self.vlans():
-            self.send(messages)
+        # for messages in self.vlans():
+        #     self.send(messages)
 
-        for messages in self.networksv4():
-            self.send(messages)
+        # for messages in self.networksv4():
+        #     self.send(messages)
 
-        for messages in self.networksv6():
-            self.send(messages)
+        # for messages in self.networksv6():
+        #     self.send(messages)
 
         for messages in self.equipments():
             self.send(messages)
