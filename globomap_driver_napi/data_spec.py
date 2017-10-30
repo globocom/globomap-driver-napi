@@ -219,11 +219,10 @@ class DataSpec(object):
 
         test = re.search(
             '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$', compunit['name'])
-        name = compunit['name'] if test is None else ''
+        name = compunit['name'].lower() if test is None else ''
 
         data = {
             'id': compunit['name'].lower(),
-            'name': name,
             'provider': 'globomap',
             'properties': {
                 'maintenance': compunit['maintenance'],
@@ -242,6 +241,9 @@ class DataSpec(object):
                 }
             }
         }
+
+        if name:
+            data['name'] = name
 
         return data
 
