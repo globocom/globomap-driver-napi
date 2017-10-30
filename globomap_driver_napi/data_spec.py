@@ -218,7 +218,7 @@ class DataSpec(object):
         ips += [ip['ip_formated'] for ip in compunit.get('ipv6', [])]
 
         test = re.search(
-            '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$', compunit['name'])
+            '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$', compunit['name'].lower())
         name = compunit['name'].lower() if test is None else ''
 
         data = {
