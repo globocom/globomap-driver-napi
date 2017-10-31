@@ -1,0 +1,19 @@
+{
+  "equipment": {
+    "id": 20,
+    "name": "vm-8f1d34c1-ab89-4ef7-9d9d-0d57c2b6547b"
+  },
+  "id": 1,
+  "identifier": "10.0.0.2",
+  "ip": {
+    "id": 18,
+    "ip_formated": "10.0.0.2"
+  },
+  "ipv6": null,
+  "last_status_update_formated": null,
+  "limit": 1000,
+  "member_status": 7,
+  "port_real": 8080,
+  "priority": 0,
+  "weight": 1
+}

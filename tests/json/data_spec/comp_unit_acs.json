@@ -1,0 +1,24 @@
+{
+  "equipment_type": {
+    "equipment_type": "Server",
+    "id": 5
+  },
+  "id": 1,
+  "ipv4": [
+    {
+      "description": "Description",
+      "id": 2,
+      "ip_formated": "10.0.0.1"
+    }
+  ],
+  "ipv6": [
+    {
+      "description": "Description",
+      "id": 3,
+      "ip_formated": "bebe:bebe:bebe:0000:0000:0000:0000:0001"
+    }
+  ],
+  "maintenance": false,
+  "model": 1,
+  "name": "vm-8f1d34c1-ab89-4ef7-9d9d-0d57c2b6547b"
+}

@@ -1,0 +1,52 @@
+[
+  {
+    "action": "Cadastrar",
+    "data": {
+      "id_object": 164428,
+      "new_value": {
+        "equipamento": {
+          "id": 65152,
+          "value": "vm-8f1d34c1-ab89-4ef7-9d9d-0d57c2b6547b"
+        },
+        "id": 164428,
+        "ip": {
+          "id": 19,
+          "value": "19"
+        }
+      },
+      "old_value": {
+        "equipamento": null,
+        "id": null,
+        "ip": null
+      },
+      "user": 1
+    },
+    "kind": "IpEquipamento",
+    "timestamp": 1503341577
+  },
+  {
+    "action": "Remover",
+    "data": {
+      "id_object": 164428,
+      "new_value": {
+        "equipamento": {
+          "id": 65152,
+          "value": "vm-8f1d34c1-ab89-4ef7-9d9d-0d57c2b6547b"
+        },
+        "id": 164428,
+        "ip": {
+          "id": 19,
+          "value": "19"
+        }
+      },
+      "old_value": {
+        "equipamento": null,
+        "id": null,
+        "ip": null
+      },
+      "user": 1
+    },
+    "kind": "IpEquipamento",
+    "timestamp": 1503341866
+  }
+]

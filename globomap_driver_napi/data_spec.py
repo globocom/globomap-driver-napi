@@ -14,7 +14,7 @@
    limitations under the License.
 """
 # -*- coding: utf-8 -*-
-import re
+from .util import valid_comp_unit_id
 
 
 class DataSpec(object):
@@ -158,10 +158,11 @@ class DataSpec(object):
         session = 'Up' if str(member['member_status']) in '2367' else 'Down'
         healthcheck = 'Up' if str(
             member['member_status']) in '4567' else 'Down'
+        compunit_id = valid_comp_unit_id(member['equipment']['name'].lower())
 
         data = {
             'from': 'pool/napi_{}'.format(pool_id),
-            'to': 'comp_unit/globomap_{}'.format(member['equipment']['name'].lower()),
+            'to': 'comp_unit/globomap_{}'.format(compunit_id),
             'id': str(member['id']),
             'name': name,
             'provider': 'napi',
@@ -216,13 +217,13 @@ class DataSpec(object):
 
         ips = [ip['ip_formated'] for ip in compunit.get('ipv4', [])]
         ips += [ip['ip_formated'] for ip in compunit.get('ipv6', [])]
+        compunit['name'] = compunit['name'].lower()
 
-        test = re.search(
-            '[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$', compunit['name'].lower())
-        name = compunit['name'].lower() if test is None else ''
+        compunit_id = valid_comp_unit_id(compunit['name'])
+        name = compunit['name'] if compunit['name'] == compunit_id else ''
 
         data = {
-            'id': compunit['name'].lower(),
+            'id': compunit_id,
             'provider': 'globomap',
             'properties': {
                 'maintenance': compunit['maintenance'],
@@ -282,14 +283,12 @@ class DataSpec(object):
         net = ip.get('networkipv4') if ip.get(
             'networkipv4') else ip.get('networkipv6')
         version = 'v4' if ip.get('networkipv4') else 'v6'
-        name_eqpt = name_eqpt.lower()
-        ip_formated = ip.get('ip_formated').lower()
+        compunit_id = valid_comp_unit_id(name_eqpt.lower())
 
         data = {
             'from': 'network/napi_{}_{}'.format(version, net),
-            'to': 'comp_unit/globomap_{}'.format(name_eqpt),
+            'to': 'comp_unit/globomap_{}'.format(compunit_id),
             'id': '{}_{}'.format(version, ipeqpt_id),
-            'name': '{} - {}'.format(ip_formated, name_eqpt),
             'provider': 'napi',
         }
 

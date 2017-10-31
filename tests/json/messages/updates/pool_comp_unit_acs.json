@@ -1,0 +1,115 @@
+[
+  {
+    "action": "CREATE",
+    "collection": "pool_comp_unit",
+    "element": {
+      "from": "pool/napi_17466",
+      "id": "31623",
+      "name": "10.0.0.2",
+      "properties": {
+        "ip": "10.0.0.2",
+        "limit": 1000,
+        "port_real": 8080,
+        "priority": 0,
+        "status_healthcheck": "Up",
+        "status_last_update": null,
+        "status_monitor": "Up",
+        "status_session": "Up",
+        "weight": 1
+      },
+      "properties_metadata": {
+        "ip": {
+          "description": "IP"
+        },
+        "limit": {
+          "description": "Limit"
+        },
+        "port_real": {
+          "description": "Port"
+        },
+        "priority": {
+          "description": "Priority"
+        },
+        "status_healthcheck": {
+          "description": "Up/Down (Healthcheck)"
+        },
+        "status_last_update": {
+          "description": "Last Update of Status"
+        },
+        "status_monitor": {
+          "description": "User Up/Down (Forced)"
+        },
+        "status_session": {
+          "description": "Enabled/Disabled"
+        },
+        "weight": {
+          "description": "Weight"
+        }
+      },
+      "provider": "napi",
+      "timestamp": 1503288483,
+      "to": "comp_unit/globomap_8f1d34c1-ab89-4ef7-9d9d-0d57c2b6547b"
+    },
+    "type": "edges"
+  },
+  {
+    "action": "UPDATE",
+    "collection": "pool_comp_unit",
+    "element": {
+      "from": "pool/napi_17466",
+      "id": "31623",
+      "name": "10.0.0.2",
+      "properties": {
+        "ip": "10.0.0.2",
+        "limit": 1000,
+        "port_real": 8080,
+        "priority": 0,
+        "status_healthcheck": "Up",
+        "status_last_update": null,
+        "status_monitor": "Up",
+        "status_session": "Up",
+        "weight": 1
+      },
+      "properties_metadata": {
+        "ip": {
+          "description": "IP"
+        },
+        "limit": {
+          "description": "Limit"
+        },
+        "port_real": {
+          "description": "Port"
+        },
+        "priority": {
+          "description": "Priority"
+        },
+        "status_healthcheck": {
+          "description": "Up/Down (Healthcheck)"
+        },
+        "status_last_update": {
+          "description": "Last Update of Status"
+        },
+        "status_monitor": {
+          "description": "User Up/Down (Forced)"
+        },
+        "status_session": {
+          "description": "Enabled/Disabled"
+        },
+        "weight": {
+          "description": "Weight"
+        }
+      },
+      "provider": "napi",
+      "timestamp": 1503351035,
+      "to": "comp_unit/globomap_8f1d34c1-ab89-4ef7-9d9d-0d57c2b6547b"
+    },
+    "key": "napi_31623",
+    "type": "edges"
+  },
+  {
+    "action": "DELETE",
+    "collection": "pool_comp_unit",
+    "key": "napi_31623",
+    "type": "edges"
+  }
+]
