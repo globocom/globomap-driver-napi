@@ -3,18 +3,18 @@
     "action": "CREATE",
     "collection": "network_comp_unit",
     "element": {
-      "from": "network/napi_v4_10",
-      "id": "v4_164428",
+      "from": "network/napi_v6_1",
+      "id": "v6_489",
       "provider": "napi",
       "timestamp": 1503341577,
-      "to": "comp_unit/globomap_eqpt1"
+      "to": "comp_unit/globomap_8f1d34c1-ab89-4ef7-9d9d-0d57c2b6547b"
     },
     "type": "edges"
   },
   {
     "action": "DELETE",
     "collection": "network_comp_unit",
-    "key": "napi_v4_164428",
+    "key": "napi_v6_489",
     "type": "edges"
   }
 ]

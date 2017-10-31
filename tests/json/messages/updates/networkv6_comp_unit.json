@@ -5,7 +5,6 @@
     "element": {
       "from": "network/napi_v6_1",
       "id": "v6_489",
-      "name": "fdbe:bebe:bebe:11c0:0000:0000:0000:0004 - eqpt1",
       "provider": "napi",
       "timestamp": 1503341577,
       "to": "comp_unit/globomap_eqpt1"

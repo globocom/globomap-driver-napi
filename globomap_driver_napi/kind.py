@@ -18,6 +18,7 @@ from .data_spec import DataSpec
 from .networkapi import NetworkAPI
 from .settings import ACTIONS
 from .settings import MAP_FUNC
+from .util import valid_comp_unit_id
 
 
 class Kind(object):
@@ -128,13 +129,12 @@ class Kind(object):
             if equipment:
                 data = DataSpec().comp_unit(equipment)
                 data['timestamp'] = message.get('timestamp')
-                if action == 'CREATE':
-                    data['name'] = data['id']
             else:
                 return []
         else:
             name = message['data']['new_value']['nome'].lower()
-            data = self._treat_delete('globomap', name)
+            compunit_id = valid_comp_unit_id(name)
+            data = self._treat_delete('globomap', compunit_id)
 
         data_enc = [self._encapsulate(
             action, 'comp_unit', 'collections', data)]

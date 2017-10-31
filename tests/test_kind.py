@@ -153,6 +153,20 @@ class TestKind(unittest2.TestCase):
             res = kind.network_v4_comp_unit(data[i])
             self.assertDictEqual(res[0], data_ret[i])
 
+    def test_ipv4_eqpt_acs(self):
+        self._mock_ipv4()
+
+        data = self._queue_message(
+            'tests/json/messages/queue/ipv4_eqpt_acs.json')
+        data_ret = self._update_message(
+            'tests/json/messages/updates/networkv4_comp_unit_acs.json')
+
+        for i in range(2):
+            kind = Kind()
+
+            res = kind.network_v4_comp_unit(data[i])
+            self.assertDictEqual(res[0], data_ret[i])
+
     def test_ipv6_eqpt(self):
         self._mock_ipv6()
 
@@ -160,6 +174,20 @@ class TestKind(unittest2.TestCase):
             'tests/json/messages/queue/ipv6_eqpt.json')
         data_ret = self._update_message(
             'tests/json/messages/updates/networkv6_comp_unit.json')
+
+        for i in range(2):
+            kind = Kind()
+
+            res = kind.network_v6_comp_unit(data[i])
+            self.assertDictEqual(res[0], data_ret[i])
+
+    def test_ipv6_eqpt_acs(self):
+        self._mock_ipv6()
+
+        data = self._queue_message(
+            'tests/json/messages/queue/ipv6_eqpt_acs.json')
+        data_ret = self._update_message(
+            'tests/json/messages/updates/networkv6_comp_unit_acs.json')
 
         for i in range(2):
             kind = Kind()
@@ -175,6 +203,19 @@ class TestKind(unittest2.TestCase):
         data_ret = self._update_message(
             'tests/json/messages/updates/comp_unit.json')
 
+        for i in range(3):
+            kind = Kind()
+
+            res = kind.comp_unit(data[i])
+            self.assertDictEqual(res[0], data_ret[i])
+
+    def test_comp_unit_acs(self):
+        self._mock_equipment_acs()
+
+        data = self._queue_message(
+            'tests/json/messages/queue/equipment_acs.json')
+        data_ret = self._update_message(
+            'tests/json/messages/updates/comp_unit_acs.json')
         for i in range(3):
             kind = Kind()
 
@@ -242,6 +283,20 @@ class TestKind(unittest2.TestCase):
             'tests/json/messages/queue/server_pool_member.json')
         data_ret = self._update_message(
             'tests/json/messages/updates/pool_comp_unit.json')
+
+        for i in range(3):
+            kind = Kind()
+
+            res = kind.pool_comp_unit(data[i])
+            self.assertDictEqual(res[0], data_ret[i])
+
+    def test_pool_comp_unit_acs(self):
+        self._mock_pool_member_id_acs()
+
+        data = self._queue_message(
+            'tests/json/messages/queue/server_pool_member.json')
+        data_ret = self._update_message(
+            'tests/json/messages/updates/pool_comp_unit_acs.json')
 
         for i in range(3):
             kind = Kind()
@@ -486,6 +541,13 @@ class TestKind(unittest2.TestCase):
         data = open_json('tests/json/messages/networkapi/get_equipment.json')
         napi_mock.return_value = data['equipments'][0]
 
+    def _mock_equipment_acs(self):
+        napi_mock = patch(
+            'globomap_driver_napi.driver.NetworkAPI.get_equipment').start()
+        data = open_json(
+            'tests/json/messages/networkapi/get_equipment_acs.json')
+        napi_mock.return_value = data['equipments'][0]
+
     def _mock_vip(self):
         napi_mock = patch(
             'globomap_driver_napi.driver.NetworkAPI.get_vip').start()
@@ -496,6 +558,12 @@ class TestKind(unittest2.TestCase):
         napi_mock = patch(
             'globomap_driver_napi.driver.NetworkAPI.get_pool_by_member_id').start()
         data = open_json('tests/json/messages/networkapi/get_pool.json')
+        napi_mock.return_value = data['server_pools'][0]
+
+    def _mock_pool_member_id_acs(self):
+        napi_mock = patch(
+            'globomap_driver_napi.driver.NetworkAPI.get_pool_by_member_id').start()
+        data = open_json('tests/json/messages/networkapi/get_pool_acs.json')
         napi_mock.return_value = data['server_pools'][0]
 
     def _mock_vip_by_portpool_id(self):

@@ -208,6 +208,62 @@ class TestDataSpec(unittest2.TestCase):
 
         self.assertDictEqual(data, expected)
 
+    def test_data_spec_pool_comp_unit_acs(self):
+        """Test method pool_comp_unit of DataSpec"""
+
+        pool_comp_unit = open_json(
+            'tests/json/data_spec/pool_comp_unit_acs.json')
+        data = DataSpec().pool_comp_unit(pool_comp_unit, 1)
+        expected = {
+            'from': 'pool/napi_1',
+            'to': 'comp_unit/globomap_8f1d34c1-ab89-4ef7-9d9d-0d57c2b6547b',
+            'id': '1',
+            'name': '10.0.0.2',
+            'provider': 'napi',
+            'properties': {
+                'ip': u'10.0.0.2',
+                'priority': 0,
+                'weight': 1,
+                'limit': 1000,
+                'port_real': 8080,
+                'status_last_update': None,
+                'status_monitor': 'Up',
+                'status_session': 'Up',
+                'status_healthcheck': 'Up'
+            },
+            'properties_metadata': {
+                'ip': {
+                    'description': 'IP'
+                },
+                'priority': {
+                    'description': 'Priority'
+                },
+                'weight': {
+                    'description': 'Weight'
+                },
+                'limit': {
+                    'description': 'Limit'
+                },
+                'port_real': {
+                    'description': 'Port'
+                },
+                'status_last_update': {
+                    'description': 'Last Update of Status'
+                },
+                'status_monitor': {
+                    'description': 'User Up/Down (Forced)'
+                },
+                'status_session': {
+                    'description': 'Enabled/Disabled'
+                },
+                'status_healthcheck': {
+                    'description': 'Up/Down (Healthcheck)'
+                }
+            }
+        }
+
+        self.assertDictEqual(data, expected)
+
     def test_data_spec_comp_unit(self):
         """Test method comp_unit of DataSpec"""
 
@@ -215,7 +271,37 @@ class TestDataSpec(unittest2.TestCase):
         data = DataSpec().comp_unit(comp_unit)
         expected = {
             'id': 'eqpt1',
-            'name': '',
+            'name': 'eqpt1',
+            'provider': 'globomap',
+            'properties': {
+                'maintenance': False,
+                'equipment_type': 'Server',
+                'ips': [
+                    '10.0.0.1',
+                    'bebe:bebe:bebe:0000:0000:0000:0000:0001'
+                ],
+            },
+            'properties_metadata': {
+                'maintenance': {
+                    'description': 'Maintenance'
+                },
+                'equipment_type': {
+                    'description': 'Equipment Type'
+                },
+                'ips': {
+                    'description': 'IPs'
+                },
+            }
+        }
+        self.assertDictEqual(data, expected)
+
+    def test_data_spec_comp_unit_acs(self):
+        """Test method comp_unit of DataSpec"""
+
+        comp_unit = open_json('tests/json/data_spec/comp_unit_acs.json')
+        data = DataSpec().comp_unit(comp_unit)
+        expected = {
+            'id': '8f1d34c1-ab89-4ef7-9d9d-0d57c2b6547b',
             'provider': 'globomap',
             'properties': {
                 'maintenance': False,
@@ -248,7 +334,20 @@ class TestDataSpec(unittest2.TestCase):
             'from': 'network/napi_v4_3',
             'to': 'comp_unit/globomap_eqpt1',
             'id': 'v4_8',
-            'name': '10.0.0.5 - eqpt1',
+            'provider': 'napi',
+        }
+        self.assertDictEqual(data, expected)
+
+    def test_data_spec_network_v4_comp_unit_acs(self):
+        """Test method network_comp_unit(v4) of DataSpec"""
+
+        network = open_json('tests/json/data_spec/network_v4_comp_unit.json')
+        data = DataSpec().network_comp_unit(
+            network, 'vm-8f1d34c1-ab89-4ef7-9d9d-0d57c2b6547b', 8)
+        expected = {
+            'from': 'network/napi_v4_3',
+            'to': 'comp_unit/globomap_8f1d34c1-ab89-4ef7-9d9d-0d57c2b6547b',
+            'id': 'v4_8',
             'provider': 'napi',
         }
         self.assertDictEqual(data, expected)
@@ -262,7 +361,20 @@ class TestDataSpec(unittest2.TestCase):
             'from': 'network/napi_v6_2',
             'to': 'comp_unit/globomap_eqpt1',
             'id': 'v6_6',
-            'name': 'fdbe:bebe:bebe:bebe:0000:0000:0000:0001 - eqpt1',
+            'provider': 'napi',
+        }
+        self.assertDictEqual(data, expected)
+
+    def test_data_spec_network_v6_comp_unit_acs(self):
+        """Test method network_comp_unit(v6) of DataSpec"""
+
+        network = open_json('tests/json/data_spec/network_v6_comp_unit.json')
+        data = DataSpec().network_comp_unit(
+            network, 'vm-8f1d34c1-ab89-4ef7-9d9d-0d57c2b6547b', 6)
+        expected = {
+            'from': 'network/napi_v6_2',
+            'to': 'comp_unit/globomap_8f1d34c1-ab89-4ef7-9d9d-0d57c2b6547b',
+            'id': 'v6_6',
             'provider': 'napi',
         }
         self.assertDictEqual(data, expected)
