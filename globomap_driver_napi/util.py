@@ -10,3 +10,13 @@ def valid_comp_unit_id(compunit):
     compunit_id = compunit if regex is None else regex.group(2)
 
     return compunit_id
+
+
+def clear(collection, type, timestamp):
+    data = {
+        'action': 'CLEAR',
+        'collection': collection,
+        'type': type,
+        'element': [[{'field': 'timestamp', 'value': timestamp, 'operator': '<'}]]
+    }
+    return data

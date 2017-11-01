@@ -24,6 +24,7 @@ from networkapiclient.exception import NetworkAPIClientError
 from globomap_driver_napi import settings
 from globomap_driver_napi.data_spec import DataSpec
 from globomap_driver_napi.networkapi import NetworkAPI
+from globomap_driver_napi.util import clear
 
 
 class Loader(object):
@@ -51,10 +52,6 @@ class Loader(object):
 
     def send(self, data):
 
-        self.logger.debug(
-            '[DriverNapi][loader][send][request] %s /n%s' %
-            (self.url, data)
-        )
         response = requests.post(
             '{}/v1/updates'.format(self.url),
             data=json.dumps(data),
@@ -64,10 +61,11 @@ class Loader(object):
             }
         )
 
-        self.logger.debug('[DriverNapi][loader][send][response]/n%s', data)
-
         if response.status_code != 200:
-            self.logger.error('Message dont sent %s', data)
+            self.logger.error('Message dont sent %s, because %s' %
+                              (data, response.text))
+        else:
+            self.logger.debug('Message was sent %s', data)
 
     def vips(self):
         """Load vips"""
@@ -344,6 +342,8 @@ class Loader(object):
                     break
 
     def run(self):
+        current_time = int(time())
+
         for messages in self.vips():
             self.send(messages)
 
@@ -364,3 +364,16 @@ class Loader(object):
 
         for messages in self.equipments():
             self.send(messages)
+
+        self.send([clear('vip', 'collections', current_time)])
+        self.send([clear('pool', 'collections', current_time)])
+        self.send([clear('comp_unit', 'collections', current_time)])
+        self.send([clear('network', 'collections', current_time)])
+        self.send([clear('vlan', 'collections', current_time)])
+        self.send([clear('environment', 'collections', current_time)])
+        self.send([clear('port', 'edges', current_time)])
+        self.send([clear('pool_comp_unit', 'edges', current_time)])
+        self.send([clear('network_comp_unit', 'edges', current_time)])
+        self.send([clear('vlan_network', 'edges', current_time)])
+        self.send([clear('environment_vlan', 'edges', current_time)])
+        self.send([clear('father_environment', 'edges', current_time)])
