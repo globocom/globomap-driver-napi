@@ -61,7 +61,7 @@ class Loader(object):
             }
         )
 
-        if response.status_code != 200:
+        if response.status_code != 202:
             self.logger.error('Message dont sent %s, because %s' %
                               (data, response.text))
         else:
