@@ -111,5 +111,19 @@
     "collection": "pool_comp_unit",
     "key": "napi_31623",
     "type": "edges"
+  },
+  {
+    "action": "CLEAR",
+    "collection": "pool_comp_unit",
+    "element": [
+      [
+        {
+          "field": "timestamp",
+          "operator": "<",
+          "value": 1503341617
+        }
+      ]
+    ],
+    "type": "edges"
   }
 ]

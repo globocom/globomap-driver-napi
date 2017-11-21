@@ -43,5 +43,19 @@
     "collection": "environment",
     "key": "napi_597",
     "type": "collections"
+  },
+  {
+    "action": "CLEAR",
+    "collection": "environment",
+    "element": [
+      [
+        {
+          "field": "timestamp",
+          "operator": "<",
+          "value": 1503341617
+        }
+      ]
+    ],
+    "type": "collections"
   }
 ]

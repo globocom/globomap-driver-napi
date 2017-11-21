@@ -91,5 +91,19 @@
     "collection": "pool",
     "key": "napi_17466",
     "type": "collections"
+  },
+  {
+    "action": "CLEAR",
+    "collection": "pool",
+    "element": [
+      [
+        {
+          "field": "timestamp",
+          "operator": "<",
+          "value": 1503341617
+        }
+      ]
+    ],
+    "type": "collections"
   }
 ]

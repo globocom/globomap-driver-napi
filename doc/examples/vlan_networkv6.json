@@ -31,5 +31,19 @@
     "collection": "vlan_network",
     "key": "napi_v6_328",
     "type": "edges"
+  },
+  {
+    "action": "CLEAR",
+    "collection": "vlan_network",
+    "element": [
+      [
+        {
+          "field": "timestamp",
+          "operator": "<",
+          "value": 1503341617
+        }
+      ]
+    ],
+    "type": "edges"
   }
 ]

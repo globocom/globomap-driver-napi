@@ -17,5 +17,19 @@
     "collection": "network_comp_unit",
     "key": "napi_v6_489",
     "type": "edges"
+  },
+  {
+    "action": "CLEAR",
+    "collection": "network_comp_unit",
+    "element": [
+      [
+        {
+          "field": "timestamp",
+          "operator": "<",
+          "value": 1503341617
+        }
+      ]
+    ],
+    "type": "edges"
   }
 ]
