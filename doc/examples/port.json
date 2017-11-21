@@ -71,5 +71,19 @@
     "collection": "port",
     "key": "napi_2",
     "type": "edges"
+  },
+  {
+    "action": "CLEAR",
+    "collection": "port",
+    "element": [
+      [
+        {
+          "field": "timestamp",
+          "operator": "<",
+          "value": 1503341617
+        }
+      ]
+    ],
+    "type": "edges"
   }
 ]

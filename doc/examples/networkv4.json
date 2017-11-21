@@ -51,5 +51,19 @@
     "collection": "network",
     "key": "napi_v4_26397",
     "type": "collections"
+  },
+  {
+    "action": "CLEAR",
+    "collection": "network",
+    "element": [
+      [
+        {
+          "field": "timestamp",
+          "operator": "<",
+          "value": 1503341617
+        }
+      ]
+    ],
+    "type": "collections"
   }
 ]

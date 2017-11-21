@@ -59,5 +59,19 @@
     "collection": "vip",
     "key": "napi_13622",
     "type": "collections"
+  },
+  {
+    "action": "CLEAR",
+    "collection": "vip",
+    "element": [
+      [
+        {
+          "field": "timestamp",
+          "operator": "<",
+          "value": 1503341617
+        }
+      ]
+    ],
+    "type": "collections"
   }
 ]

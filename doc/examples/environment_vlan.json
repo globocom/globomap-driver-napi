@@ -31,5 +31,19 @@
     "collection": "environment_vlan",
     "key": "napi_27678",
     "type": "edges"
+  },
+  {
+    "action": "CLEAR",
+    "collection": "environment_vlan",
+    "element": [
+      [
+        {
+          "field": "timestamp",
+          "operator": "<",
+          "value": 1503341617
+        }
+      ]
+    ],
+    "type": "edges"
   }
 ]

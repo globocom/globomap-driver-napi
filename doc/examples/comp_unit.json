@@ -65,5 +65,19 @@
     "collection": "comp_unit",
     "key": "globomap_eqpt1",
     "type": "collections"
+  },
+  {
+    "action": "CLEAR",
+    "collection": "comp_unit",
+    "element": [
+      [
+        {
+          "field": "timestamp",
+          "operator": "<",
+          "value": 1503341617
+        }
+      ]
+    ],
+    "type": "collections"
   }
 ]

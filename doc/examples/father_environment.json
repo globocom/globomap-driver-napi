@@ -31,5 +31,19 @@
     "collection": "father_environment",
     "key": "napi_597",
     "type": "edges"
+  },
+  {
+    "action": "CLEAR",
+    "collection": "father_environment",
+    "element": [
+      [
+        {
+          "field": "timestamp",
+          "operator": "<",
+          "value": 1503341617
+        }
+      ]
+    ],
+    "type": "edges"
   }
 ]
