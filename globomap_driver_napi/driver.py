@@ -38,9 +38,9 @@ class Napi(object):
 
     logger = logging.getLogger(__name__)
 
-    def __init__(self):
-
-        self._connect_rabbit()
+    def __init__(self, connect_rabbitmq=True):
+        if connect_rabbitmq:
+            self._connect_rabbit()
 
     def _connect_rabbit(self):
         self.rabbitmq = RabbitMQClient(
