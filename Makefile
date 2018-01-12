@@ -51,3 +51,6 @@ publish: clean dist
 	twine upload dist/*
 	@git tag ${VERSION}
 	@git push --tags
+
+deploy:
+	@tsuru app-deploy -a $(project) globomap_driver_napi Procfile requirements.txt scheduler.py run_loader.py
