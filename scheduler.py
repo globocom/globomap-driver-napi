@@ -20,11 +20,12 @@ import sys
 from apscheduler.schedulers.blocking import BlockingScheduler
 
 from globomap_driver_napi.driver import Napi
+from globomap_driver_napi.settings import SCHEDULER_FREQUENCY_EXEC
 
 sched = BlockingScheduler()
 
 
-@sched.scheduled_job('cron', day_of_week='0-6', hour='0')
+@sched.scheduled_job('cron', day_of_week='0-6', hour=SCHEDULER_FREQUENCY_EXEC)
 def run_loader():
     logging.basicConfig(
         level=logging.WARNING,
