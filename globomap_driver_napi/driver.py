@@ -15,15 +15,11 @@
 """
 # -*- coding: utf-8 -*-
 import importlib
-import json
 import logging
 
-import pika
 from pika.exceptions import ConnectionClosed
 
-from globomap_driver_napi.data_spec import DataSpec
 from globomap_driver_napi.loader import Loader
-from globomap_driver_napi.networkapi import NetworkAPI
 from globomap_driver_napi.rabbitmq import RabbitMQClient
 from globomap_driver_napi.settings import MAP_FUNC
 from globomap_driver_napi.settings import NETWORKAPI_RMQ_HOST
@@ -90,7 +86,7 @@ class Napi(object):
                     (message, func))
             return msgs
         except Exception as err:
-            self.logger.error(
+            self.logger.exception(
                 'Message %s with problem. Error: %s.' % (message, err))
 
     def _processing_message(self, func, message):
@@ -123,7 +119,8 @@ class Napi(object):
                 else:
                     return
             except ConnectionClosed:
-                self.logger.error('Error connecting to RabbitMQ, reconnecting')
+                self.logger.exception(
+                    'Error connecting to RabbitMQ, reconnecting')
                 self._connect_rabbit()
             except:
                 self.rabbitmq.nack_message(delivery_tag)
