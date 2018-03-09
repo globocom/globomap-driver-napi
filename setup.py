@@ -15,7 +15,7 @@
 """
 from setuptools import setup
 
-VERSION = __import__('globomap_driver_napi').VERSION
+VERSION = __import__('globomap_driver_napi').__version__
 
 setup(
     name='globomap-driver-napi',
