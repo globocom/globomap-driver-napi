@@ -1,7 +1,7 @@
 # Makefile for globomap-driver-napi
 
 # Version package
-VERSION=$(shell python -c 'import globomap_driver_napi; print globomap_driver_napi.VERSION')
+VERSION=$(shell python -c 'import globomap_driver_napi; print(globomap_driver_napi.__version__)')
 
 # Pip executable path
 PIP := $(shell which pip)
