@@ -26,7 +26,7 @@ setup(
     author_email='ederson.brilhante@corp.globo.com',
     install_requires=[
         'pika==0.10.0',
-        'GloboNetworkAPI==0.8.4',
+        'GloboNetworkAPI==0.8.5',
     ],
     url='https://github.com/globocom/globomap-driver-napi',
     packages=['globomap_driver_napi'],
