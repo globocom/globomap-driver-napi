@@ -93,17 +93,17 @@ class TestDriver(unittest2.TestCase):
     # MOCKS #
     #########
     def _mock_pika(self):
-        patch('globomap_driver_napi.driver.pika.BlockingConnection').start()
+        patch('globomap_driver_napi.rabbitmq.pika.BlockingConnection').start()
 
     def _mock_vip(self):
         napi_mock = patch(
-            'globomap_driver_napi.driver.NetworkAPI.get_vip').start()
+            'globomap_driver_napi.networkapi.NetworkAPI.get_vip').start()
         napi_mock.return_value = open_json(
             'tests/json/driver/networkapi/vip.json')
 
     def _mock_ipv4(self):
         napi_mock = patch(
-            'globomap_driver_napi.driver.NetworkAPI.get_ipv4').start()
+            'globomap_driver_napi.networkapi.NetworkAPI.get_ipv4').start()
         napi_mock.return_value = [{'equipments': [{'name': 'test'}]}]
 
     def _mock_rabbitmq_client(self, data=None):
