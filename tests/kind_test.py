@@ -309,7 +309,7 @@ class TestKind(unittest2.TestCase):
     ################
     def test_vip_non_existent(self):
         napi_mock = patch(
-            'globomap_driver_napi.driver.NetworkAPI.get_vip').start()
+            'globomap_driver_napi.networkapi.NetworkAPI.get_vip').start()
         napi_mock.return_value = []
         data = self._queue_message(
             'tests/json/messages/queue/vip_request.json')
@@ -321,7 +321,7 @@ class TestKind(unittest2.TestCase):
 
     def test_port_non_existent(self):
         napi_mock = patch(
-            'globomap_driver_napi.driver.NetworkAPI.get_vip_by_portpool_id').start()
+            'globomap_driver_napi.networkapi.NetworkAPI.get_vip_by_portpool_id').start()
         napi_mock.return_value = []
         data = self._queue_message(
             'tests/json/messages/queue/vip_request_port_pool.json')
@@ -333,7 +333,7 @@ class TestKind(unittest2.TestCase):
 
     def test_pool_non_existent(self):
         napi_mock = patch(
-            'globomap_driver_napi.driver.NetworkAPI.get_pool').start()
+            'globomap_driver_napi.networkapi.NetworkAPI.get_pool').start()
         napi_mock.return_value = []
         data = self._queue_message(
             'tests/json/messages/queue/server_pool.json')
@@ -345,7 +345,7 @@ class TestKind(unittest2.TestCase):
 
     def test_pool_comp_unit_non_existent(self):
         napi_mock = patch(
-            'globomap_driver_napi.driver.NetworkAPI.get_pool_by_member_id').start()
+            'globomap_driver_napi.networkapi.NetworkAPI.get_pool_by_member_id').start()
         napi_mock.return_value = []
         data = self._queue_message(
             'tests/json/messages/queue/server_pool_member.json')
@@ -357,7 +357,7 @@ class TestKind(unittest2.TestCase):
 
     def test_environment_non_existent(self):
         napi_mock = patch(
-            'globomap_driver_napi.driver.NetworkAPI.get_environment').start()
+            'globomap_driver_napi.networkapi.NetworkAPI.get_environment').start()
         napi_mock.return_value = []
         data = self._queue_message(
             'tests/json/messages/queue/environment.json')
@@ -369,7 +369,7 @@ class TestKind(unittest2.TestCase):
 
     def test_father_environment_non_existent(self):
         napi_mock = patch(
-            'globomap_driver_napi.driver.NetworkAPI.get_environment').start()
+            'globomap_driver_napi.networkapi.NetworkAPI.get_environment').start()
         napi_mock.return_value = []
         data = self._queue_message(
             'tests/json/messages/queue/environment.json')
@@ -381,7 +381,7 @@ class TestKind(unittest2.TestCase):
 
     def test_environment_vlan_non_existent(self):
         napi_mock = patch(
-            'globomap_driver_napi.driver.NetworkAPI.get_vlan').start()
+            'globomap_driver_napi.networkapi.NetworkAPI.get_vlan').start()
         napi_mock.return_value = []
         data = self._queue_message('tests/json/messages/queue/vlan.json')
 
@@ -392,7 +392,7 @@ class TestKind(unittest2.TestCase):
 
     def test_vlan_non_existent(self):
         napi_mock = patch(
-            'globomap_driver_napi.driver.NetworkAPI.get_vlan').start()
+            'globomap_driver_napi.networkapi.NetworkAPI.get_vlan').start()
         napi_mock.return_value = []
         data = self._queue_message('tests/json/messages/queue/vlan.json')
 
@@ -403,7 +403,7 @@ class TestKind(unittest2.TestCase):
 
     def test_vlan_networkv4_non_existent(self):
         napi_mock = patch(
-            'globomap_driver_napi.driver.NetworkAPI.get_network_ipv4_id').start()
+            'globomap_driver_napi.networkapi.NetworkAPI.get_network_ipv4_id').start()
         napi_mock.return_value = []
         data = self._queue_message('tests/json/messages/queue/networkv4.json')
 
@@ -414,7 +414,7 @@ class TestKind(unittest2.TestCase):
 
     def test_vlan_networkv6_non_existent(self):
         napi_mock = patch(
-            'globomap_driver_napi.driver.NetworkAPI.get_network_ipv6_id').start()
+            'globomap_driver_napi.networkapi.NetworkAPI.get_network_ipv6_id').start()
         napi_mock.return_value = []
         data = self._queue_message('tests/json/messages/queue/networkv6.json')
 
@@ -425,7 +425,7 @@ class TestKind(unittest2.TestCase):
 
     def test_networkv4_non_existent(self):
         napi_mock = patch(
-            'globomap_driver_napi.driver.NetworkAPI.get_network_ipv4_id').start()
+            'globomap_driver_napi.networkapi.NetworkAPI.get_network_ipv4_id').start()
         napi_mock.return_value = []
         data = self._queue_message('tests/json/messages/queue/networkv4.json')
 
@@ -436,7 +436,7 @@ class TestKind(unittest2.TestCase):
 
     def test_networkv6_non_existent(self):
         napi_mock = patch(
-            'globomap_driver_napi.driver.NetworkAPI.get_network_ipv6_id').start()
+            'globomap_driver_napi.networkapi.NetworkAPI.get_network_ipv6_id').start()
         napi_mock.return_value = []
         data = self._queue_message('tests/json/messages/queue/networkv6.json')
 
@@ -447,7 +447,7 @@ class TestKind(unittest2.TestCase):
 
     def test_network_v4_comp_unit_non_existent(self):
         napi_mock = patch(
-            'globomap_driver_napi.driver.NetworkAPI.get_ipv4_by_ip_equipment_id').start()
+            'globomap_driver_napi.networkapi.NetworkAPI.get_ipv4_by_ip_equipment_id').start()
         napi_mock.return_value = []
         data = self._queue_message('tests/json/messages/queue/ipv4_eqpt.json')
 
@@ -458,7 +458,7 @@ class TestKind(unittest2.TestCase):
 
     def test_network_v6_comp_unit_non_existent(self):
         napi_mock = patch(
-            'globomap_driver_napi.driver.NetworkAPI.get_ipv6_by_ip_equipment_id').start()
+            'globomap_driver_napi.networkapi.NetworkAPI.get_ipv6_by_ip_equipment_id').start()
         napi_mock.return_value = []
         data = self._queue_message('tests/json/messages/queue/ipv6_eqpt.json')
 
@@ -469,7 +469,7 @@ class TestKind(unittest2.TestCase):
 
     def test_comp_unit_non_existent(self):
         napi_mock = patch(
-            'globomap_driver_napi.driver.NetworkAPI.get_equipment').start()
+            'globomap_driver_napi.networkapi.NetworkAPI.get_equipment').start()
         napi_mock.return_value = []
         data = self._queue_message('tests/json/messages/queue/equipment.json')
 
@@ -501,80 +501,80 @@ class TestKind(unittest2.TestCase):
     #########
     def _mock_environment(self):
         napi_mock = patch(
-            'globomap_driver_napi.driver.NetworkAPI.get_environment').start()
+            'globomap_driver_napi.networkapi.NetworkAPI.get_environment').start()
         data = open_json('tests/json/messages/networkapi/get_environment.json')
         napi_mock.return_value = data['environments'][0]
 
     def _mock_vlan(self):
         napi_mock = patch(
-            'globomap_driver_napi.driver.NetworkAPI.get_vlan').start()
+            'globomap_driver_napi.networkapi.NetworkAPI.get_vlan').start()
         data = open_json('tests/json/messages/networkapi/get_vlan.json')
         napi_mock.return_value = data['vlans'][0]
 
     def _mock_networkv4(self):
         napi_mock = patch(
-            'globomap_driver_napi.driver.NetworkAPI.get_network_ipv4_id').start()
+            'globomap_driver_napi.networkapi.NetworkAPI.get_network_ipv4_id').start()
         data = open_json('tests/json/messages/networkapi/get_networkv4.json')
         napi_mock.return_value = data['networks'][0]
 
     def _mock_networkv6(self):
         napi_mock = patch(
-            'globomap_driver_napi.driver.NetworkAPI.get_network_ipv6_id').start()
+            'globomap_driver_napi.networkapi.NetworkAPI.get_network_ipv6_id').start()
         data = open_json('tests/json/messages/networkapi/get_networkv6.json')
         napi_mock.return_value = data['networks'][0]
 
     def _mock_ipv4(self):
         napi_mock = patch(
-            'globomap_driver_napi.driver.NetworkAPI.get_ipv4_by_ip_equipment_id').start()
+            'globomap_driver_napi.networkapi.NetworkAPI.get_ipv4_by_ip_equipment_id').start()
         data = open_json('tests/json/messages/networkapi/get_ipv4.json')
         napi_mock.return_value = data['ips'][0]
 
     def _mock_ipv6(self):
         napi_mock = patch(
-            'globomap_driver_napi.driver.NetworkAPI.get_ipv6_by_ip_equipment_id').start()
+            'globomap_driver_napi.networkapi.NetworkAPI.get_ipv6_by_ip_equipment_id').start()
         data = open_json('tests/json/messages/networkapi/get_ipv6.json')
         napi_mock.return_value = data['ips'][0]
 
     def _mock_equipment(self):
         napi_mock = patch(
-            'globomap_driver_napi.driver.NetworkAPI.get_equipment').start()
+            'globomap_driver_napi.networkapi.NetworkAPI.get_equipment').start()
         data = open_json('tests/json/messages/networkapi/get_equipment.json')
         napi_mock.return_value = data['equipments'][0]
 
     def _mock_equipment_acs(self):
         napi_mock = patch(
-            'globomap_driver_napi.driver.NetworkAPI.get_equipment').start()
+            'globomap_driver_napi.networkapi.NetworkAPI.get_equipment').start()
         data = open_json(
             'tests/json/messages/networkapi/get_equipment_acs.json')
         napi_mock.return_value = data['equipments'][0]
 
     def _mock_vip(self):
         napi_mock = patch(
-            'globomap_driver_napi.driver.NetworkAPI.get_vip').start()
+            'globomap_driver_napi.networkapi.NetworkAPI.get_vip').start()
         data = open_json('tests/json/messages/networkapi/get_vip.json')
         napi_mock.return_value = data['vips'][0]
 
     def _mock_pool_member_id(self):
         napi_mock = patch(
-            'globomap_driver_napi.driver.NetworkAPI.get_pool_by_member_id').start()
+            'globomap_driver_napi.networkapi.NetworkAPI.get_pool_by_member_id').start()
         data = open_json('tests/json/messages/networkapi/get_pool.json')
         napi_mock.return_value = data['server_pools'][0]
 
     def _mock_pool_member_id_acs(self):
         napi_mock = patch(
-            'globomap_driver_napi.driver.NetworkAPI.get_pool_by_member_id').start()
+            'globomap_driver_napi.networkapi.NetworkAPI.get_pool_by_member_id').start()
         data = open_json('tests/json/messages/networkapi/get_pool_acs.json')
         napi_mock.return_value = data['server_pools'][0]
 
     def _mock_vip_by_portpool_id(self):
         napi_mock = patch(
-            'globomap_driver_napi.driver.NetworkAPI.get_vip_by_portpool_id').start()
+            'globomap_driver_napi.networkapi.NetworkAPI.get_vip_by_portpool_id').start()
         data = open_json('tests/json/messages/networkapi/get_vip.json')
         napi_mock.return_value = data['vips'][0]
 
     def _mock_pool(self):
         napi_mock = patch(
-            'globomap_driver_napi.driver.NetworkAPI.get_pool').start()
+            'globomap_driver_napi.networkapi.NetworkAPI.get_pool').start()
         data = open_json('tests/json/messages/networkapi/get_pool.json')
         napi_mock.return_value = data['server_pools'][0]
 
