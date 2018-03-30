@@ -13,11 +13,9 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 """
-# -*- coding: utf-8 -*-
 from .data_spec import DataSpec
 from .networkapi import NetworkAPI
 from .settings import ACTIONS
-from .settings import MAP_FUNC
 from .util import valid_comp_unit_id
 
 

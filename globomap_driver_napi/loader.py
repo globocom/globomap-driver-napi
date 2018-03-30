@@ -13,7 +13,6 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 """
-# -*- coding: utf-8 -*-
 import json
 import logging
 from time import time
@@ -75,7 +74,7 @@ class Loader(object):
         pages = self._paging(obj=obj, key='vips', next_search=self.search,
                              kind='details')
         while True:
-            vips = pages.next()
+            vips = next(pages)
             for vip in vips:
                 data_list.append(self._vip(vip))
                 data_list += self._ports(vip)
@@ -92,7 +91,7 @@ class Loader(object):
         pages = self._paging(obj=obj, key='server_pools',
                              next_search=self.search, kind='details')
         while True:
-            pools = pages.next()
+            pools = next(pages)
             for pool in pools:
                 data_list.append(self._pool(pool))
                 data_list += self._pool_members(pool)
@@ -112,7 +111,7 @@ class Loader(object):
                      'ipsv6__basic__ip__ip_formated',
                      'equipment_type__details'])
         while True:
-            equipments = pages.next()
+            equipments = next(pages)
             for equipment in equipments:
                 data_list.append(self._equipament(equipment))
                 data_list += self._equipment_ipv4(equipment)
@@ -130,7 +129,7 @@ class Loader(object):
         pages = self._paging(obj=obj, key='networks',
                              next_search=self.search, kind='details')
         while True:
-            networks = pages.next()
+            networks = next(pages)
             for network in networks:
                 data_list.append(self._networkv4(network))
                 data_list.append(self._network_vlan(network))
@@ -147,7 +146,7 @@ class Loader(object):
         pages = self._paging(obj=obj, key='networks',
                              next_search=self.search, kind='details')
         while True:
-            networks = pages.next()
+            networks = next(pages)
             for network in networks:
                 data_list.append(self._networkv6(network))
                 data_list.append(self._network_vlan(network))
@@ -165,7 +164,7 @@ class Loader(object):
                              next_search=self.search,
                              include=['environment__basic'])
         while True:
-            vlans = pages.next()
+            vlans = next(pages)
             for vlan in vlans:
                 data_list.append(self._vlan(vlan))
                 data_list.append(self._environment_vlan(vlan))
@@ -184,7 +183,7 @@ class Loader(object):
             include=['default_vrf__details', 'father_environment__basic'])
 
         while True:
-            environments = pages.next()
+            environments = next(pages)
             for environment in environments:
                 data_list.append(self._environment(environment))
                 if environment['father_environment']:
@@ -240,7 +239,7 @@ class Loader(object):
         return data
 
     def _equipment_ipv4(self, equipment):
-        data_list = list()
+        data_list = []
         for ipv4 in equipment.get('ipsv4'):
             ipv4['ip']['networkipv4'] = ipv4['ip']['networkipv4']['id']
             content = DataSpec().network_comp_unit(
@@ -252,7 +251,7 @@ class Loader(object):
         return data_list
 
     def _equipment_ipv6(self, equipment):
-        data_list = list()
+        data_list = []
         for ipv6 in equipment.get('ipsv6'):
             ipv6['ip']['networkipv6'] = ipv6['ip']['networkipv6']['id']
             content = DataSpec().network_comp_unit(
