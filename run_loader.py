@@ -1,5 +1,5 @@
 """
-   Copyright 2017 Globo.com
+   Copyright 2018 Globo.com
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -15,7 +15,6 @@
 """
 # -*- coding: utf-8 -*-
 import logging
-import os
 import sys
 
 from globomap_driver_napi.driver import Napi

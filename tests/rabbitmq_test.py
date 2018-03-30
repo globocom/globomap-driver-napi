@@ -1,5 +1,5 @@
 """
-   Copyright 2017 Globo.com
+   Copyright 2018 Globo.com
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -13,11 +13,9 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 """
-import json
 import unittest
 
 from mock import MagicMock
-from mock import Mock
 from mock import patch
 
 from globomap_driver_napi.rabbitmq import RabbitMQClient
