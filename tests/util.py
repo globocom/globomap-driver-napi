@@ -1,5 +1,5 @@
 """
-   Copyright 2017 Globo.com
+   Copyright 2018 Globo.com
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -13,9 +13,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 """
-import copy
 import json
-from operator import itemgetter
 
 
 def open_json(json_file):
