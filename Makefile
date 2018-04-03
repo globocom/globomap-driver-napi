@@ -33,4 +33,4 @@ setup: requirements_test.txt
 	$(PIP) install -r $^
 
 test:
-	@nosetests --verbose --rednose  --nocapture --cover-package=globomap_driver_napi; coverage report -m
+	@nosetests --verbose --rednose  --nocapture --cover-package=globomap_driver_napi --with-cover; coverage report -m
