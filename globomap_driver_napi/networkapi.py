@@ -39,8 +39,8 @@ class NetworkAPI(object):
         self.logger.debug('[DriverNapi][response] %s %s/n%s' %
                           (func, param_id, response))
 
-    def _log_error_response(self, func, param_id, response):
-        self.logger.error(
+    def _log_warning_response(self, func, param_id, response):
+        self.logger.warning(
             '[DriverNapi][response] %s %s/n%s' % (func, param_id, response))
 
     def get_pool(self, pool_id):
@@ -51,7 +51,7 @@ class NetworkAPI(object):
                 ids=[pool_id], kind='details')
 
         except NetworkAPIClientError as err:
-            self._log_error_response('get_pool', pool_id, err)
+            self._log_warning_response('get_pool', pool_id, err)
             return []
 
         else:
@@ -74,7 +74,7 @@ class NetworkAPI(object):
                 }]}, kind='details')
 
         except NetworkAPIClientError as err:
-            self._log_error_response('get_pool_by_member_id', member_id, err)
+            self._log_warning_response('get_pool_by_member_id', member_id, err)
             return []
 
         else:
@@ -96,7 +96,7 @@ class NetworkAPI(object):
                 ids=[vip_id], kind='details')
 
         except NetworkAPIClientError as err:
-            self._log_error_response('get_vip', vip_id, err)
+            self._log_warning_response('get_vip', vip_id, err)
             return []
 
         else:
@@ -119,7 +119,7 @@ class NetworkAPI(object):
                 }]}, kind='details')
 
         except NetworkAPIClientError as err:
-            self._log_error_response(
+            self._log_warning_response(
                 'get_vip_by_portpool_id', portpool_id, err)
             return []
 
@@ -146,7 +146,7 @@ class NetworkAPI(object):
                     'ipv6__basic__networkipv6'])
 
         except NetworkAPIClientError as err:
-            self._log_error_response('get_equipment', equipment_id, err)
+            self._log_warning_response('get_equipment', equipment_id, err)
             return []
 
         else:
@@ -169,7 +169,7 @@ class NetworkAPI(object):
                         'active', 'networkv4', 'vlan__basic'])
 
         except NetworkAPIClientError as err:
-            self._log_error_response('get_network_ipv4_id', net_id, err)
+            self._log_warning_response('get_network_ipv4_id', net_id, err)
             return []
 
         else:
@@ -192,7 +192,7 @@ class NetworkAPI(object):
                         'active', 'networkv6', 'vlan__basic'])
 
         except NetworkAPIClientError as err:
-            self._log_error_response('get_network_ipv4_id', net_id, err)
+            self._log_warning_response('get_network_ipv4_id', net_id, err)
             return []
 
         else:
@@ -216,7 +216,7 @@ class NetworkAPI(object):
             )
 
         except NetworkAPIClientError as err:
-            self._log_error_response(
+            self._log_warning_response(
                 'get_ipv4_by_ip_equipment_id', ip_equipment_id, err)
             return []
 
@@ -242,7 +242,7 @@ class NetworkAPI(object):
             )
 
         except NetworkAPIClientError as err:
-            self._log_error_response(
+            self._log_warning_response(
                 'get_ipv6_by_ip_equipment_id', ip_equipment_id, err)
             return []
 
@@ -265,7 +265,7 @@ class NetworkAPI(object):
                 ids=[vlan_id], include=['environment__basic'])
 
         except NetworkAPIClientError as err:
-            self._log_error_response('get_vlan', vlan_id, err)
+            self._log_warning_response('get_vlan', vlan_id, err)
             return []
 
         else:
@@ -288,7 +288,7 @@ class NetworkAPI(object):
             )
 
         except NetworkAPIClientError as err:
-            self._log_error_response('get_environment', environment_id, err)
+            self._log_warning_response('get_environment', environment_id, err)
             return []
 
         else:
