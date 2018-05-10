@@ -17,7 +17,8 @@ import json
 import logging
 from time import time
 
-import requests
+from globomap_loader_api_client import auth
+from globomap_loader_api_client.update import Update
 from networkapiclient.exception import NetworkAPIClientError
 
 from globomap_driver_napi import settings
@@ -33,7 +34,12 @@ class Loader(object):
     def __init__(self):
         self.search = {'asorting_cols': ['-id']}
         self.client = NetworkAPI().client
-        self.url = settings.GLOBOMAP_LOADER_ENDPOINT
+        auth_inst = auth.Auth(
+            api_url=settings.GLOBOMAP_LOADER_URL,
+            username=settings.GLOBOMAP_LOADER_USERNAME,
+            password=settings.GLOBOMAP_LOADER_PASSWORD
+        )
+        self.update = Update(auth=auth_inst, driver_name='aclapi')
 
     def _construct(self, action, collection, type_coll, content):
         new_time = int(time())
@@ -50,21 +56,12 @@ class Loader(object):
         return data
 
     def send(self, data):
-
-        response = requests.post(
-            '{}/v1/updates'.format(self.url),
-            data=json.dumps(data),
-            headers={
-                'Content-Type': 'application/json',
-                'X-Driver-Name': 'napi'
-            }
-        )
-
-        if response.status_code != 202:
-            self.logger.error('Message dont sent %s, because %s' %
-                              (data, response.text))
+        try:
+            res = self.update.post(data)
+        except Exception:
+            self.logger.exception('Message dont sent %s', json.dumps(data))
         else:
-            self.logger.debug('Message was sent %s', data)
+            return res
 
     def vips(self):
         """Load vips"""
