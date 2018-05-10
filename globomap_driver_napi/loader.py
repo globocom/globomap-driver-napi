@@ -39,7 +39,7 @@ class Loader(object):
             username=settings.GLOBOMAP_LOADER_USERNAME,
             password=settings.GLOBOMAP_LOADER_PASSWORD
         )
-        self.update = Update(auth=auth_inst, driver_name='aclapi')
+        self.update = Update(auth=auth_inst, driver_name='napi')
 
     def _construct(self, action, collection, type_coll, content):
         new_time = int(time())
