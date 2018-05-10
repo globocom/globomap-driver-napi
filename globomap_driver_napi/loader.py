@@ -35,9 +35,9 @@ class Loader(object):
         self.search = {'asorting_cols': ['-id']}
         self.client = NetworkAPI().client
         auth_inst = auth.Auth(
-            api_url=settings.GLOBOMAP_LOADER_URL,
-            username=settings.GLOBOMAP_LOADER_USERNAME,
-            password=settings.GLOBOMAP_LOADER_PASSWORD
+            api_url=settings.GLOBOMAP_LOADER_API_URL,
+            username=settings.GLOBOMAP_LOADER_API_USERNAME,
+            password=settings.GLOBOMAP_LOADER_API_PASSWORD
         )
         self.update = Update(auth=auth_inst, driver_name='napi')
 
