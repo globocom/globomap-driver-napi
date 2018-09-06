@@ -25,7 +25,7 @@ setup(
     author='Ederson Brilhante',
     author_email='ederson.brilhante@corp.globo.com',
     install_requires=[
-        'globomap-loader-api-client==0.0.6',
+        'globomap-loader-api-client==0.0.7',
         'GloboNetworkAPI==0.8.5',
         'pika==0.10.0',
     ],
