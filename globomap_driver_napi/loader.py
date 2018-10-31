@@ -27,9 +27,10 @@ from globomap_driver_napi.networkapi import NetworkAPI
 from globomap_driver_napi.util import clear
 
 
-class Loader(object):
+LOGGER = logging.getLogger(__name__)
 
-    logger = logging.getLogger(__name__)
+
+class Loader(object):
 
     def __init__(self):
         self.search = {'asorting_cols': ['-id']}
@@ -59,7 +60,7 @@ class Loader(object):
         try:
             res = self.update.post(data)
         except Exception:
-            self.logger.exception('Message dont sent %s', json.dumps(data))
+            LOGGER.exception('Message dont sent %s', json.dumps(data))
         else:
             return res
 
@@ -314,7 +315,7 @@ class Loader(object):
         include = kwargs.get('include', [])
 
         while True:
-            self.logger.debug(
+            LOGGER.debug(
                 '[DriverNapi][loader][request] %s - next_search %s' %
                 (key, next_search)
             )
@@ -323,11 +324,11 @@ class Loader(object):
                 objs = obj.search(search=next_search, kind=kind,
                                   fields=fields, include=include)
             except NetworkAPIClientError as err:
-                self.logger.error(
+                LOGGER.error(
                     '[DriverNapi][loader][response] %s %s' % (key, err))
                 break
             else:
-                self.logger.debug(
+                LOGGER.debug(
                     '[DriverNapi][loader][response] %s %s' %
                     (key, objs[key])
                 )

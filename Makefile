@@ -34,3 +34,12 @@ tests: clean ## Make tests
 
 tests_ci: clean ## Make tests to CI
 	@nosetests --verbose --rednose  --nocapture --cover-package=globomap_driver_napi
+
+run_loader: ## Run Full loader
+	@PYTHONPATH=`pwd`:$PYTHONPATH python globomap_driver_napi/run_loader.py
+
+run_consumer: ## Run consumer
+	@PYTHONPATH=`pwd`:$PYTHONPATH python globomap_driver_napi/consumer.py
+
+run_scheduler: ## Run scheduler
+	@PYTHONPATH=`pwd`:$PYTHONPATH python globomap_driver_napi/scheduler.py

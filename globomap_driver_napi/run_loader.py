@@ -13,18 +13,13 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 """
-# -*- coding: utf-8 -*-
-import logging
-import sys
+from logging import config
 
 from globomap_driver_napi.driver import Napi
+from globomap_driver_napi.settings import LOGGING
 
 if __name__ == '__main__':
-    logging.basicConfig(
-        level=logging.WARNING,
-        format='%(asctime)s %(threadName)s %(levelname)s %(message)s',
-        stream=sys.stdout
-    )
+    config.dictConfig(LOGGING)
 
     inst = Napi()
     inst.full_load()

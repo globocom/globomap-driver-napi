@@ -178,3 +178,36 @@ ACTIONS = {
     'Cadastrar': 'CREATE',
     'Remover': 'DELETE'
 }
+
+SENTRY_DSN = os.getenv('SENTRY_DSN')
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': 'level=%(levelname)s timestamp=%(asctime)s module=%(name)s line=%(lineno)d ' +
+            'message=%(message)s '
+        }
+    },
+    'handlers': {
+        'default': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'stream': 'ext://sys.stdout',
+            'formatter': 'verbose',
+        },
+        'sentry': {
+            'level': 'ERROR',
+            'class': 'raven.handlers.logging.SentryHandler',
+            'dsn': SENTRY_DSN,
+        },
+    },
+    'loggers': {
+        'globomap_loader': {
+            'handlers': ['default', 'sentry'],
+            'level': 'DEBUG',
+            'propagate': True
+        }
+    }
+}

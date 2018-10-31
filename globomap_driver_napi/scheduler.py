@@ -13,13 +13,12 @@
    See the License for the specific language governing permissions and
    limitations under the License.
 """
-# !/usr/bin/env python
-import logging
-import sys
+from logging import config
 
 from apscheduler.schedulers.blocking import BlockingScheduler
 
 from globomap_driver_napi.driver import Napi
+from globomap_driver_napi.settings import LOGGING
 from globomap_driver_napi.settings import SCHEDULER_FREQUENCY_EXEC
 
 sched = BlockingScheduler()
@@ -27,11 +26,7 @@ sched = BlockingScheduler()
 
 @sched.scheduled_job('cron', day_of_week='0-6', hour=SCHEDULER_FREQUENCY_EXEC)
 def run_loader():
-    logging.basicConfig(
-        level=logging.WARNING,
-        format='%(asctime)s %(threadName)s %(levelname)s %(message)s',
-        stream=sys.stdout
-    )
+    config.dictConfig(LOGGING)
 
     inst = Napi(connect_rabbitmq=False)
     inst.full_load()

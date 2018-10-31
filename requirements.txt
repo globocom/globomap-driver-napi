@@ -1,3 +1,6 @@
+APScheduler==3.5.1
 globomap-loader-api-client==0.0.7
+globomap-monitoring==0.0.3
 GloboNetworkAPI==0.8.5
 pika==0.10.0
+raven==6.6.0
