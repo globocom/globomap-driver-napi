@@ -1,5 +1,5 @@
 # globomap-driver-napi
-Python library for globomap-driver-napi to get data from GloboNetworkAPI/RabbitMQ of GloboNetworkAPI
+Driver to get data from GloboNetworkAPI/RabbitMQ of GloboNetworkAPI. The data are inserted in API of [Globo Loader API] (https://github.com/globocom/globomap-loader-api)
 
 ## Plugin environment variables configuration
 All of the environment variables below must be set for the plugin to work properly.
