@@ -17,15 +17,6 @@ clean: ## Clear *.pyc files, etc
 	@rm -rf build dist *.egg-info
 	@find . \( -name '*.pyc' -o  -name '__pycache__' -o -name '**/*.pyc' -o -name '*~' \) -delete
 
-dist: clean ## Create egg for distribution
-	@python setup.py sdist
-
-publish: clean dist ## Publish the package to PyPI
-	@echo 'Ready to release version ${VERSION}? (ctrl+c to abort)' && read
-	twine upload dist/*
-	@git tag ${VERSION}
-	@git push --tags
-
 setup: requirements_test.txt ## Install project dependencies
 	$(PIP) install -r $^
 
